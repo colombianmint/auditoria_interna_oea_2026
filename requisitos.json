@@ -68,9 +68,9 @@
       "item": "1",
       "numero": "OEA 1.1",
       "autoridad": "DIAN",
-      "responsable": " ESTEFANÍA GRANDA / SERGIO ARENAS / LUIS ARANGO",
+      "responsable": "ESTEFANÍA GRANDA / SERGIO ARENAS / LUIS ARANGO",
       "responsables": [
-        " ESTEFANÍA GRANDA",
+        "ESTEFANÍA GRANDA",
         "SERGIO ARENAS",
         "LUIS ARANGO"
       ],
@@ -88,10 +88,10 @@
       "item": "2",
       "numero": "OEA 1.2",
       "autoridad": "DIAN",
-      "responsable": " ESTEFANÍA GRANDA/ JUAN RAMIREZ,
+      "responsable": "ESTEFANÍA GRANDA/ JUAN RAMIREZ",
       "responsables": [
-        " ESTEFANÍA GRANDA",
-        "JUAN RAMIREZ
+        "ESTEFANÍA GRANDA",
+        "JUAN RAMIREZ"
       ],
       "descripcion": "Tener un sistema de administración de riesgos enfocado en la cadena de suministro internacional, que prevea actividades ilícitas, entre otras lavado de activos, narcotráfico y financiación del terrorismo.",
       "evidencia_interna": "GPE-FR04 Matriz de riesgos por procesos;\n GCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GCP-GU07 Procedimiento Señales de Alerta para la Prevención y Detección de Actividades Relacionadas con LA/FT/FPADM o Delitos Fuente;\n SRF-GU09 Política de seguridad de la cadena de suministro.\nGCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GPE-FR04 Matriz de riesgos por procesos;\n GCP-PR01 Procedimiento gestión de cumplimiento.\nGPE-FR04 Matriz de riesgos por procesos;\n GPE-FR08 Informe de Gestión por Periodo;\n GPE-FR09 Cuadro de mando integrado;\n GCP-CO02 Informe Analítica y Ciencia de Datos Cumplimiento, cuando soporte análisis periódico.\nGMC-FR12 NO CONFORMIDADES Y ACCIONES CORRECTIVAS;\n GMC-FR23 ACCIONES U OPORTUNIDADES DE MEJORA;\n GMC-FR04 Reporte de acciones correctivas y de mejora;\n GPE-FR03 Planeación del cambio.\nGCP-FR02 Informe de Debida Diligencia;\n GCP-FR03 Anexos Informe de Debida Diligencia;\n GCP-FR50 Anexo Análisis Financiero del Proveedor;\n GCP-GU09 Guía de vinculación y actualización de proveedores;\n GCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores.",
@@ -107,9 +107,9 @@
       "item": "3",
       "numero": "OEA 1.3",
       "autoridad": "DIAN",
-      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        " ESTEFANÍA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Tener procedimientos documentados para establecer el nivel de riesgo de sus asociados de negocio.",
@@ -126,9 +126,9 @@
       "item": "4",
       "numero": "OEA 1.4",
       "autoridad": "DIAN",
-      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        " ESTEFANÍA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Demostrar mediante manifestación suscrita por sus asociados de negocio no autorizados como Operador Económico Autorizado en Colombia ni certificados por otro programa de seguridad administrado por una aduana extranjera, que cumplen requisitos mínimos de seguridad en la cadena de suministro internacional.",
@@ -145,7 +145,7 @@
       "item": "5",
       "numero": "OEA 1.5",
       "autoridad": "DIAN",
-      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
         "ESTEFANÍA GRANDA",
         "LORENA GIL"
@@ -1428,11 +1428,10 @@
     "IVAN ARIAS",
     "JAVIER TABARES",
     "JEFFERSON GONZALEZ",
-    "JUAN RAMIREZ,
+    "JUAN RAMIREZ",
     "LORENA GIL",
     "LUIS ARANGO",
     "MARIA RENGIFO",
-    "MILADY LÓPEZ",
     "MILADY LÓPEZ",
     "SERGIO ARENAS"
   ],
