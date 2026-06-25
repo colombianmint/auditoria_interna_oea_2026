@@ -68,9 +68,9 @@
       "item": "1",
       "numero": "OEA 1.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS / LUIS ARANGO",
+      "responsable": " ESTEFANÍA GRANDA / SERGIO ARENAS / LUIS ARANGO",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        " ESTEFANÍA GRANDA",
         "SERGIO ARENAS",
         "LUIS ARANGO"
       ],
@@ -88,10 +88,10 @@
       "item": "2",
       "numero": "OEA 1.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA/ JUAN CARLOS RAMIREZ",
+      "responsable": " ESTEFANÍA GRANDA/ JUAN RAMIREZ,
       "responsables": [
-        "ESTEFANIA GRANDA",
-        "JUAN CARLOS RAMIREZ"
+        " ESTEFANÍA GRANDA",
+        "JUAN RAMIREZ
       ],
       "descripcion": "Tener un sistema de administración de riesgos enfocado en la cadena de suministro internacional, que prevea actividades ilícitas, entre otras lavado de activos, narcotráfico y financiación del terrorismo.",
       "evidencia_interna": "GPE-FR04 Matriz de riesgos por procesos;\n GCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GCP-GU07 Procedimiento Señales de Alerta para la Prevención y Detección de Actividades Relacionadas con LA/FT/FPADM o Delitos Fuente;\n SRF-GU09 Política de seguridad de la cadena de suministro.\nGCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GPE-FR04 Matriz de riesgos por procesos;\n GCP-PR01 Procedimiento gestión de cumplimiento.\nGPE-FR04 Matriz de riesgos por procesos;\n GPE-FR08 Informe de Gestión por Periodo;\n GPE-FR09 Cuadro de mando integrado;\n GCP-CO02 Informe Analítica y Ciencia de Datos Cumplimiento, cuando soporte análisis periódico.\nGMC-FR12 NO CONFORMIDADES Y ACCIONES CORRECTIVAS;\n GMC-FR23 ACCIONES U OPORTUNIDADES DE MEJORA;\n GMC-FR04 Reporte de acciones correctivas y de mejora;\n GPE-FR03 Planeación del cambio.\nGCP-FR02 Informe de Debida Diligencia;\n GCP-FR03 Anexos Informe de Debida Diligencia;\n GCP-FR50 Anexo Análisis Financiero del Proveedor;\n GCP-GU09 Guía de vinculación y actualización de proveedores;\n GCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores.",
@@ -107,9 +107,9 @@
       "item": "3",
       "numero": "OEA 1.3",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        " ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Tener procedimientos documentados para establecer el nivel de riesgo de sus asociados de negocio.",
@@ -126,9 +126,9 @@
       "item": "4",
       "numero": "OEA 1.4",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        " ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Demostrar mediante manifestación suscrita por sus asociados de negocio no autorizados como Operador Económico Autorizado en Colombia ni certificados por otro programa de seguridad administrado por una aduana extranjera, que cumplen requisitos mínimos de seguridad en la cadena de suministro internacional.",
@@ -145,9 +145,9 @@
       "item": "5",
       "numero": "OEA 1.5",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": " ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Realizar y documentar una visita de vinculación y en adelante visitas bienales a las instalaciones donde sus asociados de negocio desarrollan sus operaciones, con el fin de verificar el cumplimiento requisitos, mínimos de seguridad en la cadena de suministro internacional.",
@@ -164,9 +164,9 @@
       "item": "6",
       "numero": "OEA 1.6",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Exigir a sus proveedores un plan de contingencia de su actividad que garantice el desarrollo óptimo de las operaciones contratadas.",
@@ -297,9 +297,9 @@
       "item": "1",
       "numero": "OEA 2.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener procedimientos documentados para la selección, evaluación y conocimiento de sus asociados de negocio que garanticen su confiabilidad.",
@@ -316,9 +316,9 @@
       "item": "2",
       "numero": "OEA 2.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe identificar a sus asociados de negocio autorizados como Operador Económico Autorizado en Colombia o certificados por otro programa de seguridad administrado por una aduana extranjera.",
@@ -772,9 +772,9 @@
       "item": "7",
       "numero": "OEA 5.7",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener implementado un código de ética que contenga las reglas de comportamiento orientadas a asegurar la transparencia en el ejercicio de su actividad.",
@@ -1348,9 +1348,9 @@
       "item": "1",
       "numero": "OEA 9.1",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de inducción y reinducción periódica, dirigido a todo el personal vinculado o a vincular y cuando aplique a los visitantes, que garantice el conocimiento de las medidas de seguridad de la empresa y las posibles amenazas y riesgos, así como las medidas implementadas para prevenir, reconocer y actuar frente a cualquier actividad delictiva.",
@@ -1367,9 +1367,9 @@
       "item": "2",
       "numero": "OEA 9.2",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener desarrollados programas de capacitación especializada en seguridad para el personal vinculado en áreas críticas sobre prevención de lavado de activos y financiación del terrorismo, sellos, llenado del contenedor, envío, recibo, manejo y almacenamiento de carga; manejo del correo, y demás temas sensibles, según correspondan por área y por proceso.",
@@ -1386,9 +1386,9 @@
       "item": "3",
       "numero": "OEA 9.3",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de concienciación y prevención del consumo de alcohol y drogas.",
@@ -1405,9 +1405,9 @@
       "item": "4",
       "numero": "OEA 9.4",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de entrenamiento para manejo de situaciones de pánico que sea acorde con las necesidades de las áreas críticas.",
@@ -1423,18 +1423,16 @@
     "DAIRY MOSQUERA",
     "DIEGO BELTRÁN",
     "DIEGO MESA",
-    "ESTEFANIA GRANDA",
     "ESTEFANÍA GRANDA",
     "ISABEL ESCOBAR",
     "IVAN ARIAS",
     "JAVIER TABARES",
     "JEFFERSON GONZALEZ",
-    "JUAN CARLOS RAMIREZ",
-    "JUAN RAMIREZ",
+    "JUAN RAMIREZ,
     "LORENA GIL",
     "LUIS ARANGO",
     "MARIA RENGIFO",
-    "MILADY LOPEZ",
+    "MILADY LÓPEZ",
     "MILADY LÓPEZ",
     "SERGIO ARENAS"
   ],
