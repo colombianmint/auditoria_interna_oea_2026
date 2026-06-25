@@ -9,7 +9,7 @@ const PLAN_DATA = {
   "riesgos": "* Comunicación ineficaz del plan de auditorias \n* Incumplimiento de los objetivos del plan\n* Interferencia con las actividades de la empresa \n* Objetivo y alcance de auditoria inadecuados con las necesidades de la organización\n* Tiempo insuficiente para el desarrollo de la auditoria, afectando el alcance del objetivo de la auditoria",
   "valoracion": "ALTO",
   "controles": "* Se envian citaciones de auditorias a los lideres de procesos con anticipación (29/mayo/2026) \n* Acuerdo con la auditora a ejecutar el ejercicio del proposito de la auditoria y los tiempos estipulados para cada uno de los procesos.",
-  "auditores": "Jimena Zuluaga / Estefania Granda / Diana Arboleda / Luis Jaime Alvarez / Luis Arango  / Diego Beltrán / Juan Esteban Gómez / Albeiro Esteban / Erika Mesa / Iván Arias*",
+  "auditores": "Jimena Zuluaga / Estefanía Granda / Diana Arboleda / Luis Jaime Alvarez / Luis Arango  / Diego Beltrán / Juan Esteban Gómez / Albeiro Esteban / Erika Mesa / Iván Arias*",
   "observadores": "En algunos requisitos, diferentes a Seguridad estaría la consultora Gloria Díaz.",
   "cronograma": [
     {
@@ -43,7 +43,7 @@ const PLAN_DATA = {
       "sintesis_anterior": "ASPECTOS POR MEJORAR: \nHALLAZGOS DEL 2025 ARCA:\n1.12 Durante el ejercicio de validación del requisito se notifica por parte del área de seguridad que no se puede verificar el acceso a las cámaras de vigilancia de la compañía por confidencialidad de la información, lo que conlleva a que parte del ejercicio no se puede realizar. (capacidad de grabación, ubicación de las cámaras en áreas críticas, resolución de las cámaras que graban los procesos de cargue de la mercancía, visualización de las cámaras en la noche, procesos de verificación y controles de acceso a las instalaciones, etc.).",
       "requisitos_norma": "REQUISITOS SEGÚN RESOLUCIÓN DIAN 15 DE 2016:\n1.11. Establecer las áreas consideradas como críticas en sus instalaciones.\n1.12. Utilizar sistemas de alarma y/o videocámaras de vigilancia para monitorear, alertar, registrar y supervisar las instalaciones e impedir el acceso no autorizado a las áreas críticas y de manejo, inspección o almacenamiento de carga.\n3.1. Debe tener implementadas medidas de seguridad apropiadas para mantener la integridad de los contenedores y demás unidades de carga en el punto de llenado para protegerlos contra la introducción de personal y/o materiales no autorizados. \n3.2. Debe almacenar los contenedores y demás unidades de carga, llenas y vacías, en áreas seguras que impidan el acceso y/o manipulación no autorizada. Dichas áreas deben ser inspeccionadas periódicamente y se debe dejar registro de la inspección y el responsable.\n3.3. Debe instalar sellos de alta seguridad que cumplan o excedan los estándares de la norma vigente ISO 17712 a todos los contenedores cargados y demás unidades de carga precintables.\n3.4. Tener procedimientos documentados para el control del almacenamiento, acceso, distribución, registro de uso, cambio y colocación de los sellos, solo personal autorizado debe manejar y distribuir los sellos.\n3.5. Tener procedimientos documentados para cerrar y sellar correctamente los contenedores y demás unidades de carga en el punto de llenado, y cada vez que sean abiertos.\n3.6. Tener procedimientos documentados para verificar en el punto de llenado la integridad física de la estructura del contenedor y demás unidades de carga antes del llenado, esto incluye la confiabilidad de los mecanismos de cerradura de las puertas.\n3.7 Tener procedimientos documentados para detectar, neutralizar y denunciar la entrada no autorizada a los contenedores y demás unidades de carga, así como a las áreas de almacenamiento de los mismos. \n3.8. Tener procedimientos documentados para la inspección de contenedores y demás unidades de carga en el punto de llenado, del proceso de verificación e inspección debe quedar un registro documental en donde conste el responsable, el proceso debe incluir como mínimo, los siguientes puntos:(13 CONTENEDOR), (13 REMOLQUE), (8 VEHÍCULO)\n3.9. Tener procedimientos documentados para reconocer y reportar a las autoridades competentes, cuando los sellos, contenedores y/o demás unidades de carga han sido vulnerados. \n3.10.Tener procedimientos documentados para asegurar las unidades de carga bajo su responsabilidad, durante labores de mantenimiento o reparación cuando se realizan fuera de sus instalaciones.",
       "necesidades": "",
-      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "auditados": "JUAN RAMÍREZ / Diego Mesa",
       "auditor": "Estefanía Granda",
       "observadores": "N.A.",
       "tipo": "auditoria"
@@ -55,7 +55,7 @@ const PLAN_DATA = {
       "sintesis_anterior": "ASPECTOS POR MEJORAR: \nHALLAZGOS DEL 2025 ARCA:\n4.1 Se debe actualizar el procedimiento de acceso de empleados ya que no se utiliza un formato físico SRF-FR06,sino que ahora se está gestionando a través de un software.SRF-GU-02 control de acceso de visitantes, establece el uso de un formato SRF-FR01 Control de ingreso de visitantes, sin embargo, este formato ya no se está utilizando ya que se ha implementado un software para el ingreso.\n4.2 GHM-GU01 establece que en caso de pérdida de documento se debe generar constancia en caso de perdida, sin embargo, este proceso ya no funciona.\n4.3 En la verificación de los soportes de entrega de carnet y la respectiva firma se evidencia que los siguientes funcionarios presentan inconsistencias:Helen Mosquera no tiene formato de carnet. / Ana maría López no tiene formato de carnet firmado.\n4.7 Aunque se evidencia que en la reinducción del año 2025 se abordaron temas de personas no autorizadas, la última capacitación especifica frente a este tema fue en el año 2022.",
       "requisitos_norma": "REQUISITOS SEGÚN RESOLUCIÓN DIAN 15 DE 2016:\n4.1. Debe tener implementado un sistema para identificar y controlar el acceso de personas y vehículos a sus instalaciones.\n4.2. Debe tener procedimientos documentados para el control, entrega, devolución, cambio y pérdida de los dispositivos para el control de acceso para el personal vinculado y visitantes. \n4.3. Debe entregar a todo su personal vinculado a través de cualquier modalidad de contrato una identificación la cual debe ser portada en un lugar visible.\n4.4. Exigir a todos los visitantes que se identifiquen para el ingreso a sus instalaciones, y hacer entrega de una identificación temporal, que debe ser portada en un lugar visible. \n4.5. Debe garantizar mediante controles efectivos y procedimientos documentados, la revisión tanto al ingreso como a la salida de sus instalaciones, de las personas, vehículos, paquetes, correo y demás objetos. \n4.6. Debe tener procedimientos documentados para garantizar que los visitantes y vehículos se dirijan únicamente a las áreas autorizadas dentro de las instalaciones. \n4.7. Debe garantizar mediante controles efectivos y procedimientos documentados para que el personal vinculado sepa identificar y afrontar a personas no autorizadas o no identificadas.",
       "necesidades": "",
-      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "auditados": "JUAN RAMÍREZ / Diego Mesa",
       "auditor": "Estefanía Granda",
       "observadores": "N.A.",
       "tipo": "auditoria"
@@ -79,7 +79,7 @@ const PLAN_DATA = {
       "sintesis_anterior": "ASPECTOS POR MEJORAR: \nHALLAZGOS DEL 2025 ARCA:\n6.12 Se debe actualizar el procedimiento GPC-GU01 guía de control y distribución de material de empaque, ya que establece la responsabilidad del diligenciamiento al proceso de producción, pero en la realidad es de seguridad. Adicionalmente, se nombra el \ndocumento GPC-FR06 formato de control de material de empaque, pero este ya no se utiliza para controlar el proceso porque se trasladó al SharePoint de la compañía.",
       "requisitos_norma": "REQUISITOS SEGÚN RESOLUCIÓN DIAN 15 DE 2016:\n6.1. Debe tener implementadas medidas de seguridad para identificar plenamente a los conductores, sus acompañantes y los vehículos antes de que reciban o entreguen la carga. \n6.4. Debe tener un protocolo para resolver eventos inesperados en el transporte de su carga entre el punto de llenado y el puerto de embarque al exterior que contemple: detención inesperada, hurto o saqueo del vehículo, desvío de la ruta, bloqueo de la vía, accidente de tránsito, falla mecánica y violación de sellos de seguridad.\n6.6. Tener procedimientos documentados para garantizar la integridad y la seguridad de la carga en los procesos relativos al manejo, almacenamiento y transporte. \n6.12. Tener procedimientos documentados para almacenar, custodiar, controlar y revisar antes de su uso, el material de empaque de exportación.\n6.13. Tener procedimientos documentados para que permitan supervisar la operación de los transportadores terrestres en las operaciones de su cadena de suministro internacional.",
       "necesidades": "",
-      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "auditados": "JUAN RAMÍREZ / Diego Mesa",
       "auditor": "Estefanía Granda",
       "observadores": "N.A.",
       "tipo": "auditoria"
@@ -91,7 +91,7 @@ const PLAN_DATA = {
       "sintesis_anterior": "ASPECTOS POR MEJORAR: \nHALLAZGOS DEL 2025 ARCA:\n7.1 En la verificación de los procesos de inspección de la compañía se evidencia que en el documento SRFGU04 no se establece la periodicidad con la que se deben hacer las inspecciones.",
       "requisitos_norma": "REQUISITOS SEGÚN RESOLUCIÓN DIAN 15 DE 2016:\n7.1. Debe tener cercas o barreras perimetrales alrededor de sus instalaciones, así como barreras interiores dentro de las áreas de manejo y almacenamiento de carga, para los diferentes tipos de mercancías.\n7.2. Debe garantizar que todas las puertas, ventanas, cercas y barreras interiores y exteriores se encuentren aseguradas, e inspeccionarlas para verificar su integridad e identificar daños, dejando registro de la misma.\n7.3. Debe prohibir el estacionamiento de vehículos de personal vinculado y de visitantes dentro de las áreas de manejo y almacenamiento de carga o en áreas adyacentes a la entrada o salida de las mismas.\n7.4. Debe garantizar que las instalaciones han sido construidas con materiales que resistan la entrada forzada.\n7.5. Debe disponer de señalización e iluminación adecuadas dentro y fuera de las instalaciones, especialmente en entradas y salidas, áreas de manejo, inspección y almacenamiento de carga, cercas y barreras perimetrales y áreas de estacionamiento. \n7.6. Debe tener un servicio de vigilancia y seguridad propio o contratado con una empresa competente y debidamente autorizada, que garantice una acción de respuesta oportuna y disponibilidad durante las 24 horas del día.\n7.7. Debe disponer de un plano de su planta física en el que se identifiquen claramente las áreas críticas de la empresa y se divulgue el plan de evacuación y emergencias.\n7.8. Debe disponer y controlar las áreas destinadas para casilleros, vestieres o similares y separarlas de las áreas críticas de la empresa.\n7.9. Debe disponer de una infraestructura física, administrativa y de recurso humano que permita ejercer de manera adecuada su actividad.",
       "necesidades": "",
-      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "auditados": "JUAN RAMÍREZ / Diego Mesa",
       "auditor": "Estefanía Granda",
       "observadores": "N.A.",
       "tipo": "auditoria"
@@ -219,7 +219,7 @@ const PLAN_DATA = {
   ],
   "auditores_lista": [
     "Jimena Zuluaga",
-    "Estefania Granda",
+    "Estefanía Granda",
     "Diana Arboleda",
     "Luis Jaime Alvarez",
     "Luis Arango",
@@ -300,9 +300,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 1.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS / LUIS ARANGO",
+      "responsable": "ESTEFANÍA GRANDA / SERGIO ARENAS / LUIS ARANGO",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "SERGIO ARENAS",
         "LUIS ARANGO"
       ],
@@ -320,10 +320,10 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 1.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA/ JUAN CARLOS RAMIREZ",
+      "responsable": "ESTEFANÍA GRANDA/ JUAN RAMIREZ",
       "responsables": [
-        "ESTEFANIA GRANDA",
-        "JUAN CARLOS RAMIREZ"
+        "ESTEFANÍA GRANDA",
+        "JUAN RAMIREZ"
       ],
       "descripcion": "Tener un sistema de administración de riesgos enfocado en la cadena de suministro internacional, que prevea actividades ilícitas, entre otras lavado de activos, narcotráfico y financiación del terrorismo.",
       "evidencia_interna": "GPE-FR04 Matriz de riesgos por procesos;\n GCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GCP-GU07 Procedimiento Señales de Alerta para la Prevención y Detección de Actividades Relacionadas con LA/FT/FPADM o Delitos Fuente;\n SRF-GU09 Política de seguridad de la cadena de suministro.\nGCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GPE-FR04 Matriz de riesgos por procesos;\n GCP-PR01 Procedimiento gestión de cumplimiento.\nGPE-FR04 Matriz de riesgos por procesos;\n GPE-FR08 Informe de Gestión por Periodo;\n GPE-FR09 Cuadro de mando integrado;\n GCP-CO02 Informe Analítica y Ciencia de Datos Cumplimiento, cuando soporte análisis periódico.\nGMC-FR12 NO CONFORMIDADES Y ACCIONES CORRECTIVAS;\n GMC-FR23 ACCIONES U OPORTUNIDADES DE MEJORA;\n GMC-FR04 Reporte de acciones correctivas y de mejora;\n GPE-FR03 Planeación del cambio.\nGCP-FR02 Informe de Debida Diligencia;\n GCP-FR03 Anexos Informe de Debida Diligencia;\n GCP-FR50 Anexo Análisis Financiero del Proveedor;\n GCP-GU09 Guía de vinculación y actualización de proveedores;\n GCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores.",
@@ -339,9 +339,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 1.3",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Tener procedimientos documentados para establecer el nivel de riesgo de sus asociados de negocio.",
@@ -358,9 +358,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 1.4",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Demostrar mediante manifestación suscrita por sus asociados de negocio no autorizados como Operador Económico Autorizado en Colombia ni certificados por otro programa de seguridad administrado por una aduana extranjera, que cumplen requisitos mínimos de seguridad en la cadena de suministro internacional.",
@@ -377,9 +377,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 1.5",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Realizar y documentar una visita de vinculación y en adelante visitas bienales a las instalaciones donde sus asociados de negocio desarrollan sus operaciones, con el fin de verificar el cumplimiento requisitos, mínimos de seguridad en la cadena de suministro internacional.",
@@ -396,9 +396,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 1.6",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Exigir a sus proveedores un plan de contingencia de su actividad que garantice el desarrollo óptimo de las operaciones contratadas.",
@@ -529,9 +529,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 2.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener procedimientos documentados para la selección, evaluación y conocimiento de sus asociados de negocio que garanticen su confiabilidad.",
@@ -548,9 +548,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 2.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe identificar a sus asociados de negocio autorizados como Operador Económico Autorizado en Colombia o certificados por otro programa de seguridad administrado por una aduana extranjera.",
@@ -1004,9 +1004,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 5.7",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener implementado un código de ética que contenga las reglas de comportamiento orientadas a asegurar la transparencia en el ejercicio de su actividad.",
@@ -1580,9 +1580,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 9.1",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de inducción y reinducción periódica, dirigido a todo el personal vinculado o a vincular y cuando aplique a los visitantes, que garantice el conocimiento de las medidas de seguridad de la empresa y las posibles amenazas y riesgos, así como las medidas implementadas para prevenir, reconocer y actuar frente a cualquier actividad delictiva.",
@@ -1599,9 +1599,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 9.2",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener desarrollados programas de capacitación especializada en seguridad para el personal vinculado en áreas críticas sobre prevención de lavado de activos y financiación del terrorismo, sellos, llenado del contenedor, envío, recibo, manejo y almacenamiento de carga; manejo del correo, y demás temas sensibles, según correspondan por área y por proceso.",
@@ -1618,9 +1618,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 9.3",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de concienciación y prevención del consumo de alcohol y drogas.",
@@ -1637,9 +1637,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 9.4",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de entrenamiento para manejo de situaciones de pánico que sea acorde con las necesidades de las áreas críticas.",
@@ -1655,18 +1655,17 @@ const REQUISITOS_DATA = {
     "DAIRY MOSQUERA",
     "DIEGO BELTRÁN",
     "DIEGO MESA",
-    "ESTEFANIA GRANDA",
+    "ESTEFANÍA GRANDA",
     "ESTEFANÍA GRANDA",
     "ISABEL ESCOBAR",
     "IVAN ARIAS",
     "JAVIER TABARES",
     "JEFFERSON GONZALEZ",
-    "JUAN CARLOS RAMIREZ",
+    "JUAN RAMIREZ",
     "JUAN RAMIREZ",
     "LORENA GIL",
     "LUIS ARANGO",
     "MARIA RENGIFO",
-    "MILADY LOPEZ",
     "MILADY LÓPEZ",
     "SERGIO ARENAS"
   ],

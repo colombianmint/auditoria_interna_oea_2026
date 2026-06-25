@@ -11,6 +11,21 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #1e293b;
+}
+
+.text-xs {
+  font-size: 0.85rem !important;
+}
+
+/* Make light gray text easier to read on white/light backgrounds */
+.text-slate-400,
+.text-slate-500,
+.text-slate-300,
+.text-slate-200 {
+  color: #475569 !important;
 }
 
 /* Badges */
