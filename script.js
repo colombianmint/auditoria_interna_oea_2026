@@ -1,0 +1,713 @@
+/**
+ * Auditoría Interna OEA 2026 - C.I. Colombian Mint
+ * Single Page Application
+ */
+const App = {
+  currentView: 'dashboard',
+  plan: null,
+  requisitos: null,
+
+  init() {
+    this.plan = PLAN_DATA;
+    this.requisitos = REQUISITOS_DATA;
+    this.bindEvents();
+    this.navigate('dashboard');
+  },
+
+  bindEvents() {
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.navigate(btn.dataset.view);
+        this.closeSidebar();
+      });
+    });
+
+    document.getElementById('menuToggle').addEventListener('click', () => this.toggleSidebar());
+    document.getElementById('sidebarOverlay').addEventListener('click', () => this.closeSidebar());
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') this.closeModal();
+    });
+  },
+
+  toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    document.getElementById('sidebarOverlay').classList.toggle('hidden');
+  },
+
+  closeSidebar() {
+    document.getElementById('sidebar').classList.add('-translate-x-full');
+    document.getElementById('sidebarOverlay').classList.add('hidden');
+  },
+
+  navigate(view) {
+    this.currentView = view;
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.view === view);
+    });
+
+    const renderers = {
+      dashboard: () => this.renderDashboard(),
+      plan: () => this.renderPlan(),
+      requisitos: () => this.renderRequisitos(),
+      responsable: () => this.renderPorResponsable(),
+      capitulos: () => this.renderCapitulos()
+    };
+
+    const content = document.getElementById('appContent');
+    content.innerHTML = renderers[view]();
+    content.classList.remove('fade-in');
+    void content.offsetWidth;
+    content.classList.add('fade-in');
+    this.bindViewEvents(view);
+  },
+
+  bindViewEvents(view) {
+    if (view === 'responsable') {
+      const select = document.getElementById('filtroResponsable');
+      if (select) {
+        select.addEventListener('change', () => this.filterByResponsable(select.value));
+      }
+      const search = document.getElementById('searchResponsable');
+      if (search) {
+        search.addEventListener('input', () => this.filterByResponsable(select?.value || '', search.value));
+      }
+    }
+
+    if (view === 'requisitos' || view === 'capitulos') {
+      const search = document.getElementById('searchGlobal');
+      if (search) {
+        search.addEventListener('input', () => this.filterRequisitos(search.value));
+      }
+    }
+
+    document.querySelectorAll('[data-req-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        const req = this.requisitos.requisitos.find(r => r.id === el.dataset.reqId);
+        if (req) this.showRequisitoModal(req);
+      });
+    });
+
+    document.querySelectorAll('[data-capitulo]').forEach(el => {
+      el.addEventListener('click', () => {
+        const capNum = parseInt(el.dataset.capitulo);
+        this.renderCapituloDetalle(capNum);
+      });
+    });
+
+    document.querySelectorAll('[data-crono-index]').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.cronoIndex);
+        this.showCronoModal(this.plan.cronograma[idx]);
+      });
+    });
+  },
+
+  esc(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  },
+
+  formatDate(dateStr) {
+    if (!dateStr || dateStr.startsWith('DIA')) return dateStr;
+    try {
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('es-CO', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    } catch { return dateStr; }
+  },
+
+  countAuditorias() {
+    return this.plan.cronograma.filter(c => c.tipo === 'auditoria').length;
+  },
+
+  /* ===== DASHBOARD ===== */
+  renderDashboard() {
+    const auditCount = this.countAuditorias();
+    const dias = this.plan.cronograma.filter(c => c.tipo === 'dia').length;
+    const fechas = [...new Set(this.plan.cronograma.filter(c => c.fecha && !c.fecha.startsWith('DIA')).map(c => c.fecha))];
+
+    return `
+      <div class="space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Dashboard de Auditoría</h2>
+            <p class="text-slate-500 mt-1">Plan de Auditoría Interna OEA · Julio 2026</p>
+          </div>
+          <div class="flex gap-2 md:hidden">
+            <span class="badge-oea">OEA Exportador</span>
+            <span class="badge-reval">Revalidado 2025</span>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="stat-card">
+            <p class="text-sm text-slate-500 font-medium">Requisitos OEA</p>
+            <p class="text-3xl font-bold text-mint-700 mt-1">${this.requisitos.total_requisitos}</p>
+            <p class="text-xs text-slate-400 mt-1">9 capítulos normativos</p>
+          </div>
+          <div class="stat-card">
+            <p class="text-sm text-slate-500 font-medium">Sesiones Auditoría</p>
+            <p class="text-3xl font-bold text-navy-800 mt-1">${auditCount}</p>
+            <p class="text-xs text-slate-400 mt-1">${dias} días programados</p>
+          </div>
+          <div class="stat-card">
+            <p class="text-sm text-slate-500 font-medium">Auditores Internos</p>
+            <p class="text-3xl font-bold text-gold-600 mt-1">${this.plan.auditores_lista.length}</p>
+            <p class="text-xs text-slate-400 mt-1">Equipo interdisciplinario</p>
+          </div>
+          <div class="stat-card">
+            <p class="text-sm text-slate-500 font-medium">Responsables</p>
+            <p class="text-3xl font-bold text-purple-600 mt-1">${this.requisitos.responsables.length}</p>
+            <p class="text-xs text-slate-400 mt-1">Líderes de proceso</p>
+          </div>
+        </div>
+
+        <!-- Info cards -->
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="info-card">
+            <div class="info-card-header flex items-center justify-between">
+              <span>Objetivo de la Auditoría</span>
+              <span class="text-xs text-slate-400">${this.plan.codigo}</span>
+            </div>
+            <div class="info-card-body">
+              <p class="text-slate-700 leading-relaxed">${this.esc(this.plan.objetivo)}</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header">Alcance</div>
+            <div class="info-card-body">
+              <p class="text-slate-700 leading-relaxed">${this.esc(this.plan.alcance)}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Riesgos y Controles -->
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="info-card">
+            <div class="info-card-header flex items-center gap-2">
+              Riesgos Asociados
+              <span class="risk-alto">${this.esc(this.plan.valoracion)}</span>
+            </div>
+            <div class="info-card-body">
+              <div class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${this.esc(this.plan.riesgos)}</div>
+            </div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-header">Controles</div>
+            <div class="info-card-body">
+              <div class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${this.esc(this.plan.controles)}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cronograma resumen -->
+        <div class="info-card">
+          <div class="info-card-header flex items-center justify-between">
+            <span>Cronograma de Auditoría</span>
+            <button onclick="App.navigate('plan')" class="text-sm text-mint-600 hover:text-mint-700 font-medium">Ver completo →</button>
+          </div>
+          <div class="info-card-body">
+            <div class="space-y-0">
+              ${this.plan.cronograma.filter(c => c.tipo === 'auditoria' || c.tipo === 'reunion').slice(0, 6).map((c, i) => `
+                <div class="flex items-start gap-4 py-3 border-b border-slate-100 last:border-0 cursor-pointer hover:bg-slate-50 -mx-2 px-2 rounded-lg transition" data-crono-index="${this.plan.cronograma.indexOf(c)}">
+                  <div class="text-center min-w-[4.5rem]">
+                    <p class="text-xs font-bold text-mint-700">${c.fecha && !c.fecha.startsWith('DIA') ? c.fecha.slice(5) : ''}</p>
+                    <p class="text-xs text-slate-400">${this.esc(c.hora)}</p>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="font-medium text-slate-800 text-sm line-clamp-2">${this.esc(c.proceso.split('\n')[0])}</p>
+                    <p class="text-xs text-slate-500 mt-0.5">${this.esc(c.auditor)} ${c.auditados ? '· ' + c.auditados.split('/')[0].trim() : ''}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Capítulos resumen -->
+        <div class="info-card">
+          <div class="info-card-header flex items-center justify-between">
+            <span>Requisitos por Capítulo</span>
+            <button onclick="App.navigate('capitulos')" class="text-sm text-mint-600 hover:text-mint-700 font-medium">Explorar →</button>
+          </div>
+          <div class="info-card-body">
+            <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-3">
+              ${this.requisitos.capitulos.map(cap => `
+                <div class="text-center cursor-pointer group" data-capitulo="${cap.numero}">
+                  <div class="w-12 h-12 mx-auto rounded-xl bg-mint-50 border-2 border-mint-200 flex items-center justify-center font-bold text-mint-700 group-hover:bg-mint-100 group-hover:border-mint-400 transition">${cap.numero}</div>
+                  <p class="text-xs text-slate-500 mt-1.5 line-clamp-2">${cap.total_requisitos} req.</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Equipo -->
+        <div class="info-card">
+          <div class="info-card-header">Equipo de Auditoría Interna</div>
+          <div class="info-card-body">
+            <div class="flex flex-wrap gap-2">
+              ${this.plan.auditores_lista.map(a => `<span class="tag tag-auditor">${this.esc(a)}</span>`).join('')}
+            </div>
+            ${this.plan.observadores ? `<p class="text-sm text-slate-500 mt-3"><strong>Observadores:</strong> ${this.esc(this.plan.observadores)}</p>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  /* ===== PLAN ===== */
+  renderPlan() {
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Plan de Auditoría 2026</h2>
+          <p class="text-slate-500 mt-1">${this.esc(this.plan.codigo)} · Versión ${this.esc(this.plan.version)}</p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="info-card lg:col-span-1">
+            <div class="info-card-header">Objetivo</div>
+            <div class="info-card-body text-sm text-slate-700">${this.esc(this.plan.objetivo)}</div>
+          </div>
+          <div class="info-card lg:col-span-1">
+            <div class="info-card-header">Alcance</div>
+            <div class="info-card-body text-sm text-slate-700">${this.esc(this.plan.alcance)}</div>
+          </div>
+          <div class="info-card lg:col-span-1">
+            <div class="info-card-header">Criterios</div>
+            <div class="info-card-body text-sm text-slate-700">${this.esc(this.plan.criterios)}</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-card-header">Cronograma Detallado</div>
+          <div class="info-card-body">
+            <div class="space-y-0">
+              ${this.plan.cronograma.map((c, idx) => this.renderCronoItem(c, idx)).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  renderCronoItem(c, idx) {
+    if (c.tipo === 'dia') {
+      return `
+        <div class="py-4 mt-2">
+          <h3 class="text-lg font-bold text-gold-600 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-gold-100 flex items-center justify-center text-sm">📅</span>
+            ${this.esc(c.fecha || 'DÍA')}
+          </h3>
+        </div>
+      `;
+    }
+
+    if (c.tipo === 'receso') {
+      return `
+        <div class="py-3 px-4 my-2 bg-slate-50 rounded-lg text-center text-sm text-slate-500 italic">
+          ☕ ${this.esc(c.proceso)} · ${this.esc(c.hora)}
+        </div>
+      `;
+    }
+
+    const isClickable = c.tipo === 'auditoria' || c.tipo === 'reunion';
+
+    return `
+      <div class="crono-item ${isClickable ? 'cursor-pointer' : ''}" ${isClickable ? `data-crono-index="${idx}"` : ''}>
+        <div class="crono-dot ${c.tipo}"></div>
+        <div class="bg-white border border-slate-200 rounded-xl p-4 hover:border-mint-300 hover:shadow-md transition ${isClickable ? 'hover:bg-mint-50/30' : ''}">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-semibold text-mint-700">${c.fecha && !c.fecha.startsWith('DIA') ? this.formatDate(c.fecha) : ''}</span>
+                <span class="text-xs text-slate-400">· ${this.esc(c.hora)}</span>
+              </div>
+              <h4 class="font-semibold text-slate-800 whitespace-pre-line text-sm">${this.esc(c.proceso)}</h4>
+            </div>
+            ${c.tipo === 'auditoria' ? `
+              <div class="flex flex-wrap gap-1.5 sm:flex-col sm:items-end">
+                ${c.auditor ? `<span class="tag tag-auditor">Auditor: ${this.esc(c.auditor)}</span>` : ''}
+                ${c.auditados ? `<span class="tag tag-auditado">Auditados: ${this.esc(c.auditados)}</span>` : ''}
+              </div>
+            ` : ''}
+          </div>
+          ${c.sintesis_anterior ? `
+            <div class="mt-3 pt-3 border-t border-slate-100">
+              <p class="text-xs font-semibold text-red-600 uppercase mb-1">Hallazgos anteriores (ARCA 2025)</p>
+              <p class="text-xs text-slate-600 line-clamp-3">${this.esc(c.sintesis_anterior.substring(0, 300))}...</p>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
+  },
+
+  showCronoModal(c) {
+    document.getElementById('modalHeader').innerHTML = `
+      <div>
+        <p class="text-xs text-mint-600 font-semibold uppercase">${this.esc(c.hora)} · ${c.fecha ? this.formatDate(c.fecha) : ''}</p>
+        <h3 class="text-lg font-bold text-navy-900 mt-0.5 whitespace-pre-line">${this.esc(c.proceso)}</h3>
+      </div>
+      <button onclick="App.closeModal()" class="p-2 hover:bg-slate-100 rounded-lg transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    `;
+
+    let body = '';
+
+    if (c.auditor || c.auditados) {
+      body += `<div class="flex flex-wrap gap-2 mb-4">
+        ${c.auditor ? `<span class="tag tag-auditor">Auditor: ${this.esc(c.auditor)}</span>` : ''}
+        ${c.auditados ? `<span class="tag tag-auditado">Auditados: ${this.esc(c.auditados)}</span>` : ''}
+        ${c.observadores && c.observadores !== 'N.A.' ? `<span class="tag tag-proceso">Observadores: ${this.esc(c.observadores)}</span>` : ''}
+      </div>`;
+    }
+
+    if (c.sintesis_anterior) {
+      body += `<div class="detail-section hallazgo"><h4>Síntesis Auditoría Anterior (ARCA 2025)</h4><div class="content">${this.esc(c.sintesis_anterior)}</div></div>`;
+    }
+
+    if (c.requisitos_norma) {
+      body += `<div class="detail-section"><h4>Requisitos de la Norma (Res. 015/2016)</h4><div class="content">${this.esc(c.requisitos_norma)}</div></div>`;
+    }
+
+    if (c.necesidades) {
+      body += `<div class="detail-section"><h4>Necesidades para la Auditoría</h4><div class="content">${this.esc(c.necesidades)}</div></div>`;
+    }
+
+    document.getElementById('modalBody').innerHTML = body || '<p class="text-slate-500">Sin detalles adicionales.</p>';
+    this.openModal();
+  },
+
+  /* ===== REQUISITOS GENERAL ===== */
+  renderRequisitos() {
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Requisitos OEA</h2>
+          <p class="text-slate-500 mt-1">${this.requisitos.total_requisitos} requisitos · Res. ${this.esc(this.requisitos.resolucion)} · Revalidación ${this.requisitos.revalidacion}</p>
+        </div>
+
+        <div class="search-wrapper max-w-xl">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="searchGlobal" class="search-input" placeholder="Buscar por número, descripción, responsable o evidencia...">
+        </div>
+
+        <div id="requisitosList" class="grid gap-4">
+          ${this.renderRequisitosList(this.requisitos.requisitos)}
+        </div>
+      </div>
+    `;
+  },
+
+  renderRequisitosList(requisitos) {
+    if (!requisitos.length) {
+      return '<div class="text-center py-12 text-slate-400">No se encontraron requisitos.</div>';
+    }
+
+    return requisitos.map(r => `
+      <div class="req-card" data-req-id="${r.id}">
+        <div class="flex items-start justify-between gap-3">
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="req-number">${this.esc(r.numero)}</span>
+              <span class="text-xs text-slate-400">Cap. ${r.capitulo_num}</span>
+            </div>
+            <p class="text-sm text-slate-800 font-medium line-clamp-2">${this.esc(r.descripcion)}</p>
+            <div class="flex flex-wrap gap-1 mt-2">
+              ${r.responsables.slice(0, 3).map(resp => `<span class="tag tag-auditado">${this.esc(this.formatName(resp))}</span>`).join('')}
+              ${r.responsables.length > 3 ? `<span class="tag text-slate-400">+${r.responsables.length - 3}</span>` : ''}
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    `).join('');
+  },
+
+  filterRequisitos(query) {
+    const q = query.toLowerCase().trim();
+    const list = document.getElementById('requisitosList');
+    if (!list) return;
+
+    const filtered = q ? this.requisitos.requisitos.filter(r =>
+      r.numero.toLowerCase().includes(q) ||
+      r.descripcion.toLowerCase().includes(q) ||
+      r.responsable.toLowerCase().includes(q) ||
+      r.evidencia_interna.toLowerCase().includes(q) ||
+      r.evidencia_oea.toLowerCase().includes(q) ||
+      r.capitulo_nombre.toLowerCase().includes(q)
+    ) : this.requisitos.requisitos;
+
+    list.innerHTML = this.renderRequisitosList(filtered);
+    list.querySelectorAll('[data-req-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        const req = this.requisitos.requisitos.find(r => r.id === el.dataset.reqId);
+        if (req) this.showRequisitoModal(req);
+      });
+    });
+  },
+
+  formatName(name) {
+    return name.split(' ').map(w => w.charAt(0) + w.slice(1).toLowerCase()).join(' ');
+  },
+
+  /* ===== POR RESPONSABLE ===== */
+  renderPorResponsable() {
+    const options = this.requisitos.responsables.map(r =>
+      `<option value="${this.esc(r)}">${this.esc(this.formatName(r))}</option>`
+    ).join('');
+
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Requisitos por Responsable</h2>
+          <p class="text-slate-500 mt-1">Consulta los requisitos asignados a cada líder de proceso</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 max-w-2xl">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Seleccionar Responsable</label>
+            <select id="filtroResponsable" class="select-input">
+              <option value="">— Todos los responsables —</option>
+              ${options}
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-2">Búsqueda adicional</label>
+            <div class="search-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="searchResponsable" class="search-input" placeholder="Filtrar resultados...">
+            </div>
+          </div>
+        </div>
+
+        <div id="responsableStats" class="hidden">
+          <div class="stat-card inline-block">
+            <p class="text-sm text-slate-500">Requisitos asignados</p>
+            <p class="text-2xl font-bold text-mint-700" id="responsableCount">0</p>
+          </div>
+        </div>
+
+        <div id="responsableList" class="grid gap-4">
+          <div class="text-center py-16 text-slate-400">
+            <svg class="w-16 h-16 mx-auto mb-4 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <p class="font-medium">Seleccione un responsable para ver sus requisitos</p>
+            <p class="text-sm mt-1">Como auditado o auditor, podrá prepararse con las evidencias sugeridas</p>
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  filterByResponsable(responsable, searchQuery = '') {
+    const list = document.getElementById('responsableList');
+    const stats = document.getElementById('responsableStats');
+    const count = document.getElementById('responsableCount');
+
+    if (!responsable) {
+      list.innerHTML = `
+        <div class="text-center py-16 text-slate-400">
+          <svg class="w-16 h-16 mx-auto mb-4 text-slate-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <p class="font-medium">Seleccione un responsable para ver sus requisitos</p>
+        </div>`;
+      stats.classList.add('hidden');
+      return;
+    }
+
+    let filtered = this.requisitos.requisitos.filter(r =>
+      r.responsables.some(resp => resp === responsable)
+    );
+
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      filtered = filtered.filter(r =>
+        r.numero.toLowerCase().includes(q) ||
+        r.descripcion.toLowerCase().includes(q) ||
+        r.evidencia_interna.toLowerCase().includes(q)
+      );
+    }
+
+    stats.classList.remove('hidden');
+    count.textContent = filtered.length;
+
+    list.innerHTML = `
+      <div class="info-card mb-4">
+        <div class="info-card-body flex items-center gap-4">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-br from-mint-400 to-mint-600 flex items-center justify-center text-white text-xl font-bold">
+            ${responsable.charAt(0)}
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-navy-900">${this.esc(this.formatName(responsable))}</h3>
+            <p class="text-sm text-slate-500">${filtered.length} requisito(s) asignado(s)</p>
+          </div>
+        </div>
+      </div>
+      ${this.renderRequisitosList(filtered)}
+    `;
+
+    list.querySelectorAll('[data-req-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        const req = this.requisitos.requisitos.find(r => r.id === el.dataset.reqId);
+        if (req) this.showRequisitoModal(req);
+      });
+    });
+  },
+
+  /* ===== POR CAPÍTULO ===== */
+  renderCapitulos() {
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Requisitos por Capítulo</h2>
+          <p class="text-slate-500 mt-1">Artículo 4º · Resolución 000015 de 2016 · 9 capítulos normativos</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${this.requisitos.capitulos.map(cap => `
+            <div class="chapter-card" data-capitulo="${cap.numero}">
+              <div class="flex items-start gap-4">
+                <div class="chapter-num">${cap.numero}</div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-bold text-navy-900 text-sm leading-snug">${this.esc(cap.nombre)}</h3>
+                  <p class="text-sm text-mint-600 font-semibold mt-2">${cap.total_requisitos} requisitos</p>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  },
+
+  renderCapituloDetalle(capNum) {
+    const cap = this.requisitos.capitulos.find(c => c.numero === capNum);
+    const reqs = this.requisitos.requisitos.filter(r => r.capitulo_num === capNum);
+
+    const content = document.getElementById('appContent');
+    content.innerHTML = `
+      <div class="space-y-6 fade-in">
+        <button onclick="App.navigate('capitulos')" class="flex items-center gap-2 text-mint-600 hover:text-mint-700 font-medium text-sm transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Volver a Capítulos
+        </button>
+
+        <div class="flex items-start gap-4">
+          <div class="chapter-num text-2xl">${cap.numero}</div>
+          <div>
+            <h2 class="text-2xl font-bold text-navy-900">Capítulo ${cap.numero}</h2>
+            <p class="text-lg text-slate-600">${this.esc(cap.nombre)}</p>
+            <p class="text-sm text-mint-600 font-semibold mt-1">${reqs.length} requisitos</p>
+          </div>
+        </div>
+
+        <div class="search-wrapper max-w-xl">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="searchGlobal" class="search-input" placeholder="Buscar en este capítulo...">
+        </div>
+
+        <div id="requisitosList" class="grid gap-4">
+          ${this.renderRequisitosList(reqs)}
+        </div>
+      </div>
+    `;
+
+    document.querySelectorAll('[data-req-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        const req = this.requisitos.requisitos.find(r => r.id === el.dataset.reqId);
+        if (req) this.showRequisitoModal(req);
+      });
+    });
+
+    const search = document.getElementById('searchGlobal');
+    if (search) {
+      search.addEventListener('input', () => {
+        const q = search.value.toLowerCase().trim();
+        const list = document.getElementById('requisitosList');
+        const filtered = q ? reqs.filter(r =>
+          r.numero.toLowerCase().includes(q) ||
+          r.descripcion.toLowerCase().includes(q) ||
+          r.responsable.toLowerCase().includes(q)
+        ) : reqs;
+        list.innerHTML = this.renderRequisitosList(filtered);
+        list.querySelectorAll('[data-req-id]').forEach(el => {
+          el.addEventListener('click', () => {
+            const req = this.requisitos.requisitos.find(r => r.id === el.dataset.reqId);
+            if (req) this.showRequisitoModal(req);
+          });
+        });
+      });
+    }
+  },
+
+  /* ===== MODAL REQUISITO ===== */
+  showRequisitoModal(req) {
+    document.getElementById('modalHeader').innerHTML = `
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="req-number">${this.esc(req.numero)}</span>
+          <span class="text-xs text-slate-400">Cap. ${req.capitulo_num} · ${this.esc(req.capitulo_nombre)}</span>
+        </div>
+        <h3 class="text-base font-bold text-navy-900 mt-2 leading-snug">${this.esc(req.descripcion)}</h3>
+      </div>
+      <button onclick="App.closeModal()" class="p-2 hover:bg-slate-100 rounded-lg transition flex-shrink-0">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    `;
+
+    let body = `
+      <div class="grid sm:grid-cols-2 gap-4 mb-5">
+        <div>
+          <p class="text-xs font-semibold text-slate-400 uppercase">Autoridad</p>
+          <p class="font-medium text-slate-800">${this.esc(req.autoridad)}</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-slate-400 uppercase">Responsable(s)</p>
+          <div class="flex flex-wrap gap-1 mt-1">
+            ${req.responsables.map(r => `<span class="tag tag-auditado">${this.esc(this.formatName(r))}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+
+    body += `<div class="detail-section evidencia"><h4>📋 Documentos / Evidencias — Auditoría Interna</h4><div class="content">${this.esc(req.evidencia_interna) || 'No especificada'}</div></div>`;
+    body += `<div class="detail-section evidencia"><h4>🔍 Evidencias — Auditoría OEA (DIAN)</h4><div class="content">${this.esc(req.evidencia_oea) || 'No especificada'}</div></div>`;
+
+    if (req.hallazgos_arca) {
+      body += `<div class="detail-section hallazgo"><h4>⚠️ Hallazgos ARCA 2025</h4><div class="content">${this.esc(req.hallazgos_arca)}</div></div>`;
+    }
+
+    if (req.plan_accion) {
+      body += `<div class="detail-section"><h4>📝 Plan de Acción</h4><div class="content">${this.esc(req.plan_accion)}</div></div>`;
+    }
+
+    document.getElementById('modalBody').innerHTML = body;
+    this.openModal();
+  },
+
+  openModal() {
+    document.getElementById('modal').classList.add('active');
+    document.getElementById('modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  },
+
+  closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.getElementById('modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  },
+
+  showToast(msg) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => App.init());
