@@ -9,7 +9,7 @@ const PLAN_DATA = {
   "riesgos": "* Comunicación ineficaz del plan de auditorias \n* Incumplimiento de los objetivos del plan\n* Interferencia con las actividades de la empresa \n* Objetivo y alcance de auditoria inadecuados con las necesidades de la organización\n* Tiempo insuficiente para el desarrollo de la auditoria, afectando el alcance del objetivo de la auditoria",
   "valoracion": "ALTO",
   "controles": "* Se envian citaciones de auditorias a los lideres de procesos con anticipación (29/mayo/2026) \n* Acuerdo con la auditora a ejecutar el ejercicio del proposito de la auditoria y los tiempos estipulados para cada uno de los procesos.",
-  "auditores": "Jimena Zuluaga / Estefania Granda / Diana Arboleda / Luis Jaime Alvarez / Luis Arango  / Diego Beltrán / Juan Esteban Gómez / Albeiro Esteban / Erika Mesa / Iván Arias*",
+  "auditores": "Jimena Zuluaga / Estefanía Granda / Diana Arboleda / Luis Jaime Alvarez / Luis Arango  / Diego Beltrán / Juan Esteban Gómez / Albeiro Esteban / Erika Mesa / Iván Arias*",
   "observadores": "En algunos requisitos, diferentes a Seguridad estaría la consultora Gloria Díaz.",
   "cronograma": [
     {
@@ -219,7 +219,7 @@ const PLAN_DATA = {
   ],
   "auditores_lista": [
     "Jimena Zuluaga",
-    "Estefania Granda",
+    "Estefanía Granda",
     "Diana Arboleda",
     "Luis Jaime Alvarez",
     "Luis Arango",
@@ -300,9 +300,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 1.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS / LUIS ARANGO",
+      "responsable": "ESTEFANÍA GRANDA / SERGIO ARENAS / LUIS ARANGO",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "SERGIO ARENAS",
         "LUIS ARANGO"
       ],
@@ -320,9 +320,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 1.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA/ JUAN CARLOS RAMIREZ",
+      "responsable": "ESTEFANÍA GRANDA/ JUAN RAMIREZ",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "JUAN CARLOS RAMIREZ"
       ],
       "descripcion": "Tener un sistema de administración de riesgos enfocado en la cadena de suministro internacional, que prevea actividades ilícitas, entre otras lavado de activos, narcotráfico y financiación del terrorismo.",
@@ -339,9 +339,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 1.3",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Tener procedimientos documentados para establecer el nivel de riesgo de sus asociados de negocio.",
@@ -358,9 +358,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 1.4",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Demostrar mediante manifestación suscrita por sus asociados de negocio no autorizados como Operador Económico Autorizado en Colombia ni certificados por otro programa de seguridad administrado por una aduana extranjera, que cumplen requisitos mínimos de seguridad en la cadena de suministro internacional.",
@@ -377,9 +377,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 1.5",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Realizar y documentar una visita de vinculación y en adelante visitas bienales a las instalaciones donde sus asociados de negocio desarrollan sus operaciones, con el fin de verificar el cumplimiento requisitos, mínimos de seguridad en la cadena de suministro internacional.",
@@ -396,9 +396,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 1.6",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Exigir a sus proveedores un plan de contingencia de su actividad que garantice el desarrollo óptimo de las operaciones contratadas.",
@@ -529,9 +529,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 2.1",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener procedimientos documentados para la selección, evaluación y conocimiento de sus asociados de negocio que garanticen su confiabilidad.",
@@ -548,9 +548,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 2.2",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe identificar a sus asociados de negocio autorizados como Operador Económico Autorizado en Colombia o certificados por otro programa de seguridad administrado por una aduana extranjera.",
@@ -1004,9 +1004,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 5.7",
       "autoridad": "DIAN",
-      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsable": "ESTEFANÍA GRANDA / LORENA GIL",
       "responsables": [
-        "ESTEFANIA GRANDA",
+        "ESTEFANÍA GRANDA",
         "LORENA GIL"
       ],
       "descripcion": "Debe tener implementado un código de ética que contenga las reglas de comportamiento orientadas a asegurar la transparencia en el ejercicio de su actividad.",
@@ -1580,9 +1580,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 9.1",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de inducción y reinducción periódica, dirigido a todo el personal vinculado o a vincular y cuando aplique a los visitantes, que garantice el conocimiento de las medidas de seguridad de la empresa y las posibles amenazas y riesgos, así como las medidas implementadas para prevenir, reconocer y actuar frente a cualquier actividad delictiva.",
@@ -1599,9 +1599,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 9.2",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener desarrollados programas de capacitación especializada en seguridad para el personal vinculado en áreas críticas sobre prevención de lavado de activos y financiación del terrorismo, sellos, llenado del contenedor, envío, recibo, manejo y almacenamiento de carga; manejo del correo, y demás temas sensibles, según correspondan por área y por proceso.",
@@ -1618,9 +1618,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 9.3",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de concienciación y prevención del consumo de alcohol y drogas.",
@@ -1637,9 +1637,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 9.4",
       "autoridad": "DIAN",
-      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsable": "MILADY LÓPEZ / ISABEL ESCOBAR",
       "responsables": [
-        "MILADY LOPEZ",
+        "MILADY LÓPEZ",
         "ISABEL ESCOBAR"
       ],
       "descripcion": "Debe tener implementado un programa de entrenamiento para manejo de situaciones de pánico que sea acorde con las necesidades de las áreas críticas.",
@@ -1655,7 +1655,7 @@ const REQUISITOS_DATA = {
     "DAIRY MOSQUERA",
     "DIEGO BELTRÁN",
     "DIEGO MESA",
-    "ESTEFANIA GRANDA",
+    "ESTEFANÍA GRANDA",
     "ESTEFANÍA GRANDA",
     "ISABEL ESCOBAR",
     "IVAN ARIAS",
@@ -1666,7 +1666,6 @@ const REQUISITOS_DATA = {
     "LORENA GIL",
     "LUIS ARANGO",
     "MARIA RENGIFO",
-    "MILADY LOPEZ",
     "MILADY LÓPEZ",
     "SERGIO ARENAS"
   ],
