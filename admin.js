@@ -12,7 +12,7 @@ const Admin = {
   /* ===== USUARIOS ===== */
   renderUsuarios() {
     const data = Storage.getUsuarios();
-    const users = data.usuarios || [];
+    const users = Auth.getVisibleUsers(data.usuarios || []);
     const activos = users.filter(u => u.activo !== false).length;
 
     return `
@@ -20,7 +20,7 @@ const Admin = {
         <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Gestión de Usuarios</h2>
-            <p class="text-slate-500 mt-1">${users.length} usuarios registrados · ${activos} activos</p>
+            <p class="text-slate-500 mt-1">${users.length} usuarios · ${activos} activos · Trazabilidad de ingresos</p>
           </div>
           <div class="flex gap-2">
             <button onclick="Admin.exportData()" class="btn-secondary">Exportar datos</button>
@@ -33,8 +33,8 @@ const Admin = {
             <table class="admin-table">
               <thead>
                 <tr>
-                  <th>ID</th><th>Rol</th><th>Proceso</th><th>Nombre</th><th>Cargo</th>
-                  <th>Cédula</th><th>Correo</th><th>Estado</th><th>Acciones</th>
+                  <th>ID</th><th>Rol</th><th>Usuario</th><th>Nombre</th><th>Proceso</th>
+                  <th>Ingresos</th><th>Último acceso</th><th>Estado</th><th>Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -42,14 +42,15 @@ const Admin = {
                   <tr class="${u.activo === false ? 'opacity-50' : ''}">
                     <td>${u.id}</td>
                     <td><span class="tag ${u.rol === 'Administrador' ? 'tag-admin' : u.rol === 'Auditor Interno' ? 'tag-auditor' : 'tag-auditado'}">${this.esc(u.rol)}</span></td>
-                    <td class="text-xs max-w-[140px] truncate" title="${this.esc(u.proceso)}">${this.esc(u.proceso.split(' ').slice(0, 2).join(' '))}</td>
+                    <td class="font-mono text-xs">${this.esc(u.usuario || '—')}${u.password_temp ? ' <span class="text-amber-600" title="Contraseña temporal">⏳</span>' : ''}</td>
                     <td class="font-medium">${this.esc(u.nombres.split(' ')[0] + ' ' + u.apellidos.split(' ')[0])}</td>
-                    <td class="text-xs">${this.esc(u.cargo)}</td>
-                    <td>${this.esc(u.cedula)}</td>
-                    <td class="text-xs">${this.esc(u.correo)}</td>
+                    <td class="text-xs max-w-[120px] truncate" title="${this.esc(u.proceso)}">${this.esc(u.proceso.split(' ').slice(0, 2).join(' '))}</td>
+                    <td class="text-center font-semibold text-mint-700">${u.login_count || 0}</td>
+                    <td class="text-xs">${u.last_login ? this.esc(u.last_login.slice(0, 16).replace('T', ' ')) : '—'}</td>
                     <td>${u.activo === false ? '<span class="text-red-500">Inactivo</span>' : '<span class="text-mint-600">Activo</span>'}</td>
                     <td class="whitespace-nowrap">
                       <button onclick="Admin.showUserForm(${u.id})" class="text-mint-600 hover:underline text-sm mr-2">Editar</button>
+                      <button onclick="Admin.showResetPassword(${u.id})" class="text-navy-700 hover:underline text-sm mr-2">Contraseña</button>
                       <button onclick="Admin.toggleUser(${u.id})" class="text-amber-600 hover:underline text-sm mr-2">${u.activo === false ? 'Activar' : 'Inactivar'}</button>
                       ${u.id !== 0 ? `<button onclick="Admin.deleteUser(${u.id})" class="text-red-500 hover:underline text-sm">Eliminar</button>` : ''}
                     </td>
@@ -59,7 +60,7 @@ const Admin = {
             </table>
           </div>
         </div>
-        <p class="text-sm text-slate-500">Contraseña por defecto: últimos 4 dígitos de la cédula. Super Admin: 123456789 / 123456789</p>
+        <p class="text-sm text-slate-500">Contraseña inicial: últimos 4 dígitos de la cédula (primer ingreso obliga cambio). El administrador puede asignar usuario y contraseña temporal.</p>
       </div>
     `;
   },
@@ -67,6 +68,10 @@ const Admin = {
   showUserForm(id) {
     const data = Storage.getUsuarios();
     const user = id !== undefined ? data.usuarios.find(u => u.id === id) : null;
+    if (user && Auth.isHiddenUser(user)) {
+      App.showToast('No se puede modificar la cuenta de superadministrador');
+      return;
+    }
     const isNew = !user;
     const nextId = isNew ? Math.max(...data.usuarios.map(u => u.id), 0) + 1 : user.id;
 
@@ -104,6 +109,24 @@ const Admin = {
           <div class="sm:col-span-2"><label class="form-label">Correo</label>
             <input type="email" id="userCorreo" class="form-input" value="${this.esc(user?.correo || '')}" required>
           </div>
+          <div><label class="form-label">Nombre de usuario (login)</label>
+            <input type="text" id="userLogin" class="form-input" value="${this.esc(user?.usuario || '')}" required
+              placeholder="Ej: jzuluaga o correo">
+          </div>
+          ${isNew ? `
+          <div><label class="form-label">Contraseña temporal</label>
+            <div class="flex gap-2">
+              <input type="text" id="userTempPass" class="form-input flex-1" required minlength="6" placeholder="Mínimo 6 caracteres">
+              <button type="button" onclick="Admin.generateTempPass()" class="btn-secondary whitespace-nowrap">Generar</button>
+            </div>
+            <p class="text-xs text-slate-400 mt-1">El usuario deberá cambiarla en su primer ingreso.</p>
+          </div>
+          ` : `
+          <div class="sm:col-span-2 p-3 bg-slate-50 rounded-lg text-sm">
+            <p><strong>Ingresos:</strong> ${user?.login_count || 0} · <strong>Último acceso:</strong> ${user?.last_login ? this.esc(user.last_login.slice(0, 16).replace('T', ' ')) : 'Nunca'}</p>
+            ${user?.password_temp ? '<p class="text-amber-600 mt-1">⏳ Contraseña temporal activa — debe cambiarla al ingresar.</p>' : ''}
+          </div>
+          `}
         </div>
         <div class="flex justify-end gap-2 pt-4">
           <button type="button" onclick="App.closeModal()" class="btn-secondary">Cancelar</button>
@@ -119,7 +142,12 @@ const Admin = {
     App.openModal();
   },
 
-  saveUser(isNew) {
+  generateTempPass() {
+    const input = document.getElementById('userTempPass');
+    if (input) input.value = Security.generateTempPassword(8);
+  },
+
+  async saveUser(isNew) {
     const data = Storage.getUsuarios();
     const user = {
       id: parseInt(document.getElementById('userId').value),
@@ -130,27 +158,146 @@ const Admin = {
       cargo: document.getElementById('userCargo').value.trim(),
       cedula: document.getElementById('userCedula').value.trim(),
       correo: document.getElementById('userCorreo').value.trim().toLowerCase(),
-      activo: true
+      usuario: document.getElementById('userLogin').value.trim().toLowerCase(),
+      activo: true,
+      login_count: 0,
+      last_login: null,
+      password_temp: true,
+      must_change_password: true
     };
 
+    if (user.id === 0 || Auth.isHiddenUser(data.usuarios.find(u => u.id === user.id))) {
+      App.showToast('No se puede modificar la cuenta de superadministrador');
+      return;
+    }
+
+    if (Auth.isReservedLogin(user.usuario) || Auth.isReservedLogin(user.cedula)) {
+      App.showToast('El usuario o cédula «123456789» está reservado para el superadministrador del sistema');
+      return;
+    }
+
     if (isNew) {
+      const tempPass = document.getElementById('userTempPass')?.value;
+      if (!tempPass) {
+        App.showToast('Indique una contraseña temporal');
+        return;
+      }
+      user.password_hash = await Security.hashPassword(tempPass);
       data.usuarios.push(user);
+      Storage.saveUsuarios(data);
+      App.closeModal();
+      this.showTempPasswordResult(user.usuario, tempPass, 'Usuario creado');
+      return;
     } else {
       const idx = data.usuarios.findIndex(u => u.id === user.id);
       if (idx >= 0) {
-        user.activo = data.usuarios[idx].activo !== false;
+        const prev = data.usuarios[idx];
+        user.activo = prev.activo !== false;
+        user.password_hash = prev.password_hash;
+        user.password_temp = prev.password_temp;
+        user.must_change_password = prev.must_change_password;
+        user.login_count = prev.login_count || 0;
+        user.last_login = prev.last_login;
         data.usuarios[idx] = user;
+        data.usuarios.forEach(u => {
+          if (u.cedula === user.cedula && u.id !== user.id) {
+            u.usuario = user.usuario;
+          }
+        });
       }
+      Storage.saveUsuarios(data);
+      App.closeModal();
+      App.showToast('Usuario guardado correctamente');
+      App.navigate('usuarios');
+      return;
+    }
+  },
+
+  showResetPassword(id) {
+    const user = Auth.getUserById(id);
+    if (!user || Auth.isHiddenUser(user)) return;
+
+    document.getElementById('modalHeader').innerHTML = `
+      <h3 class="text-lg font-bold text-navy-900">Restablecer contraseña</h3>
+      <button onclick="App.closeModal()" class="p-2 hover:bg-slate-100 rounded-lg"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    `;
+
+    document.getElementById('modalBody').innerHTML = `
+      <p class="text-sm text-slate-600 mb-4">Usuario: <strong>${this.esc(user.usuario)}</strong> · ${this.esc(Auth.getFullName(user))}</p>
+      <form id="resetPassForm" class="space-y-4">
+        <input type="hidden" id="resetUserId" value="${id}">
+        <div><label class="form-label">Nuevo nombre de usuario (opcional)</label>
+          <input type="text" id="resetUsuario" class="form-input" value="${this.esc(user.usuario || '')}"></div>
+        <div><label class="form-label">Contraseña temporal</label>
+          <div class="flex gap-2">
+            <input type="text" id="resetTempPass" class="form-input flex-1" required minlength="6">
+            <button type="button" onclick="document.getElementById('resetTempPass').value=Security.generateTempPassword(8)" class="btn-secondary">Generar</button>
+          </div>
+        </div>
+        <p class="text-xs text-slate-500">Al ingresar con esta contraseña, el sistema solicitará cambiarla. Ingresos registrados: ${user.login_count || 0}</p>
+        <div class="flex justify-end gap-2">
+          <button type="button" onclick="App.closeModal()" class="btn-secondary">Cancelar</button>
+          <button type="submit" class="btn-primary">Restablecer</button>
+        </div>
+      </form>
+    `;
+
+    document.getElementById('resetPassForm').addEventListener('submit', async e => {
+      e.preventDefault();
+      await this.applyResetPassword();
+    });
+    App.openModal();
+  },
+
+  async applyResetPassword() {
+    const id = parseInt(document.getElementById('resetUserId').value);
+    const usuario = document.getElementById('resetUsuario').value.trim();
+    const tempPass = document.getElementById('resetTempPass').value;
+
+    const user = Auth.getUserById(id);
+    if (usuario && usuario !== user.usuario) {
+      const data = Storage.getUsuarios();
+      data.usuarios.forEach(u => {
+        if (u.cedula === user.cedula) u.usuario = usuario.toLowerCase();
+      });
+      Storage.saveUsuarios(data);
     }
 
-    Storage.saveUsuarios(data);
+    const result = await Auth.adminResetPassword(id, tempPass);
+    if (!result.ok) {
+      App.showToast(result.error);
+      return;
+    }
+
     App.closeModal();
-    App.showToast('Usuario guardado correctamente');
+    this.showTempPasswordResult(usuario || user.usuario, tempPass, 'Contraseña restablecida');
+  },
+
+  showTempPasswordResult(usuario, tempPass, title) {
+    document.getElementById('modalHeader').innerHTML = `
+      <h3 class="text-lg font-bold text-navy-900">${this.esc(title)}</h3>
+      <button onclick="App.closeModal()" class="p-2 hover:bg-slate-100 rounded-lg"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    `;
+    document.getElementById('modalBody').innerHTML = `
+      <div class="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-3">
+        <p class="text-sm text-slate-700">Comunique al usuario las siguientes credenciales temporales:</p>
+        <div class="font-mono text-sm bg-white p-3 rounded-lg border">
+          <p><strong>Usuario:</strong> ${this.esc(usuario)}</p>
+          <p class="mt-2"><strong>Contraseña temporal:</strong> ${this.esc(tempPass)}</p>
+        </div>
+        <p class="text-xs text-amber-700">El usuario deberá cambiar la contraseña en su próximo ingreso.</p>
+      </div>
+    `;
+    App.openModal();
     App.navigate('usuarios');
   },
 
   toggleUser(id) {
-    if (id === 0) { App.showToast('No se puede inactivar al Super Administrador'); return; }
+    const target = Auth.getUserById(id);
+    if (target && Auth.isHiddenUser(target)) {
+      App.showToast('No se puede modificar la cuenta de sistema');
+      return;
+    }
     const data = Storage.getUsuarios();
     const user = data.usuarios.find(u => u.id === id);
     if (user) {
@@ -162,7 +309,8 @@ const Admin = {
   },
 
   deleteUser(id) {
-    if (id === 0) return;
+    const target = Auth.getUserById(id);
+    if (!target || Auth.isHiddenUser(target)) return;
     if (!confirm('¿Eliminar este usuario permanentemente?')) return;
     const data = Storage.getUsuarios();
     data.usuarios = data.usuarios.filter(u => u.id !== id);
