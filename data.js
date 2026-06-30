@@ -1921,17 +1921,25 @@ const REQUISITOS_DATA = {
 };
 
 const USUARIOS_DATA = {
-  "version": "1",
+  "version": "2",
   "usuarios": [
     {
       "id": 0,
       "rol": "Administrador",
-      "proceso": "Administración",
+      "proceso": "Administración del Sistema",
       "nombres": "Super",
       "apellidos": "Administrador",
-      "cargo": "Administrador",
+      "cargo": "Superadministrador",
       "cedula": "123456789",
-      "correo": "123456789",
+      "correo": "123456789@sistema.local",
+      "usuario": "123456789",
+      "password_hash": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+      "password_temp": false,
+      "must_change_password": false,
+      "login_count": 0,
+      "last_login": null,
+      "sistema": true,
+      "oculto": true,
       "activo": true
     },
     {
