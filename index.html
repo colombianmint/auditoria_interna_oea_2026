@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,62 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var p = JSON.parse(localStorage.getItem('oea_preferences') || '{}');
+        if (p.theme) document.documentElement.setAttribute('data-theme', p.theme);
+        if (p.fontSize) document.documentElement.setAttribute('data-font-size', p.fontSize);
+      } catch (e) { }
+    })();
+  </script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            mint: { 50:'#f0fdf6', 100:'#dcfce9', 200:'#bbf7d4', 300:'#86efad', 400:'#4ade80', 500:'#22c55e', 600:'#16a34a', 700:'#15803d', 800:'#166534', 900:'#14532d', 950:'#052e16' },
-            gold: { 400:'#fbbf24', 500:'#f59e0b', 600:'#d97706' },
-            navy: { 700:'#1e3a5f', 800:'#172e4a', 900:'#0f1f33', 950:'#0a1520' }
+            mint: { 50: '#f0fdf6', 100: '#dcfce9', 200: '#bbf7d4', 300: '#86efad', 400: '#4ade80', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d', 950: '#052e16' },
+            gold: { 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+            navy: { 700: '#1e3a5f', 800: '#172e4a', 900: '#0f1f33', 950: '#0a1520' }
           },
-          fontFamily: { sans:['Inter','system-ui','sans-serif'], display:['Playfair Display','serif'] }
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Playfair Display', 'serif'] }
         }
       }
     }
   </script>
 </head>
+
 <body class="bg-slate-50 text-slate-900 text-base leading-relaxed font-sans antialiased">
 
   <!-- Login Screen -->
   <div id="loginScreen" class="login-screen">
     <div class="login-bg"></div>
+    <div class="login-prefs fixed top-4 right-4 z-50 flex items-center gap-1">
+      <button type="button" id="loginThemeToggle" class="pref-btn-login" title="Cambiar tema" aria-label="Tema">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+      </button>
+      <div class="font-size-group-login flex rounded-lg overflow-hidden border border-white/30">
+        <button type="button" data-font-size="sm" class="pref-btn-login pref-font-login"
+          title="Texto pequeño">−</button>
+        <button type="button" data-font-size="md" class="pref-btn-login pref-font-login active"
+          title="Texto mediano">|</button>
+        <button type="button" data-font-size="lg" class="pref-btn-login pref-font-login" title="Texto grande">+</button>
+      </div>
+    </div>
     <div class="login-card">
       <div class="text-center mb-8">
-        <div class="w-20 h-20 mx-auto rounded-2xl bg-white flex items-center justify-center shadow-lg overflow-hidden mb-4">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigu_vafcG5saLG0r13cHA0Y9geRGVEjPESWbHTVt9fegBAIB6QsTVDelYSmoTSb69y912nYTf3ckJC6FeS1OcEyvDA_u3rJUlc3T02BzfssvNRrrLOESObIVaeI0SE3yW7GM4J2VqmB9zrDf6xsc3UyIESHks1sJ8OkxxgBxHinI48TTYsTLHSffvDWA/w200-h178/Logo-versi%C3%B3n-final-2022.png" alt="Colombian Mint" class="w-full h-full object-contain">
+        <div
+          class="w-20 h-20 mx-auto rounded-2xl bg-white flex items-center justify-center shadow-lg overflow-hidden mb-4">
+          <img
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigu_vafcG5saLG0r13cHA0Y9geRGVEjPESWbHTVt9fegBAIB6QsTVDelYSmoTSb69y912nYTf3ckJC6FeS1OcEyvDA_u3rJUlc3T02BzfssvNRrrLOESObIVaeI0SE3yW7GM4J2VqmB9zrDf6xsc3UyIESHks1sJ8OkxxgBxHinI48TTYsTLHSffvDWA/w200-h178/Logo-versi%C3%B3n-final-2022.png"
+            alt="Colombian Mint" class="w-full h-full object-contain">
         </div>
         <h1 class="font-display text-2xl font-bold text-navy-900">Auditoría Interna OEA 2026</h1>
         <p class="text-slate-500 mt-1">C.I. Colombian Mint S.A.S. · Acceso restringido</p>
@@ -40,12 +71,14 @@
 
       <form id="loginForm" class="space-y-4">
         <div>
-          <label class="form-label">Usuario (correo o cédula)</label>
-          <input type="text" id="loginUser" class="form-input" placeholder="correo@empresa.com o cédula" required autocomplete="username">
+          <label class="form-label">Usuario</label>
+          <input type="text" id="loginUser" class="form-input" placeholder="Ingrese usuario asignado" required
+            autocomplete="username">
         </div>
         <div>
           <label class="form-label">Contraseña</label>
-          <input type="password" id="loginPass" class="form-input" placeholder="Últimos 4 dígitos de cédula" required autocomplete="current-password">
+          <input type="password" id="loginPass" class="form-input" placeholder="Ingrese contraseña asignada" required
+            autocomplete="current-password">
         </div>
         <p id="loginError" class="text-red-500 text-sm hidden"></p>
         <button type="submit" class="btn-primary w-full py-3">Ingresar</button>
@@ -57,6 +90,43 @@
       </div>
 
       <p class="text-xs text-slate-400 text-center mt-6">Res. 000015/2016 · OEA Exportador · Revalidado 2025</p>
+      <p class="text-xs text-slate-400 text-center mt-2"><span class="iso-badge inline-flex">ISO 9001:2015</span> ·
+        Acceso trazable</p>
+    </div>
+  </div>
+
+  <!-- Cambio de contraseña obligatorio -->
+  <div id="changePasswordScreen" class="login-screen hidden">
+    <div class="login-bg"></div>
+    <div class="login-card">
+      <div class="text-center mb-6">
+        <h2 class="text-xl font-bold text-navy-900">Cambio de contraseña requerido</h2>
+        <p id="changePassMessage" class="text-sm text-slate-500 mt-2">Por seguridad debe establecer una contraseña
+          personal antes de continuar.</p>
+      </div>
+      <form id="changePasswordForm" class="space-y-4">
+        <div id="currentPassGroup">
+          <label class="form-label">Contraseña actual</label>
+          <input type="password" id="changeCurrentPass" class="form-input" autocomplete="current-password">
+        </div>
+        <div>
+          <label class="form-label">Nueva contraseña</label>
+          <input type="password" id="changeNewPass" class="form-input" required minlength="6"
+            autocomplete="new-password">
+          <p id="changePassStrength" class="text-xs text-slate-400 mt-1">Mínimo 6 caracteres. Use letras y números para
+            mayor seguridad.</p>
+        </div>
+        <div>
+          <label class="form-label">Confirmar nueva contraseña</label>
+          <input type="password" id="changeConfirmPass" class="form-input" required minlength="6"
+            autocomplete="new-password">
+        </div>
+        <p id="changePassError" class="text-red-500 text-sm hidden"></p>
+        <div class="flex gap-2">
+          <button type="button" id="changePassCancelBtn" class="btn-secondary flex-1 py-3 hidden">Cancelar</button>
+          <button type="submit" id="changePassSubmitBtn" class="btn-primary flex-1 py-3">Guardar y continuar</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -66,22 +136,74 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-white flex items-center justify-center shadow-lg overflow-hidden">
-              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigu_vafcG5saLG0r13cHA0Y9geRGVEjPESWbHTVt9fegBAIB6QsTVDelYSmoTSb69y912nYTf3ckJC6FeS1OcEyvDA_u3rJUlc3T02BzfssvNRrrLOESObIVaeI0SE3yW7GM4J2VqmB9zrDf6xsc3UyIESHks1sJ8OkxxgBxHinI48TTYsTLHSffvDWA/w200-h178/Logo-versi%C3%B3n-final-2022.png" alt="Logo" class="w-full h-full object-contain">
+            <div
+              class="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-white flex items-center justify-center shadow-lg overflow-hidden">
+              <img
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigu_vafcG5saLG0r13cHA0Y9geRGVEjPESWbHTVt9fegBAIB6QsTVDelYSmoTSb69y912nYTf3ckJC6FeS1OcEyvDA_u3rJUlc3T02BzfssvNRrrLOESObIVaeI0SE3yW7GM4J2VqmB9zrDf6xsc3UyIESHks1sJ8OkxxgBxHinI48TTYsTLHSffvDWA/w200-h178/Logo-versi%C3%B3n-final-2022.png"
+                alt="Logo" class="w-full h-full object-contain">
             </div>
             <div>
               <h1 class="font-display text-lg lg:text-2xl font-bold tracking-tight">Colombian Mint</h1>
               <p class="text-sm lg:text-base text-mint-200">Auditoría Interna OEA 2026</p>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <div id="userInfo" class="hidden md:block text-right text-sm">
-              <p class="font-medium" id="userName"></p>
-              <p class="text-mint-200 text-xs" id="userRole"></p>
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="display-prefs flex items-center gap-1 mr-1">
+              <button id="themeToggle" type="button" class="pref-btn" title="Modo oscuro (luna)"
+                aria-label="Cambiar tema">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              </button>
+              <div class="font-size-group flex items-center rounded-lg overflow-hidden border border-white/20">
+                <button type="button" data-font-size="sm" class="pref-btn pref-font" title="Texto pequeño">−</button>
+                <button type="button" data-font-size="md" class="pref-btn pref-font active"
+                  title="Texto mediano">|</button>
+                <button type="button" data-font-size="lg" class="pref-btn pref-font" title="Texto grande">+</button>
+              </div>
             </div>
-            <button id="logoutBtn" class="px-3 py-1.5 text-sm bg-white/10 hover:bg-white/20 rounded-lg transition">Salir</button>
+            <div class="relative" id="userMenuWrapper">
+              <button id="userMenuBtn" type="button"
+                class="flex items-center gap-2 px-2 sm:px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 transition text-left max-w-[220px] lg:max-w-xs">
+                <div
+                  class="w-9 h-9 rounded-lg bg-mint-500/30 flex items-center justify-center font-bold text-sm flex-shrink-0"
+                  id="userAvatar">U</div>
+                <div class="hidden sm:block min-w-0 flex-1">
+                  <p class="font-medium text-sm truncate" id="userName"></p>
+                  <p class="text-mint-200 text-xs truncate" id="userRole"></p>
+                </div>
+                <svg class="w-4 h-4 text-mint-200 hidden sm:block flex-shrink-0" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div id="userMenuDropdown" class="user-menu-dropdown hidden">
+                <div class="px-4 py-3 border-b border-slate-100">
+                  <p class="font-semibold text-navy-900 text-sm" id="menuUserName"></p>
+                  <p class="text-xs text-slate-500 mt-0.5" id="menuUserCargo"></p>
+                  <span class="tag tag-auditor mt-2" id="menuUserRol"></span>
+                </div>
+                <button type="button" id="changePasswordBtn" class="user-menu-item">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121.75 9" />
+                  </svg>
+                  Cambiar mi contraseña
+                </button>
+                <button type="button" id="logoutBtn" class="user-menu-item text-red-600">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                  Cerrar sesión
+                </button>
+              </div>
+            </div>
             <button id="menuToggle" class="lg:hidden p-2 rounded-lg hover:bg-white/10 transition" aria-label="Menú">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
           </div>
         </div>
@@ -89,44 +211,62 @@
     </header>
 
     <div class="flex min-h-[calc(100vh-4rem)]">
-      <nav id="sidebar" class="sidebar w-64 bg-white border-r border-slate-200 fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 pt-16 lg:pt-0">
-        <div id="sidebarNav" class="p-4 space-y-1"></div>
-        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-slate-100">
-          <p class="text-sm text-slate-700 text-center">Res. 000015/2016 · Art. 4º</p>
-          <p class="text-sm text-slate-700 text-center mt-1">GMC-FR07 v2 · Fase 2</p>
+      <nav id="sidebar"
+        class="sidebar w-64 bg-white border-r border-slate-200 fixed lg:static inset-y-0 left-0 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 pt-16 lg:pt-0 flex flex-col">
+        <div id="sidebarUserCard" class="p-4 border-b border-slate-100 hidden lg:block"></div>
+        <div id="sidebarNav" class="p-4 space-y-1 flex-1 overflow-y-auto"></div>
+        <div class="p-4 border-t border-slate-100 mt-auto">
+          <p class="text-xs text-slate-500 text-center font-medium">SGC · ISO 9001:2015</p>
+          <p class="text-sm text-slate-700 text-center mt-1">Res. 000015/2016 · Art. 4º</p>
+          <p class="text-xs text-slate-500 text-center mt-1">GMC-FR07 v2 · GMC-FR08</p>
         </div>
       </nav>
 
       <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 z-30 hidden lg:hidden"></div>
 
-      <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden">
-        <div id="appContent"></div>
+      <main class="flex-1 p-4 sm:p-6 lg:p-8 overflow-x-hidden flex flex-col min-w-0">
+        <div id="userIdentityBar"></div>
+        <div id="appContent" class="flex-1"></div>
+        <footer id="appFooter"
+          class="mt-8 pt-4 border-t border-slate-200 text-xs text-slate-500 flex flex-col sm:flex-row sm:justify-between gap-2">
+        </footer>
       </main>
     </div>
   </div>
 
   <div id="modal" class="fixed inset-0 z-50 hidden">
     <div class="modal-backdrop absolute inset-0 bg-navy-900/60 backdrop-blur-sm" onclick="App.closeModal()"></div>
-    <div class="modal-container absolute inset-4 sm:inset-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-3xl sm:max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
-      <div id="modalHeader" class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-mint-50 to-white"></div>
+    <div
+      class="modal-container absolute inset-4 sm:inset-auto sm:top-1/2 sm:left-1/2 sm:-translate-x-1/2 sm:-translate-y-1/2 sm:w-full sm:max-w-3xl sm:max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+      <div id="modalHeader"
+        class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-mint-50 to-white">
+      </div>
       <div id="modalBody" class="px-6 py-5 overflow-y-auto flex-1"></div>
       <div class="px-6 py-4 border-t border-slate-100 flex justify-end">
-        <button onclick="App.closeModal()" class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 rounded-xl font-medium transition">Cerrar</button>
+        <button onclick="App.closeModal()"
+          class="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 rounded-xl font-medium transition">Cerrar</button>
       </div>
     </div>
   </div>
 
   <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300">
     <div class="bg-navy-900 text-white px-5 py-3 rounded-xl shadow-lg flex items-center gap-3">
-      <svg class="w-5 h-5 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      <svg class="w-5 h-5 text-mint-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
       <span id="toastMsg"></span>
     </div>
   </div>
 
   <script src="data.js"></script>
+  <script src="hallazgos-data.js"></script>
   <script src="storage.js"></script>
+  <script src="security.js"></script>
+  <script src="preferences.js"></script>
   <script src="auth.js"></script>
+  <script src="hallazgos.js"></script>
   <script src="admin.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
