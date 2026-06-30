@@ -1,25 +1,153 @@
 /**
  * Auditoría Interna OEA 2026 - C.I. Colombian Mint
- * Single Page Application
+ * Single Page Application - Fase 2 (Auth + Admin + Preguntas + Listados)
  */
 const App = {
   currentView: 'dashboard',
   plan: null,
   requisitos: null,
+  preguntas: null,
+  listados: null,
+  pendingAccounts: null,
+  eventsBound: false,
 
   init() {
-    this.plan = PLAN_DATA;
-    this.requisitos = REQUISITOS_DATA;
+    this.plan = Storage.getPlan();
+    this.requisitos = Storage.getRequisitos();
+    this.preguntas = Storage.getPreguntas();
+    this.listados = Storage.getListados();
+    this.bindLoginEvents();
+
+    if (Auth.init()) {
+      this.showApp();
+    } else {
+      this.showLogin();
+    }
+  },
+
+  showLogin() {
+    document.getElementById('loginScreen').classList.remove('hidden');
+    document.getElementById('appShell').classList.add('hidden');
+  },
+
+  showApp() {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('appShell').classList.remove('hidden');
+    this.updateUserHeader();
+    this.renderSidebar();
     this.bindEvents();
     this.navigate('dashboard');
   },
 
-  bindEvents() {
-    document.querySelectorAll('.nav-item').forEach(btn => {
+  bindLoginEvents() {
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      this.handleLogin();
+    });
+    document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
+  },
+
+  handleLogin() {
+    const user = document.getElementById('loginUser').value;
+    const pass = document.getElementById('loginPass').value;
+    const errEl = document.getElementById('loginError');
+    errEl.classList.add('hidden');
+
+    const result = Auth.login(user, pass);
+    if (!result.ok) {
+      errEl.textContent = result.error;
+      errEl.classList.remove('hidden');
+      return;
+    }
+
+    if (result.needsRoleSelection) {
+      this.pendingAccounts = result.accounts;
+      this.showRoleSelection(result.accounts);
+      return;
+    }
+
+    this.showApp();
+  },
+
+  showRoleSelection(accounts) {
+    document.getElementById('roleSelection').classList.remove('hidden');
+    const container = document.getElementById('roleOptions');
+    container.innerHTML = accounts.map(a => `
+      <button type="button" class="role-option-btn" data-user-id="${a.id}">
+        <span class="font-semibold text-navy-900">${this.esc(a.rol)}</span>
+        <span class="block text-sm text-slate-500 mt-0.5">${this.esc(a.proceso)}</span>
+      </button>
+    `).join('');
+
+    container.querySelectorAll('.role-option-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        const result = Auth.selectRole(parseInt(btn.dataset.userId));
+        if (result.ok) {
+          document.getElementById('roleSelection').classList.add('hidden');
+          this.showApp();
+        }
+      });
+    });
+  },
+
+  handleLogout() {
+    Auth.logout();
+    document.getElementById('loginUser').value = '';
+    document.getElementById('loginPass').value = '';
+    document.getElementById('roleSelection').classList.add('hidden');
+    this.showLogin();
+  },
+
+  updateUserHeader() {
+    const user = Auth.getUser();
+    if (!user) return;
+    document.getElementById('userName').textContent = Auth.getFullName(user);
+    document.getElementById('userRole').textContent = `${user.rol} · ${user.proceso.split(' ').slice(0, 3).join(' ')}`;
+  },
+
+  renderSidebar() {
+    const nav = document.getElementById('sidebarNav');
+    const items = Auth.getVisibleNavItems();
+    const icons = {
+      dashboard: 'M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z',
+      plan: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+      requisitos: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+      responsable: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z',
+      capitulos: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+      preguntas: 'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      listados: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+      usuarios: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
+      'admin-plan': 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+      'admin-requisitos': 'M4 6h16M4 10h16M4 14h16M4 18h16'
+    };
+
+    let html = '';
+    let lastSection = 'main';
+    items.forEach(item => {
+      const isAdmin = ['usuarios', 'admin-plan', 'admin-requisitos'].includes(item.view);
+      if (isAdmin && lastSection !== 'admin') {
+        html += '<div class="nav-divider"></div><p class="nav-section-label">Administración</p>';
+        lastSection = 'admin';
+      }
+      html += `
+        <button data-view="${item.view}" class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${icons[item.view] || icons.dashboard}"/></svg>
+          <span class="font-medium">${item.label}</span>
+        </button>`;
+    });
+    nav.innerHTML = html;
+  },
+
+  bindEvents() {
+    if (this.eventsBound) return;
+    this.eventsBound = true;
+
+    document.getElementById('sidebarNav').addEventListener('click', e => {
+      const btn = e.target.closest('.nav-item');
+      if (btn?.dataset.view) {
         this.navigate(btn.dataset.view);
         this.closeSidebar();
-      });
+      }
     });
 
     document.getElementById('menuToggle').addEventListener('click', () => this.toggleSidebar());
@@ -41,6 +169,11 @@ const App = {
   },
 
   navigate(view) {
+    if (!Auth.canAccessView(view)) {
+      this.showToast('No tiene permisos para acceder a esta sección');
+      return;
+    }
+
     this.currentView = view;
     document.querySelectorAll('.nav-item').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.view === view);
@@ -51,7 +184,12 @@ const App = {
       plan: () => this.renderPlan(),
       requisitos: () => this.renderRequisitos(),
       responsable: () => this.renderPorResponsable(),
-      capitulos: () => this.renderCapitulos()
+      capitulos: () => this.renderCapitulos(),
+      preguntas: () => this.renderPreguntas(),
+      listados: () => this.renderListados(),
+      usuarios: () => Admin.renderUsuarios(),
+      'admin-plan': () => Admin.renderAdminPlan(),
+      'admin-requisitos': () => Admin.renderAdminRequisitos()
     };
 
     const content = document.getElementById('appContent');
@@ -63,6 +201,13 @@ const App = {
   },
 
   bindViewEvents(view) {
+    if (view === 'admin-requisitos') Admin.bindAdminRequisitosEvents();
+
+    if (view === 'preguntas') {
+      const select = document.getElementById('filtroSesionPreguntas');
+      if (select) select.addEventListener('change', () => this.filterPreguntas(select.value));
+    }
+
     if (view === 'responsable') {
       const select = document.getElementById('filtroResponsable');
       if (select) {
@@ -399,7 +544,7 @@ const App = {
         </div>
 
         <div id="requisitosList" class="grid gap-4">
-          ${this.renderRequisitosList(this.requisitos.requisitos)}
+          ${this.renderRequisitosList(this.getFilteredRequisitos())}
         </div>
       </div>
     `;
@@ -435,14 +580,14 @@ const App = {
     const list = document.getElementById('requisitosList');
     if (!list) return;
 
-    const filtered = q ? this.requisitos.requisitos.filter(r =>
+    const filtered = q ? this.getFilteredRequisitos().filter(r =>
       r.numero.toLowerCase().includes(q) ||
       r.descripcion.toLowerCase().includes(q) ||
       r.responsable.toLowerCase().includes(q) ||
       r.evidencia_interna.toLowerCase().includes(q) ||
       r.evidencia_oea.toLowerCase().includes(q) ||
       r.capitulo_nombre.toLowerCase().includes(q)
-    ) : this.requisitos.requisitos;
+    ) : this.getFilteredRequisitos();
 
     list.innerHTML = this.renderRequisitosList(filtered);
     list.querySelectorAll('[data-req-id]').forEach(el => {
@@ -459,7 +604,11 @@ const App = {
 
   /* ===== POR RESPONSABLE ===== */
   renderPorResponsable() {
-    const options = this.requisitos.responsables.map(r =>
+    let responsables = this.requisitos.responsables;
+    if (Auth.isAuditado()) {
+      responsables = [Auth.getShortName()];
+    }
+    const options = responsables.map(r =>
       `<option value="${this.esc(r)}">${this.esc(this.formatName(r))}</option>`
     ).join('');
 
@@ -686,6 +835,21 @@ const App = {
       body += `<div class="detail-section"><h4>📝 Plan de Acción</h4><div class="content">${this.esc(req.plan_accion)}</div></div>`;
     }
 
+    if (req.info_dian) {
+      body += `<div class="detail-section"><h4>🏛️ Revalidación DIAN 2025</h4><div class="content">${this.esc(req.info_dian)}</div></div>`;
+    }
+
+    if (Auth.isAuditor() || Auth.isAdmin()) {
+      const pq = this.preguntas?.requisitos?.find(p => p.requisito_id === req.id);
+      if (pq?.preguntas?.length) {
+        body += `<div class="detail-section"><h4>❓ Banco de Preguntas (${pq.preguntas.length})</h4><div class="content">`;
+        pq.preguntas.forEach(p => {
+          body += `<div class="pregunta-item"><span class="num">${p.id}.</span>${this.esc(p.texto)}${p.fuente ? ` <span class="tag tag-proceso text-xs">${this.esc(p.fuente)}</span>` : ''}</div>`;
+        });
+        body += `</div></div>`;
+      }
+    }
+
     document.getElementById('modalBody').innerHTML = body;
     this.openModal();
   },
@@ -707,6 +871,153 @@ const App = {
     document.getElementById('toastMsg').textContent = msg;
     toast.classList.remove('translate-y-20', 'opacity-0');
     setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
+  },
+
+  getFilteredRequisitos() {
+    let reqs = this.requisitos.requisitos;
+    if (Auth.isAuditado()) {
+      const shortName = Auth.getShortName();
+      reqs = reqs.filter(r =>
+        r.responsables.some(resp => resp === shortName || resp.includes(shortName.split(' ')[0]))
+      );
+    }
+    return reqs;
+  },
+
+  getMyAuditSessions() {
+    if (!Auth.isAuditor()) return this.plan.cronograma.filter(c => c.tipo === 'auditoria');
+    const auditorName = Auth.getShortName().split(' ')[0];
+    return this.plan.cronograma.filter(c =>
+      c.tipo === 'auditoria' && c.auditor && c.auditor.toUpperCase().includes(auditorName)
+    );
+  },
+
+  /* ===== BANCO DE PREGUNTAS (Auditor Interno) ===== */
+  renderPreguntas() {
+    const sesiones = this.listados?.sesiones || [];
+    const mySessions = Auth.isAdmin() ? sesiones : sesiones.filter(s => {
+      const auditorName = Auth.getShortName().split(' ')[0];
+      return s.auditor && s.auditor.toUpperCase().includes(auditorName);
+    });
+
+    const options = mySessions.map(s =>
+      `<option value="${s.id}">Sesión ${s.id} · ${this.esc(s.fecha)} · ${this.esc(s.proceso)}</option>`
+    ).join('');
+
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Banco de Preguntas</h2>
+          <p class="text-slate-500 mt-1">10 preguntas por requisito · Uso exclusivo Auditor Interno · ${this.preguntas?.requisitos?.length || 0} requisitos</p>
+        </div>
+
+        <div class="max-w-xl">
+          <label class="form-label">Filtrar por sesión de auditoría</label>
+          <select id="filtroSesionPreguntas" class="select-input">
+            <option value="">— Todas mis sesiones —</option>
+            ${options}
+          </select>
+        </div>
+
+        <div id="preguntasList">
+          ${this.renderPreguntasList(mySessions.length ? mySessions[0].requisitos_ids : null)}
+        </div>
+      </div>
+    `;
+  },
+
+  renderPreguntasList(requisitoIds) {
+    let items = this.preguntas?.requisitos || [];
+    if (requisitoIds?.length) {
+      items = items.filter(p => requisitoIds.includes(p.requisito_id));
+    } else if (Auth.isAuditor()) {
+      const mySessions = this.getMyAuditSessions();
+      const allIds = [...new Set(mySessions.flatMap(s => {
+        const ses = this.listados?.sesiones?.find(x => x.proceso === s.proceso.split('\n')[0] || x.fecha === s.fecha);
+        return ses?.requisitos_ids || [];
+      }))];
+      if (allIds.length) items = items.filter(p => allIds.includes(p.requisito_id));
+    }
+
+    if (!items.length) {
+      return '<div class="text-center py-12 text-slate-400">No hay preguntas asignadas para su sesión.</div>';
+    }
+
+    return items.map(p => `
+      <div class="info-card mb-4">
+        <div class="info-card-header flex items-center gap-2">
+          <span class="req-number">${this.esc(p.numero)}</span>
+          <span class="text-xs text-slate-400">Cap. ${p.capitulo_num} · ${this.esc(p.capitulo_nombre)}</span>
+        </div>
+        <div class="info-card-body">
+          <p class="text-sm text-slate-700 mb-4">${this.esc(p.descripcion)}</p>
+          ${p.preguntas.map(q => `
+            <div class="pregunta-item">
+              <span class="num">${q.id}.</span>${this.esc(q.texto)}
+              ${q.fuente ? `<span class="tag tag-proceso ml-2 text-xs">${this.esc(q.fuente)}</span>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  },
+
+  filterPreguntas(sesionId) {
+    const list = document.getElementById('preguntasList');
+    if (!list) return;
+    if (!sesionId) {
+      list.innerHTML = this.renderPreguntasList(null);
+      return;
+    }
+    const sesion = this.listados?.sesiones?.find(s => s.id === parseInt(sesionId));
+    list.innerHTML = this.renderPreguntasList(sesion?.requisitos_ids || []);
+  },
+
+  /* ===== LISTADOS DE VERIFICACIÓN ===== */
+  renderListados() {
+    let sesiones = this.listados?.sesiones || [];
+    if (Auth.isAuditor()) {
+      const auditorName = Auth.getShortName().split(' ')[0];
+      sesiones = sesiones.filter(s => s.auditor && s.auditor.toUpperCase().includes(auditorName));
+    }
+
+    return `
+      <div class="space-y-6">
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-navy-900">Listados de Verificación</h2>
+          <p class="text-slate-500 mt-1">GMC-FR08 · ${sesiones.length} sesiones · Descargue y gestione durante la auditoría</p>
+        </div>
+
+        <div class="grid gap-4">
+          ${sesiones.map(s => `
+            <div class="listado-card">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="req-number">Sesión ${s.id}</span>
+                    <span class="text-xs text-slate-400">${this.esc(s.fecha)} · ${this.esc(s.hora)}</span>
+                  </div>
+                  <h3 class="font-bold text-navy-900">${this.esc(s.proceso)}</h3>
+                  <p class="text-sm text-slate-500 mt-1">
+                    Auditor: ${this.esc(s.auditor)} · Auditados: ${this.esc(s.auditados)}
+                  </p>
+                  <p class="text-xs text-mint-600 mt-1">${s.requisitos_numeros?.length || 0} requisitos · ${s.total_preguntas || 0} preguntas</p>
+                </div>
+                <a href="listados/${this.esc(s.archivo)}" download class="btn-primary whitespace-nowrap">
+                  Descargar Excel
+                </a>
+              </div>
+              ${s.requisitos_numeros?.length ? `
+                <div class="mt-3 flex flex-wrap gap-1">
+                  ${s.requisitos_numeros.slice(0, 8).map(n => `<span class="tag tag-proceso">${this.esc(n)}</span>`).join('')}
+                  ${s.requisitos_numeros.length > 8 ? `<span class="tag text-slate-400">+${s.requisitos_numeros.length - 8}</span>` : ''}
+                </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
   }
 };
 
