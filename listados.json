@@ -1,0 +1,299 @@
+{
+  "version": "2",
+  "sesiones": [
+    {
+      "id": 1,
+      "archivo": "GMC-FR08_Sesion_01.xlsx",
+      "fecha": "2026-07-06",
+      "hora": "8:00am - 10:00pm",
+      "proceso": "SRF SEGURIDAD",
+      "proceso_completo": "SRF SEGURIDAD \n\n1. Análisis y Administración del Riesgo \n(2 Requisitos) \n\n3. Seguridad del Contenedor y Demás Unidades de Carga\n(10 Requisitos)",
+      "auditor": "Estefanía Granda",
+      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "observadores": "N.A.",
+      "requisitos_ids": [
+        "cap1-11",
+        "cap1-12",
+        "cap3-1",
+        "cap3-2",
+        "cap3-3",
+        "cap3-4",
+        "cap3-5",
+        "cap3-6",
+        "cap3-7",
+        "cap3-8",
+        "cap3-9"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.11",
+        "OEA 1.12",
+        "OEA 3.1",
+        "OEA 3.2",
+        "OEA 3.3",
+        "OEA 3.4",
+        "OEA 3.5",
+        "OEA 3.6",
+        "OEA 3.7",
+        "OEA 3.8",
+        "OEA 3.9"
+      ],
+      "total_preguntas": 110
+    },
+    {
+      "id": 2,
+      "archivo": "GMC-FR08_Sesion_02.xlsx",
+      "fecha": "2026-07-06",
+      "hora": "10:00am - 12:00pm",
+      "proceso": "SRF SEGURIDAD",
+      "proceso_completo": "SRF SEGURIDAD \n\n4. Controles de Acceso Físico\n(7 Requisitos)",
+      "auditor": "Estefanía Granda",
+      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "observadores": "N.A.",
+      "requisitos_ids": [
+        "cap4-1",
+        "cap4-2",
+        "cap4-3",
+        "cap4-4",
+        "cap4-5",
+        "cap4-6",
+        "cap4-7"
+      ],
+      "requisitos_numeros": [
+        "OEA 4.1",
+        "OEA 4.2",
+        "OEA 4.3",
+        "OEA 4.4",
+        "OEA 4.5",
+        "OEA 4.6",
+        "OEA 4.7"
+      ],
+      "total_preguntas": 70
+    },
+    {
+      "id": 3,
+      "archivo": "GMC-FR08_Sesion_03.xlsx",
+      "fecha": "2026-07-06",
+      "hora": "1:00pm - 2:30pm",
+      "proceso": "SRF SEGURIDAD",
+      "proceso_completo": "SRF SEGURIDAD \n\n6. Seguridad de los Procesos\n(5 Requisitos)",
+      "auditor": "Estefanía Granda",
+      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "observadores": "N.A.",
+      "requisitos_ids": [
+        "cap6-1",
+        "cap6-4",
+        "cap6-6",
+        "cap6-12",
+        "cap6-13"
+      ],
+      "requisitos_numeros": [
+        "OEA 6.1",
+        "OEA 6.4",
+        "OEA 6.6",
+        "OEA 6.12",
+        "OEA 6.13"
+      ],
+      "total_preguntas": 50
+    },
+    {
+      "id": 4,
+      "archivo": "GMC-FR08_Sesion_04.xlsx",
+      "fecha": "2026-07-06",
+      "hora": "2:00pm - 4:30pm",
+      "proceso": "SRF SEGURIDAD",
+      "proceso_completo": "SRF SEGURIDAD \n\n7. Seguridad Física\n(9 Requisitos)",
+      "auditor": "Estefanía Granda",
+      "auditados": "Juan Carlos Ramírez / Diego Mesa",
+      "observadores": "N.A.",
+      "requisitos_ids": [
+        "cap7-1",
+        "cap7-2",
+        "cap7-3",
+        "cap7-4",
+        "cap7-5",
+        "cap7-6",
+        "cap7-7",
+        "cap7-8",
+        "cap7-9"
+      ],
+      "requisitos_numeros": [
+        "OEA 7.1",
+        "OEA 7.2",
+        "OEA 7.3",
+        "OEA 7.4",
+        "OEA 7.5",
+        "OEA 7.6",
+        "OEA 7.7",
+        "OEA 7.8",
+        "OEA 7.9"
+      ],
+      "total_preguntas": 90
+    },
+    {
+      "id": 5,
+      "archivo": "GMC-FR08_Sesion_05.xlsx",
+      "fecha": "2026-07-09",
+      "hora": "8:00am - 10:00am",
+      "proceso": "GPE GESTIÓN PLANEACIÓN ESTRATÉGICA",
+      "proceso_completo": "GPE GESTIÓN PLANEACIÓN ESTRATÉGICA \n\nGMC GESTION MEJORAMIENTO CONTINUO\n\n1. Análisis y Administración del Riesgo \n(2 Requisitos)\n\n6. Seguridad de los Procesos\n(2 Requisitos)",
+      "auditor": "Juan Esteban Gómez",
+      "auditados": "Estefanía Granda / Luis Arango",
+      "observadores": "Gloria Díaz",
+      "requisitos_ids": [
+        "cap1-1",
+        "cap1-2",
+        "cap6-2",
+        "cap6-5"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.1",
+        "OEA 1.2",
+        "OEA 6.2",
+        "OEA 6.5"
+      ],
+      "total_preguntas": 40
+    },
+    {
+      "id": 6,
+      "archivo": "GMC-FR08_Sesion_06.xlsx",
+      "fecha": "2026-07-09",
+      "hora": "10:00am - 12:00pm",
+      "proceso": "GCP GESTION CUMPLIMIENTO",
+      "proceso_completo": "GCP GESTION CUMPLIMIENTO\n\n\n1. Análisis y Administración del Riesgo \n(4 Requisitos)\n\n2. Asociados de Negocio\n(2 Requisitos)\n\n5. Seguridad del Personal \n(1 Requisito)",
+      "auditor": "Albeiro Esteban",
+      "auditados": "Estefanía Granda / Lorena Gil",
+      "observadores": "Gloria Díaz / Luis Arango",
+      "requisitos_ids": [
+        "cap1-3",
+        "cap1-5",
+        "cap1-6",
+        "cap2-1",
+        "cap2-2",
+        "cap5-7"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.3",
+        "OEA 1.5",
+        "OEA 1.6",
+        "OEA 2.1",
+        "OEA 2.2",
+        "OEA 5.7"
+      ],
+      "total_preguntas": 60
+    },
+    {
+      "id": 7,
+      "archivo": "GMC-FR08_Sesion_07.xlsx",
+      "fecha": "2026-07-09",
+      "hora": "1:00pm - 3:00pm",
+      "proceso": "GHM GESTION HUMANA",
+      "proceso_completo": "GHM GESTION HUMANA\n\n1. Análisis y Administración del Riesgo \n(2 Requisitos)\n\n5. Seguridad del Personal \n(6 Requisitos)\n\n9. Entrenamiento en seguridad y conciencia de amenazas\n(4 Requisitos)",
+      "auditor": "Luis Arango",
+      "auditados": "Milady López / Isabel Escobar",
+      "observadores": "Gloria Díaz / Luis Arango",
+      "requisitos_ids": [
+        "cap1-7",
+        "cap1-8",
+        "cap5-1",
+        "cap5-2",
+        "cap5-3",
+        "cap5-4",
+        "cap5-5",
+        "cap5-6",
+        "cap9-2",
+        "cap9-3",
+        "cap9-4"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.7",
+        "OEA 1.8",
+        "OEA 5.1",
+        "OEA 5.2",
+        "OEA 5.3",
+        "OEA 5.4",
+        "OEA 5.5",
+        "OEA 5.6",
+        "OEA 9.2",
+        "OEA 9.3",
+        "OEA 9.4"
+      ],
+      "total_preguntas": 110
+    },
+    {
+      "id": 8,
+      "archivo": "GMC-FR08_Sesion_08.xlsx",
+      "fecha": "2026-07-10",
+      "hora": "8:00am - 10:00am",
+      "proceso": "GEX GESTION EXPORTACIONES",
+      "proceso_completo": "GEX GESTION EXPORTACIONES\n\n6. Seguridad de Procesos\n(6 Requisitos)",
+      "auditor": "Erika Mesa / Jimena Zuluaga",
+      "auditados": "Iván Arias / Dairy Mosquera / Jefferson González",
+      "observadores": "Gloria Díaz / Luis Arango",
+      "requisitos_ids": [
+        "cap6-3",
+        "cap6-7",
+        "cap6-8",
+        "cap6-9",
+        "cap6-10",
+        "cap6-11"
+      ],
+      "requisitos_numeros": [
+        "OEA 6.3",
+        "OEA 6.7",
+        "OEA 6.8",
+        "OEA 6.9",
+        "OEA 6.10",
+        "OEA 6.11"
+      ],
+      "total_preguntas": 60
+    },
+    {
+      "id": 9,
+      "archivo": "GMC-FR08_Sesion_09.xlsx",
+      "fecha": "2026-07-10",
+      "hora": "10:00am - 12:00pm",
+      "proceso": "GPC GESTION PRODUCCION",
+      "proceso_completo": "GPC GESTION PRODUCCION\n\n1. Análisis y Administración del Riesgo\n(1 Requisito)",
+      "auditor": "Diego Beltrán /  Iván Arias",
+      "auditados": "María Emma Rengifo / Ana López / Albeiro Esteban",
+      "observadores": "Gloria Díaz / Luis Arango",
+      "requisitos_ids": [
+        "cap1-9"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.9"
+      ],
+      "total_preguntas": 10
+    },
+    {
+      "id": 10,
+      "archivo": "GMC-FR08_Sesion_10.xlsx",
+      "fecha": "2026-07-10",
+      "hora": "1:00pm - 3:00pm",
+      "proceso": "GTI GESTIÓN TECNOLOGÍA",
+      "proceso_completo": "GTI GESTIÓN TECNOLOGÍA\n\n1. Análisis y Administración del Riesgo \n(1 Requisito)\n\n8. Seguridad en Tecnología de la Información\n(6 Requisitos)",
+      "auditor": "Diana Arboleda / Luis Jaime Alvarez",
+      "auditados": "Javier Tabares / Alexis Cuello",
+      "observadores": "Gloria Díaz / Luis Arango",
+      "requisitos_ids": [
+        "cap1-10",
+        "cap8-1",
+        "cap8-2",
+        "cap8-3",
+        "cap8-4",
+        "cap8-5",
+        "cap8-6"
+      ],
+      "requisitos_numeros": [
+        "OEA 1.10",
+        "OEA 8.1",
+        "OEA 8.2",
+        "OEA 8.3",
+        "OEA 8.4",
+        "OEA 8.5",
+        "OEA 8.6"
+      ],
+      "total_preguntas": 70
+    }
+  ]
+}
