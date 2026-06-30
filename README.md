@@ -17,11 +17,12 @@ Abra: http://localhost:8080
 
 | Campo | Valor |
 |-------|-------|
-| Usuario | Correo electrónico o cédula |
-| Contraseña | Últimos 4 dígitos de la cédula |
-| Super Admin (emergencia) | Usuario: `123456789` / Contraseña: `123456789` |
+| Usuario | Correo electrónico, cédula o nombre de usuario asignado |
+| Contraseña | Asignada por el administrador o últimos 4 dígitos de cédula (primer ingreso) |
 
-Usuarios con doble rol (Auditor Interno + Auditado) seleccionan el rol al ingresar.
+En el **primer ingreso** (y tras restablecer contraseña temporal), el sistema exige cambiar la contraseña.
+
+La cuenta de emergencia del administrador de sistema está configurada en `data/usuarios.json` (no visible en la interfaz ni en el código fuente).
 
 ## Estructura de archivos
 

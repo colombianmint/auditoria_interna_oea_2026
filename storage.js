@@ -8,6 +8,8 @@ const Storage = {
     requisitos: 'oea_requisitos',
     preguntas: 'oea_preguntas',
     listados: 'oea_listados',
+    hallazgos: 'oea_hallazgos',
+    preferences: 'oea_preferences',
     session: 'oea_session'
   },
 
@@ -70,6 +72,18 @@ const Storage = {
     this.set(this.KEYS.listados, data);
   },
 
+  getHallazgos() {
+    const saved = this.get(this.KEYS.hallazgos);
+    if (saved?.hallazgos) return saved;
+    return typeof HALLAZGOS_DATA !== 'undefined'
+      ? HALLAZGOS_DATA
+      : { version: '1', empresa: 'C.I. Colombian Mint S.A.S.', auditoria: 'Interna OEA 2026', hallazgos: [] };
+  },
+
+  saveHallazgos(data) {
+    this.set(this.KEYS.hallazgos, data);
+  },
+
   getSession() {
     return this.get(this.KEYS.session);
   },
@@ -86,6 +100,7 @@ const Storage = {
       requisitos: this.getRequisitos(),
       preguntas: this.getPreguntas(),
       listados: this.getListados(),
+      hallazgos: this.getHallazgos(),
       exportedAt: new Date().toISOString()
     };
   },
@@ -96,6 +111,7 @@ const Storage = {
     if (data.requisitos) this.saveRequisitos(data.requisitos);
     if (data.preguntas) this.savePreguntas(data.preguntas);
     if (data.listados) this.saveListados(data.listados);
+    if (data.hallazgos) this.saveHallazgos(data.hallazgos);
   },
 
   resetToDefaults() {

@@ -9,17 +9,28 @@ const App = {
   preguntas: null,
   listados: null,
   pendingAccounts: null,
+  pendingLoginPassword: null,
   eventsBound: false,
+  userMenuOpen: false,
+  passwordChangeMode: 'required',
 
-  init() {
+  async init() {
+    Preferences.init();
     this.plan = Storage.getPlan();
     this.requisitos = Storage.getRequisitos();
     this.preguntas = Storage.getPreguntas();
     this.listados = Storage.getListados();
+    this.hallazgos = Storage.getHallazgos();
     this.bindLoginEvents();
 
-    if (Auth.init()) {
-      this.showApp();
+    await Auth.init();
+
+    if (Auth.isLoggedIn()) {
+      if (Auth.getUser()?.mustChangePassword) {
+        this.showChangePassword('required');
+      } else {
+        this.showApp(!sessionStorage.getItem('oea_welcome_shown'));
+      }
     } else {
       this.showLogin();
     }
@@ -27,16 +38,63 @@ const App = {
 
   showLogin() {
     document.getElementById('loginScreen').classList.remove('hidden');
+    document.getElementById('changePasswordScreen').classList.add('hidden');
     document.getElementById('appShell').classList.add('hidden');
   },
 
-  showApp() {
+  showChangePassword(mode = 'required') {
+    this.passwordChangeMode = mode;
     document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('appShell').classList.add('hidden');
+    document.getElementById('changePasswordScreen').classList.remove('hidden');
+
+    const msg = document.getElementById('changePassMessage');
+    const title = document.querySelector('#changePasswordScreen h2');
+    const cancelBtn = document.getElementById('changePassCancelBtn');
+    const submitBtn = document.getElementById('changePassSubmitBtn');
+
+    if (mode === 'voluntary') {
+      title.textContent = 'Cambiar mi contraseña';
+      msg.textContent = 'Ingrese su contraseña actual y defina una nueva contraseña segura (mínimo 6 caracteres).';
+      cancelBtn.classList.remove('hidden');
+      submitBtn.textContent = 'Guardar contraseña';
+    } else {
+      title.textContent = 'Cambio de contraseña requerido';
+      msg.textContent = Auth.getUserById(Auth.getUser()?.userId)?.password_temp
+        ? 'Ingresó con una contraseña temporal. Defina su contraseña personal para continuar.'
+        : 'Es su primer ingreso. Debe cambiar la contraseña inicial por una personal.';
+      cancelBtn.classList.add('hidden');
+      submitBtn.textContent = 'Guardar y continuar';
+    }
+    document.getElementById('changePassError').classList.add('hidden');
+    document.getElementById('changePasswordForm').reset();
+
+    const currentGroup = document.getElementById('currentPassGroup');
+    const currentInput = document.getElementById('changeCurrentPass');
+    if (mode === 'required' && this.pendingLoginPassword) {
+      currentGroup.classList.add('hidden');
+      currentInput.removeAttribute('required');
+    } else {
+      currentGroup.classList.remove('hidden');
+      currentInput.setAttribute('required', '');
+    }
+  },
+
+  showApp(showWelcome = true) {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('changePasswordScreen').classList.add('hidden');
     document.getElementById('appShell').classList.remove('hidden');
     this.updateUserHeader();
+    this.renderSidebarUserCard();
+    this.renderIdentityBar();
+    this.renderAppFooter();
     this.renderSidebar();
     this.bindEvents();
     this.navigate('dashboard');
+    if (showWelcome && !sessionStorage.getItem('oea_welcome_shown')) {
+      sessionStorage.setItem('oea_welcome_shown', '1');
+      setTimeout(() => this.showWelcomeModal(), 400);
+    }
   },
 
   bindLoginEvents() {
@@ -44,21 +102,45 @@ const App = {
       e.preventDefault();
       this.handleLogin();
     });
-    document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
+    document.getElementById('changePasswordForm').addEventListener('submit', e => {
+      e.preventDefault();
+      this.handleChangePassword();
+    });
+    document.getElementById('changePassCancelBtn').addEventListener('click', () => {
+      if (this.passwordChangeMode === 'voluntary') this.showApp(false);
+    });
+    document.getElementById('changeNewPass').addEventListener('input', e => {
+      this.updatePasswordStrengthHint(e.target.value);
+    });
+    document.getElementById('changePasswordBtn').addEventListener('click', () => {
+      this.closeUserMenu();
+      this.showChangePassword('voluntary');
+    });
+    document.getElementById('userMenuBtn').addEventListener('click', e => {
+      e.stopPropagation();
+      this.toggleUserMenu();
+    });
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      this.closeUserMenu();
+      this.handleLogout();
+    });
+    document.addEventListener('click', () => this.closeUserMenu());
   },
 
-  handleLogin() {
+  async handleLogin() {
     const user = document.getElementById('loginUser').value;
     const pass = document.getElementById('loginPass').value;
     const errEl = document.getElementById('loginError');
     errEl.classList.add('hidden');
 
-    const result = Auth.login(user, pass);
+    const result = await Auth.login(user, pass);
     if (!result.ok) {
       errEl.textContent = result.error;
       errEl.classList.remove('hidden');
       return;
     }
+
+    this.pendingLoginPassword = pass;
 
     if (result.needsRoleSelection) {
       this.pendingAccounts = result.accounts;
@@ -66,7 +148,45 @@ const App = {
       return;
     }
 
+    if (result.needsPasswordChange) {
+      this.showChangePassword('required');
+      return;
+    }
+
     this.showApp();
+  },
+
+  async handleChangePassword() {
+    const current = document.getElementById('changeCurrentPass').value;
+    const newPass = document.getElementById('changeNewPass').value;
+    const confirm = document.getElementById('changeConfirmPass').value;
+    const errEl = document.getElementById('changePassError');
+
+    if (newPass !== confirm) {
+      errEl.textContent = 'Las contraseñas nuevas no coinciden.';
+      errEl.classList.remove('hidden');
+      return;
+    }
+
+    const userId = Auth.getUser()?.userId;
+    const usePending = this.passwordChangeMode === 'required' && this.pendingLoginPassword;
+    const currentForCheck = usePending ? this.pendingLoginPassword : current;
+    const result = await Auth.changePassword(userId, currentForCheck, newPass, {
+      skipCurrentCheck: usePending
+    });
+    if (!result.ok) {
+      errEl.textContent = result.error;
+      errEl.classList.remove('hidden');
+      return;
+    }
+
+    this.pendingLoginPassword = null;
+    this.showToast('Contraseña actualizada correctamente');
+    if (this.passwordChangeMode === 'voluntary') {
+      this.showApp(false);
+    } else {
+      this.showApp();
+    }
   },
 
   showRoleSelection(accounts) {
@@ -80,10 +200,17 @@ const App = {
     `).join('');
 
     container.querySelectorAll('.role-option-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const result = Auth.selectRole(parseInt(btn.dataset.userId));
-        if (result.ok) {
-          document.getElementById('roleSelection').classList.add('hidden');
+      btn.addEventListener('click', async () => {
+        const result = await Auth.selectRole(parseInt(btn.dataset.userId), this.pendingLoginPassword);
+        if (!result.ok) {
+          document.getElementById('loginError').textContent = result.error;
+          document.getElementById('loginError').classList.remove('hidden');
+          return;
+        }
+        document.getElementById('roleSelection').classList.add('hidden');
+        if (result.needsPasswordChange) {
+          this.showChangePassword('required');
+        } else {
           this.showApp();
         }
       });
@@ -92,17 +219,205 @@ const App = {
 
   handleLogout() {
     Auth.logout();
+    this.pendingLoginPassword = null;
+    sessionStorage.removeItem('oea_welcome_shown');
     document.getElementById('loginUser').value = '';
     document.getElementById('loginPass').value = '';
     document.getElementById('roleSelection').classList.add('hidden');
+    this.closeUserMenu();
     this.showLogin();
+  },
+
+  toggleUserMenu() {
+    this.userMenuOpen = !this.userMenuOpen;
+    document.getElementById('userMenuDropdown').classList.toggle('hidden', !this.userMenuOpen);
+  },
+
+  closeUserMenu() {
+    this.userMenuOpen = false;
+    document.getElementById('userMenuDropdown')?.classList.add('hidden');
+  },
+
+  updatePasswordStrengthHint(value) {
+    const el = document.getElementById('changePassStrength');
+    if (!el) return;
+    if (!value) {
+      el.textContent = 'Mínimo 6 caracteres. Use letras y números para mayor seguridad.';
+      el.className = 'text-xs text-slate-400 mt-1';
+      return;
+    }
+    let score = 0;
+    if (value.length >= 6) score++;
+    if (value.length >= 10) score++;
+    if (/[A-Z]/.test(value) && /[a-z]/.test(value)) score++;
+    if (/\d/.test(value)) score++;
+    if (/[^A-Za-z0-9]/.test(value)) score++;
+
+    const levels = [
+      { text: 'Muy débil — agregue más caracteres', cls: 'text-red-500' },
+      { text: 'Débil — use al menos 6 caracteres', cls: 'text-orange-500' },
+      { text: 'Aceptable', cls: 'text-amber-600' },
+      { text: 'Buena', cls: 'text-mint-700' },
+      { text: 'Fuerte', cls: 'text-mint-700 font-medium' }
+    ];
+    const level = levels[Math.min(score, levels.length - 1)];
+    el.textContent = `Fortaleza: ${level.text}`;
+    el.className = `text-xs mt-1 ${level.cls}`;
   },
 
   updateUserHeader() {
     const user = Auth.getUser();
     if (!user) return;
-    document.getElementById('userName').textContent = Auth.getFullName(user);
-    document.getElementById('userRole').textContent = `${user.rol} · ${user.proceso.split(' ').slice(0, 3).join(' ')}`;
+    const fullName = Auth.getFullName(user);
+    const initials = (user.nombres[0] + (user.apellidos.split(' ')[0]?.[0] || '')).toUpperCase();
+
+    document.getElementById('userAvatar').textContent = initials;
+    document.getElementById('userName').textContent = fullName;
+    document.getElementById('userRole').textContent = user.cargo || user.rol;
+
+    document.getElementById('menuUserName').textContent = fullName;
+    document.getElementById('menuUserCargo').textContent = user.cargo || '—';
+    const rolTag = document.getElementById('menuUserRol');
+    rolTag.textContent = user.rol;
+    rolTag.className = `tag ${Auth.getRoleBadgeClass(user.rol)} mt-2`;
+  },
+
+  renderSidebarUserCard() {
+    const user = Auth.getUser();
+    const el = document.getElementById('sidebarUserCard');
+    if (!user || !el) return;
+
+    el.innerHTML = `
+      <div class="sidebar-user-card">
+        <div class="flex items-center gap-3">
+          <div class="sidebar-avatar">${this.esc(user.nombres[0] + (user.apellidos[0] || ''))}</div>
+          <div class="min-w-0 flex-1">
+            <p class="font-semibold text-navy-900 text-sm truncate">${this.esc(Auth.getFullName(user))}</p>
+            <p class="text-xs text-slate-500 truncate">${this.esc(user.cargo)}</p>
+          </div>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-1">
+          <span class="tag ${Auth.getRoleBadgeClass(user.rol)}">${this.esc(user.rol)}</span>
+        </div>
+        <p class="text-xs text-slate-400 mt-2 truncate" title="${this.esc(user.proceso)}">${this.esc(user.proceso.split(' ').slice(0, 4).join(' '))}</p>
+        <button type="button" onclick="App.showChangePassword('voluntary')" class="mt-3 w-full text-xs text-mint-700 hover:text-mint-800 font-medium text-left flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121.75 9"/></svg>
+          Cambiar contraseña
+        </button>
+      </div>
+    `;
+  },
+
+  renderIdentityBar() {
+    const user = Auth.getUser();
+    const el = document.getElementById('userIdentityBar');
+    if (!user || !el) return;
+
+    el.innerHTML = `
+      <div class="identity-bar mb-6">
+        <div class="identity-bar-inner">
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="iso-badge">ISO 9001:2015</span>
+            <span class="text-xs text-slate-400 hidden sm:inline">Trazabilidad de sesión</span>
+          </div>
+          <div class="identity-grid">
+            <div class="identity-field">
+              <span class="identity-label">Usuario</span>
+              <span class="identity-value">${this.esc(Auth.getFullName(user))}</span>
+            </div>
+            <div class="identity-field">
+              <span class="identity-label">Cargo</span>
+              <span class="identity-value">${this.esc(user.cargo)}</span>
+            </div>
+            <div class="identity-field">
+              <span class="identity-label">Rol aplicación</span>
+              <span class="identity-value"><span class="tag ${Auth.getRoleBadgeClass(user.rol)}">${this.esc(user.rol)}</span></span>
+            </div>
+            <div class="identity-field hidden md:block">
+              <span class="identity-label">Proceso</span>
+              <span class="identity-value text-xs">${this.esc(user.proceso.split(' ').slice(0, 3).join(' '))}</span>
+            </div>
+          </div>
+          <div class="identity-meta hidden lg:flex flex-col items-end text-right">
+            <span class="text-xs text-slate-400">Sesión: ${this.esc(user.sessionId || '—')}</span>
+            <span class="text-xs text-slate-400">${this.esc(Auth.formatLoginDate(user.loginAt))}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  },
+
+  renderAppFooter() {
+    const user = Auth.getUser();
+    const el = document.getElementById('appFooter');
+    if (!el) return;
+    el.innerHTML = `
+      <div>
+        <span class="font-medium text-slate-600">C.I. Colombian Mint S.A.S.</span>
+        · Sistema de Gestión de Calidad ISO 9001:2015
+        · Auditoría Interna OEA Res. 015/2016
+      </div>
+      <div class="text-right">
+        ${user ? `Usuario: ${this.esc(user.usuario || user.correo)} · Ingreso #${user.loginCount || 1}` : ''}
+      </div>
+    `;
+  },
+
+  showWelcomeModal() {
+    const user = Auth.getUser();
+    if (!user) return;
+
+    document.getElementById('modalHeader').innerHTML = `
+      <div>
+        <span class="iso-badge">ISO 9001:2015 · Identificación</span>
+        <h3 class="text-lg font-bold text-navy-900 mt-2">Bienvenido(a) a la Auditoría Interna OEA 2026</h3>
+      </div>
+      <button onclick="App.closeModal()" class="p-2 hover:bg-slate-100 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    `;
+
+    document.getElementById('modalBody').innerHTML = `
+      <p class="text-sm text-slate-600 mb-5">Conforme al Sistema de Gestión de Calidad, se registra la identificación del usuario autenticado para trazabilidad de la consulta y gestión en esta sesión.</p>
+      <div class="welcome-identity-card">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <p class="welcome-label">Nombre completo</p>
+            <p class="welcome-value">${this.esc(Auth.getFullName(user))}</p>
+          </div>
+          <div>
+            <p class="welcome-label">Cargo</p>
+            <p class="welcome-value">${this.esc(user.cargo)}</p>
+          </div>
+          <div>
+            <p class="welcome-label">Rol en la aplicación</p>
+            <p class="welcome-value"><span class="tag ${Auth.getRoleBadgeClass(user.rol)}">${this.esc(user.rol)}</span></p>
+          </div>
+          <div>
+            <p class="welcome-label">Proceso / Área</p>
+            <p class="welcome-value text-sm">${this.esc(user.proceso)}</p>
+          </div>
+          <div>
+            <p class="welcome-label">Usuario de acceso</p>
+            <p class="welcome-value font-mono text-sm">${this.esc(user.usuario || user.correo)}</p>
+          </div>
+          <div>
+            <p class="welcome-label">Fecha y hora de ingreso</p>
+            <p class="welcome-value text-sm">${this.esc(Auth.formatLoginDate(user.loginAt))}</p>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-200 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-slate-500">
+          <span>ID Sesión: <strong class="font-mono text-slate-700">${this.esc(user.sessionId)}</strong></span>
+          <span>Ingreso acumulado: <strong>${user.loginCount || 1}</strong></span>
+        </div>
+      </div>
+      <div class="mt-5 p-3 bg-mint-50 rounded-xl text-sm text-mint-800">
+        ${Auth.isAdmin() ? 'Como Administrador puede gestionar usuarios, plan de auditoría y requisitos OEA.' :
+          Auth.isAuditor() ? 'Como Auditor Interno puede registrar hallazgos, consultar el banco de preguntas y listados GMC-FR08.' :
+          'Como Auditado puede consultar requisitos asignados y ver hallazgos de su proceso.'}
+      </div>
+    `;
+    this.openModal();
   },
 
   renderSidebar() {
@@ -116,6 +431,7 @@ const App = {
       capitulos: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
       preguntas: 'M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
       listados: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+      hallazgos: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
       usuarios: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
       'admin-plan': 'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
       'admin-requisitos': 'M4 6h16M4 10h16M4 14h16M4 18h16'
@@ -187,6 +503,7 @@ const App = {
       capitulos: () => this.renderCapitulos(),
       preguntas: () => this.renderPreguntas(),
       listados: () => this.renderListados(),
+      hallazgos: () => Hallazgos.renderHallazgos(),
       usuarios: () => Admin.renderUsuarios(),
       'admin-plan': () => Admin.renderAdminPlan(),
       'admin-requisitos': () => Admin.renderAdminRequisitos()
@@ -202,6 +519,7 @@ const App = {
 
   bindViewEvents(view) {
     if (view === 'admin-requisitos') Admin.bindAdminRequisitosEvents();
+    if (view === 'hallazgos') Hallazgos.bindEvents();
 
     if (view === 'preguntas') {
       const select = document.getElementById('filtroSesionPreguntas');
@@ -271,6 +589,7 @@ const App = {
   renderDashboard() {
     const auditCount = this.countAuditorias();
     const dias = this.plan.cronograma.filter(c => c.tipo === 'dia').length;
+    const hStats = typeof Hallazgos !== 'undefined' ? Hallazgos.getStats() : { total: 0, abiertos: 0 };
     const fechas = [...new Set(this.plan.cronograma.filter(c => c.fecha && !c.fecha.startsWith('DIA')).map(c => c.fecha))];
 
     return `
@@ -287,7 +606,7 @@ const App = {
         </div>
 
         <!-- Stats -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
           <div class="stat-card">
             <p class="text-sm text-slate-500 font-medium">Requisitos OEA</p>
             <p class="text-3xl font-bold text-mint-700 mt-1">${this.requisitos.total_requisitos}</p>
@@ -297,6 +616,11 @@ const App = {
             <p class="text-sm text-slate-500 font-medium">Sesiones Auditoría</p>
             <p class="text-3xl font-bold text-navy-800 mt-1">${auditCount}</p>
             <p class="text-xs text-slate-400 mt-1">${dias} días programados</p>
+          </div>
+          <div class="stat-card cursor-pointer hover:border-mint-300 transition" onclick="App.navigate('hallazgos')">
+            <p class="text-sm text-slate-500 font-medium">Hallazgos 2026</p>
+            <p class="text-3xl font-bold text-red-600 mt-1">${hStats.total}</p>
+            <p class="text-xs text-slate-400 mt-1">${hStats.abiertos} abiertos · Ver registro →</p>
           </div>
           <div class="stat-card">
             <p class="text-sm text-slate-500 font-medium">Auditores Internos</p>
@@ -828,7 +1152,13 @@ const App = {
     body += `<div class="detail-section evidencia"><h4>🔍 Evidencias — Auditoría OEA (DIAN)</h4><div class="content">${this.esc(req.evidencia_oea) || 'No especificada'}</div></div>`;
 
     if (req.hallazgos_arca) {
-      body += `<div class="detail-section hallazgo"><h4>⚠️ Hallazgos ARCA 2025</h4><div class="content">${this.esc(req.hallazgos_arca)}</div></div>`;
+      body += `<div class="detail-section hallazgo"><h4>⚠️ Hallazgos ARCA 2025 (histórico)</h4><div class="content">${this.esc(req.hallazgos_arca)}</div></div>`;
+    }
+
+    body += Hallazgos.renderRequisitoSection(req.id);
+
+    if (Hallazgos.canCreate()) {
+      body += `<div class="mt-4"><button type="button" onclick="App.closeModal(); Hallazgos.showForm({ requisito_id: '${req.id}', requisito_numero: '${this.esc(req.numero)}' })" class="btn-primary text-sm py-2">+ Registrar hallazgo en este requisito</button></div>`;
     }
 
     if (req.plan_accion) {
@@ -952,9 +1282,15 @@ const App = {
         <div class="info-card-body">
           <p class="text-sm text-slate-700 mb-4">${this.esc(p.descripcion)}</p>
           ${p.preguntas.map(q => `
-            <div class="pregunta-item">
-              <span class="num">${q.id}.</span>${this.esc(q.texto)}
-              ${q.fuente ? `<span class="tag tag-proceso ml-2 text-xs">${this.esc(q.fuente)}</span>` : ''}
+            <div class="pregunta-item flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+              <div class="flex-1">
+                <span class="num">${q.id}.</span>${this.esc(q.texto)}
+                ${q.fuente ? `<span class="tag tag-proceso ml-2 text-xs">${this.esc(q.fuente)}</span>` : ''}
+              </div>
+              ${Hallazgos.canCreate() ? `
+                <button type="button" onclick="Hallazgos.showForm({ requisito_id: '${p.requisito_id}', requisito_numero: '${this.esc(p.numero)}', pregunta_id: ${q.id} })"
+                  class="text-xs text-mint-700 hover:text-mint-800 font-medium whitespace-nowrap flex-shrink-0">+ Hallazgo</button>
+              ` : ''}
             </div>
           `).join('')}
         </div>
@@ -1003,9 +1339,15 @@ const App = {
                   </p>
                   <p class="text-xs text-mint-600 mt-1">${s.requisitos_numeros?.length || 0} requisitos · ${s.total_preguntas || 0} preguntas</p>
                 </div>
-                <a href="listados/${this.esc(s.archivo)}" download class="btn-primary whitespace-nowrap">
-                  Descargar Excel
-                </a>
+                <div class="flex flex-wrap gap-2">
+                  <a href="listados/${this.esc(s.archivo)}" download class="btn-primary whitespace-nowrap">
+                    Descargar Excel
+                  </a>
+                  ${Hallazgos.canCreate() ? `
+                    <button type="button" onclick="Hallazgos.showForm({ sesion_id: ${s.id} })" class="btn-secondary whitespace-nowrap">+ Hallazgo sesión</button>
+                  ` : ''}
+                  <button type="button" onclick="App.navigate('hallazgos'); setTimeout(()=>{ const el=document.getElementById('filtroHallazgoSesion'); if(el){el.value='${s.id}'; Hallazgos.refreshList();}},100)" class="btn-secondary whitespace-nowrap">Ver hallazgos</button>
+                </div>
               </div>
               ${s.requisitos_numeros?.length ? `
                 <div class="mt-3 flex flex-wrap gap-1">
