@@ -306,15 +306,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 1.1",
       "autoridad": "DIAN",
-      "responsable": "SERGIO ARENAS / LUIS ARANGO",
-      "responsables": [
-        "SERGIO ARENAS",
-        "LUIS ARANGO"
-      ],
-      "responsable_ids": [
-        15,
-        5
-      ],
+      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS / LUIS ARANGO",
+      "responsables": ["ESTEFANIA GRANDA", "SERGIO ARENAS", "LUIS ARANGO"],
+      "responsable_ids": [14, 15, 18],
       "descripcion": "Tener una política de gestión de la seguridad basada en la evaluación del riesgo y orientada a garantizar la seguridad de sus cadenas de suministro, la cual debe tener establecidos objetivos, metas y programas de gestión de la seguridad.",
       "evidencia_interna": "SRF-GU06 Política de gestión en seguridad;\n SRF-GU09 Política de seguridad de la cadena de suministro;\n GPE-FR07 Objetivos e indicadores OEA;\n GPE-FR04 Matriz de riesgos por procesos.\nGPE-FR04 Matriz de riesgos por procesos;\n GCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GCP-GU04 Guía de cumplimiento para el sistema de gestión de riesgos de soborno transaccional y corrupción.\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\n GPE-GU01 Plan de Continuidad de Negocio;\n GTI-GU05 Plan de Contingencia Tecnológica.\nGPE-FR07 Objetivos e indicadores OEA;\n GPE-FR08 Informe de Gestión por Periodo;\n GPE-FR09 Cuadro de mando integrado;\n SST-MT05 Matriz de objetivos y metas de SST, cuando aplique a objetivos SST/seguridad.",
       "evidencia_oea": "• Política de gestión de seguridad y administración de riesgos, debidamente documentada, escrito, firmada y socializada.\n• Documento de evaluación de riesgos\n• Plan de seguridad\n• Programas anuales con metas claras, indicadores y objetivos",
@@ -330,9 +324,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 1.2",
       "autoridad": "DIAN",
-      "responsable": "",
-      "responsables": [],
-      "responsable_ids": [],
+      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS",
+      "responsables": ["ESTEFANIA GRANDA", "SERGIO ARENAS"],
+      "responsable_ids": [14, 15],
       "descripcion": "Tener un sistema de administración de riesgos enfocado en la cadena de suministro internacional, que prevea actividades ilícitas, entre otras lavado de activos, narcotráfico y financiación del terrorismo.",
       "evidencia_interna": "GPE-FR04 Matriz de riesgos por procesos;\n GCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GCP-GU07 Procedimiento Señales de Alerta para la Prevención y Detección de Actividades Relacionadas con LA/FT/FPADM o Delitos Fuente;\n SRF-GU09 Política de seguridad de la cadena de suministro.\nGCP-MN01 Manual de Riesgos;\n GCP-GU02 Manual SAGRILAFT;\n GPE-FR04 Matriz de riesgos por procesos;\n GCP-PR01 Procedimiento gestión de cumplimiento.\nGPE-FR04 Matriz de riesgos por procesos;\n GPE-FR08 Informe de Gestión por Periodo;\n GPE-FR09 Cuadro de mando integrado;\n GCP-CO02 Informe Analítica y Ciencia de Datos Cumplimiento, cuando soporte análisis periódico.\nGMC-FR12 NO CONFORMIDADES Y ACCIONES CORRECTIVAS;\n GMC-FR23 ACCIONES U OPORTUNIDADES DE MEJORA;\n GMC-FR04 Reporte de acciones correctivas y de mejora;\n GPE-FR03 Planeación del cambio.\nGCP-FR02 Informe de Debida Diligencia;\n GCP-FR03 Anexos Informe de Debida Diligencia;\n GCP-FR50 Anexo Análisis Financiero del Proveedor;\n GCP-GU09 Guía de vinculación y actualización de proveedores;\n GCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores.",
       "evidencia_oea": "• Matriz de riesgos de la cadena de suministro internacional, que identifique amenazas (lavado de activos, contrabando, tráfico estupefacientes, tráfico sustancias para procesamiento de narcótico, terrorismo, financiación del terrorismo, tráfico de armas), riesgos en cada etapa y los controles asociados.\n• Manual o procedimiento de gestión de riesgos\n• Informes de análisis de riesgo periódicos\n• Planes de acción preventivos\n• Registros y documentación del sistema de trazabilidad \"María\" (LN20), demostrando su aplicación en la debida diligencia de proveedores (consultas realizadas a cada asociado en listas restrictivas (Sagrilaft), antecedentes, y validación de su idoneidad).",
@@ -348,13 +342,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 1.3",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Tener procedimientos documentados para establecer el nivel de riesgo de sus asociados de negocio.",
       "evidencia_interna": "GCP-GU10 Nivel de criticidad asociados de negocio proveedores;\nGCP-GU11 Nivel de criticidad asociados de negocio clientes;\nGCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores;\nGCP-MT02 Matriz de Criticidad Asociados de Negocio Clientes;\nGCP-GU09 Guía de vinculación y actualización de proveedores;\nGCP-GU12 Procedimiento vinculación y actualización de clientes.\nGCP-FR30/GCP-FR31/GCP-FR37/GCP-FR46/GCP-FR47/GCP-FR48 checklists de vinculación según tipo de proveedor;\nGCP-GU10 y GCP-GU11 guías de criticidad.\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nGCP-FR50 Anexo Análisis Financiero del Proveedor;\nGCP-MT01/GCP-MT02 matrices de criticidad.\nGCP-GU02 Manual SAGRILAFT;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nGMC-FR09 Informe de auditoría, si corresponde a auditorías SAGRILAFT/documentadas.",
       "evidencia_oea": "• Procedimiento escrito de evaluación de riesgo de terceros (asociados de negocio)\n• Lista de verificación de riesgos\n• Registros de evaluación por proveedor\n• Soporte de la auditoría externa de SAGRILAFT realizada por Deloitte y otras, incluyendo el informe de hallazgos y los planes de acción ejecutados.",
@@ -370,13 +360,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 1.4",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Demostrar mediante manifestación suscrita por sus asociados de negocio no autorizados como Operador Económico Autorizado en Colombia ni certificados por otro programa de seguridad administrado por una aduana extranjera, que cumplen requisitos mínimos de seguridad en la cadena de suministro internacional.",
       "evidencia_interna": "GCP-FR01 Manifestación Suscrita;\nGCP-FR24 Conocimiento del Proveedor No Metálico, Tratamiento de Datos y Conflicto de Intereses;\nGCP-FR23 Conocimiento del Proveedor Metálico, Tratamiento de Datos y Conflicto de Intereses;\nGCP-GU09 Guía de vinculación y actualización de proveedores.\nGCP-FR01 Manifestación Suscrita;\nGCP-FR04/GCP-FR05/GCP-FR06/GCP-FR07/GCP-FR08 declaraciones juradas/voluntarias según tipo de proveedor;\nGCP-FR25 Sworn Statement on Purchase of Metal, si aplica a documento en inglés.\nGCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores;\nGCP-MT02 Matriz de Criticidad Asociados de Negocio Clientes;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia.\nGCM-FR12/GCM-FR13/GCM-FR14/GCM-FR20/GCM-FR21/GCM-FR26 ofertas comerciales según tipo de material;\nGCM-FR22 Contrato de corretaje;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos;\nGCP-GU09 Guía de vinculación y actualización de proveedores.",
       "evidencia_oea": "• Formato de manifestación firmada\n• Declaraciones juramentadas de asociados\n• Base de datos de cumplimiento de asociados\n• Contratos y acuerdos de nivel de servicio (ANS), copia de los contratos vigentes con cada asociado mencionado. El auditor puede buscar cláusulas específicas de: \n1.Seguridad de la carga. / 2.Confidencialidad de la información. / 3.Cumplimiento de normativas OEA. / 4. Protocolos de contingencia. / 5.Responsabilidades claras en cada etapa.",
@@ -392,13 +378,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 1.5",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Realizar y documentar una visita de vinculación y en adelante visitas bienales a las instalaciones donde sus asociados de negocio desarrollan sus operaciones, con el fin de verificar el cumplimiento requisitos, mínimos de seguridad en la cadena de suministro internacional.",
       "evidencia_interna": "GCP-FR38 Visita de Seguridad Asociado de Negocio Proveedor Minerales y Concentrado;\nGCP-FR58 Visita de Seguridad Asociado de Negocio (cliente);\nGCP-FR61 Visita de Seguridad Asociado de Negocio;\nGCV-FR01 Cuestionario de Evaluación Visita a Planta;\nGCP-CO01 Informe Visitas de Campo Cumplimiento.\nGCP-CO01 Informe Visitas de Campo Cumplimiento;\nGCP-FR38/GCP-FR58/GCP-FR61 formatos de visita de seguridad;\nGCV-FR02 Informe de Visita de Fidelización, si aplica a visitas comerciales.\nGCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores;\nGCP-MT02 Matriz de Criticidad Asociados de Negocio Clientes;\nGCP-GU10/GCP-GU11 guías de criticidad.\nGCP-FR38/GCP-FR58/GCP-FR61 formatos de visita de seguridad con registros fotográficos/checklists anexos;\nGCP-FR03 Anexos Informe de Debida Diligencia.\nGCP-CO01 Informe Visitas de Campo Cumplimiento;\nGCV-FR03 Seguimiento a Proveedores;\nPVR-FR13 Seguimiento y calificación de Proveedores;\nGCP-FR02 Informe de Debida Diligencia.",
       "evidencia_oea": "• Registro de visitas\n• Informes de inspección\n• Lista de asociados críticos\n• Evidencias fotográficas o checklists\n• Evaluaciones de desempeño y auditorías, registros de las evaluaciones periódicas o auditorías que realizan a los asociados clave (ej. visitas a la planta de Quintana, bodegas de Bulkmatic, etc.).",
@@ -414,13 +396,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 1.6",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Exigir a sus proveedores un plan de contingencia de su actividad que garantice el desarrollo óptimo de las operaciones contratadas.",
       "evidencia_interna": "GCP-FR23 y GCP-FR24 formatos de conocimiento de proveedor con verificación de plan/contingencia;\nGCP-GU09 Guía de vinculación y actualización de proveedores;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos.\nGCP-GU09 Guía de vinculación y actualización de proveedores;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos;\nPVR-PR01 Procedimiento Compras (Proveedores No Metálicos).\nGMC-FR01 Acta de Reuniones;\nGCP-CO01 Informe Visitas de Campo Cumplimiento;\nGCV-FR03 Seguimiento a Proveedores;\nPVR-FR13 Seguimiento y calificación de Proveedores.",
       "evidencia_oea": "• Copia de planes de contingencia de proveedores\n• Procedimiento de revisión y aprobación\n• Actas de reuniones de revisión de planes",
@@ -436,13 +414,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 1.7",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Identificar y mantener actualizados los cargos críticos relacionados con la seguridad de la cadena de suministro.",
       "evidencia_interna": "GHM-GU02 Guía de cargos críticos;\nGHM-MT01 Matriz de Cargos Críticos;\nGHM-FR16 Descripción del Cargo;\nGPE-DC02 Organigrama General;\nGHM-MT02 Matriz Análisis Patrimonio.\nGHM-MT01 Matriz de Cargos Críticos;\nGHM-FR16 Descripción del Cargo;\nGPE-DC02 Organigrama General;\nGHM-GU02 Guía de cargos críticos.\nGHM-GU02 Guía de cargos críticos;\nGHM-PR01 Procedimiento Gestión Humana;\nGHM-GU05 Proceso de Selección y Contratación;\nGHM-MT01 Matriz de Cargos Críticos.\nGHM-MT01 Matriz de Cargos Críticos;\nGHM-GU02 Guía de cargos críticos;\nGHM-MT03 Matriz Tabla de Equivalencias, cuando soporte criterios de perfil/cargo.\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-FR15 Formato análisis visita domiciliaria y estudio socioeconómico;\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGHM-FR13 Huellas dactilares y firma de empleados;\nGHM-FR16 Descripción del Cargo.",
       "evidencia_oea": "• Organigrama de seguridad\n• Listado de cargos críticos con funciones\n• Procedimiento de actualización periódica\n• Peso por la asignación de cada criterio de evaluación\n• Hojas de vida actualizadas del personal, con soportes de las verificaciones de antecedentes y estudios de seguridad realizados, especialmente para cargos críticos.",
@@ -458,13 +432,9 @@ const REQUISITOS_DATA = {
       "item": "8",
       "numero": "OEA 1.8",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Tener establecidas cláusulas de confidencialidad y de responsabilidad en los contratos de su personal vinculado.",
       "evidencia_interna": "GHM-FR28 Contrato Individual de Trabajo a Término Indefinido;\nGHM-FR31 Contrato Individual de Trabajo a Término Fijo;\nGHM-FR29 Acuerdo de Confidencialidad y Propiedad Intelectual;\nGCP-GU01 Código de Ética y Buen Gobierno.\nGCP-GU01 Código de Ética y Buen Gobierno;\nGHM-GU05 Proceso de Selección y Contratación;\nGHM-PR01 Procedimiento Gestión Humana;\nGTI-GU01 Política de Seguridad de la Información, si aplica a confidencialidad informática.\nGHM-FR29 Acuerdo de Confidencialidad y Propiedad Intelectual;\nGPE-FR12 Acuerdo de confidencialidad;\nGHM-FR28/GHM-FR31 contratos laborales según modalidad.",
       "evidencia_oea": "• Contratos laborales con cláusulas específicas\n• Manual de políticas de seguridad laboral\n• Acuerdos de confidencialidad firmados",
@@ -480,9 +450,9 @@ const REQUISITOS_DATA = {
       "item": "9",
       "numero": "OEA 1.9",
       "autoridad": "DIAN",
-      "responsable": "",
-      "responsables": [],
-      "responsable_ids": [],
+      "responsable": "MARIA RENGIFO / ANA LOPEZ / ALBEIRO ESTEBAN",
+      "responsables": ["MARIA RENGIFO", "ANA LOPEZ", "ALBEIRO ESTEBAN"],
+      "responsable_ids": [28, 29, 30],
       "descripcion": "Tener procedimientos documentados para el control, pesaje, contabilización, medición o tallaje de mercancías al ingreso o salida de la zona de almacenamiento.",
       "evidencia_interna": "GPC-PR01 Procedimiento Fundición y Afinación de Metales;\nGPC-CA01 Caracterización Producción;\nGPC-FR01 Registro devolución de material custodia;\nGPC-FR02 Reporte de Inventario y/o Envío de Material a Custodia;\nGPC-FR14 Registro de recibo material custodia;\nGEX-FR01 Control Trazabilidad de Exportaciones.\nGPC-FR02 Reporte de Inventario y/o Envío de Material a Custodia;\nGPC-FR14 Registro de recibo material custodia;\nGPC-FR01 Registro devolución de material custodia;\nGPC-PCC-FR01 Reporte de Producción de Minerales y/o Concentrados;\nGEX-FR01 Control Trazabilidad de Exportaciones.\nGEX-FR01 Control Trazabilidad de Exportaciones;\nGPC-FR02 Reporte de Inventario y/o Envío de Material a Custodia;\nGCM-FR01 Seguimiento de Presupuesto;\nGCM-FR07 Contabilidad de compras, cuando aplique al control operativo/contable.\nMTO-FR01 Inventarios de Equipos;\nMTO-FR02 Hoja de Vida de Equipos;\nMTO-FR03 Plan de Mantenimiento Preventivo y Rutinario;\nMTO-FR08 Registro Gestión de Mantenimiento;\nGPC-FR07 Control de PH, cuando aplique a medición/calibración del proceso.",
       "evidencia_oea": "• Procedimiento documentado\n• Formatos de registro de ingreso y salida\n• Bitácoras de control logístico\n• Equipos calibrados",
@@ -522,13 +492,9 @@ const REQUISITOS_DATA = {
       "item": "11",
       "numero": "OEA 1.11",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Establecer las áreas consideradas como críticas en sus instalaciones.",
       "evidencia_interna": "SRF-MT01 Matriz de áreas críticas;\nSRF-GU04 Guía para la seguridad física;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nGPE-DC01 Mapa de Procesos;\nGPE-DC02 Organigrama General.\nSRF-MT01 Matriz de áreas críticas;\nSRF-FR04 Inspección física;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno/Nocturno;\nSRF-FR22 Matriz Control de Ingreso Personal Días No Laborables.\nSRF-GU04 Guía para la seguridad física;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión.\nSRF-GU04 Guía para la seguridad física;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno/Nocturno;\nGTI-GU02 Política del centro de cómputo, para área crítica TIC.",
       "evidencia_oea": "• Plano físico con áreas críticas marcadas\n• Informe técnico de evaluación de áreas\n• Manual de seguridad\n• Procedimiento áreas críticas",
@@ -544,13 +510,9 @@ const REQUISITOS_DATA = {
       "item": "12",
       "numero": "OEA 1.12",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Utilizar sistemas de alarma y/o videocámaras de vigilancia para monitorear, alertar, registrar y supervisar las instalaciones e impedir el acceso no autorizado a las áreas críticas y de manejo, inspección o almacenamiento de carga.",
       "evidencia_interna": "SRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR04 Inspección física;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR07 Formato de inspección unidad de carga.\nMTO-FR08 Registro Gestión de Mantenimiento;\nMTO-FR03 Plan de Mantenimiento Preventivo y Rutinario;\nMTO-FR07 Formato Orden de Trabajo Mantenimiento;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión.\nSRF-MT01 Matriz de áreas críticas;\nSRF-GU10 Guía de CCTV;\nSRF-FR04 Inspección física;\nplanos/fotos controlados por Seguridad Física y soporte de proveedor de vigilancia cuando aplique.\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-GU10 Guía de CCTV;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSST-PL03/SST-PL12 Plan Operativo Normalizado Manejo de Situaciones de Pánico, si la alerta escala a emergencia.",
       "evidencia_oea": "• Contrato de servicio de seguridad electrónica\n• Registro de mantenimiento de sistemas\n• Evidencia de instalación (fotos, planos)\n• Manual de respuesta ante alertas",
@@ -566,13 +528,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 2.1",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Debe tener procedimientos documentados para la selección, evaluación y conocimiento de sus asociados de negocio que garanticen su confiabilidad.",
       "evidencia_interna": "GCP-GU09 Guía de Vinculación y Actualización de Proveedores;\nGCP-GU12 Procedimiento vinculación y actualización de clientes;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos;\nGCP-GU10 Nivel de criticidad asociados de negocio proveedores;\nGCP-GU11 Nivel de criticidad asociados de negocio clientes;\nGCP-PR01 Procedimiento gestión de cumplimiento.\nGCP-FR30 Checklist de Joyería - Persona Jurídica;\nGCP-FR31 Checklist de Subsistencia Persona Jurídica;\nGCP-FR37 Checklist de Proveedores No Metálico;\nGCP-FR46 Checklist de Joyería - Persona Natural;\nGCP-FR47 Checklist de Subsistencia Persona Natural;\nGCP-FR48 Checklist para Vinculación-Actualización de Información de Proveedores Oro Mina;\nGCP-FR23/GCP-FR24 formatos de conocimiento del proveedor, según aplique.\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nGCP-FR50 Anexo Análisis Financiero del Proveedor;\nGCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores;\nGCP-MT02 Matriz de Criticidad Asociados de Negocio Clientes;\nGCP-CO02 Informe Analítica y Ciencia de Datos Cumplimiento, cuando soporte evaluación periódica.\nGCP-GU02 Manual SAGRILAFT;\nGCP-GU09 Guía de Vinculación y Actualización de Proveedores;\nGCP-GU12 Procedimiento vinculación y actualización de clientes;\nGCP-GU10/GCP-GU11 guías de criticidad;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos.\nGCM-FR12/GCM-FR13/GCM-FR14/GCM-FR20/GCM-FR21/GCM-FR26 ofertas comerciales según tipo de material;\nGCM-FR22 Contrato de corretaje;\nGCP-GU03 Política y procedimiento para la compra y contratación de proveedores metálicos y no metálicos;\nGCP-GU09 Guía de Vinculación y Actualización de Proveedores;\nGPE-FR12 Acuerdo de confidencialidad, cuando aplique.\nGCP-FR38 Visita de Seguridad Asociado de Negocio Proveedor Minerales y Concentrado;\nGCP-FR58 Visita de Seguridad Asociado de Negocio (cliente);\nGCP-FR61 Visita de Seguridad Asociado de Negocio;\nGCP-CO01 Informe Visitas de Campo Cumplimiento;\nGCV-FR01 Cuestionario de Evaluación Visita a Planta;\nGCV-FR02 Informe de Visita de Fidelización, si aplica.\nGCP-FR01 Manifestación Suscrita;\nGCP-FR23 Conocimiento del Proveedor Metálico, Tratamiento de Datos y Conflicto de Intereses;\nGCP-FR24 Conocimiento del Proveedor No Metálico, Tratamiento de Datos y Conflicto de Intereses;\nGCP-FR25 Sworn Statement on Purchase of Metal, si aplica;\nGCP-FR03 Anexos Informe de Debida Diligencia.",
       "evidencia_oea": "• Procedimiento documentado de selección de asociados de negocio: Manual o documento que describa el proceso detallado para la selección y evaluación de los asociados, incluyendo criterios de confiabilidad.\n• Formularios de evaluación de asociados: Formularios utilizados para evaluar a cada asociado de negocio, donde se incluyan aspectos como antecedentes, historial, cumplimiento de normas de seguridad, entre otros.\n• Registros de evaluación: Reportes o registros de las evaluaciones realizadas a los asociados de negocio, que demuestren que se ha cumplido con los procedimientos establecidos.\n• Política de conocimiento del cliente (KYC): Documento que describa los procedimientos para conocer a los asociados de negocio y garantizar su idoneidad.\n• Contratos de prestación de servicios con cláusulas de seguridad y confidencialidad OEA.\n• Informes de las visitas de vinculación y seguimiento (bienales) a instalaciones como Brinks, Quintana, Aviatur, Domesa, Elea Global, Viacargo, Bulkmatic, Aviatur, TCC, PMP e IMPALA.\n• Manifestaciones suscritas donde los asociados no certificados OEA se comprometen a cumplir requisitos mínimos de seguridad.",
@@ -588,13 +546,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 2.2",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Debe identificar a sus asociados de negocio autorizados como Operador Económico Autorizado en Colombia o certificados por otro programa de seguridad administrado por una aduana extranjera.",
       "evidencia_interna": "GCP-MT01 Matriz de Criticidad Asociados de Negocio Proveedores;\nGCP-MT02 Matriz de Criticidad Asociados de Negocio Clientes;\nGCP-GU10 Nivel de criticidad asociados de negocio proveedores;\nGCP-GU11 Nivel de criticidad asociados de negocio clientes;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia.\nCertificados OEA o certificaciones equivalentes de asociados como soporte externo anexado al expediente;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-MT01/GCP-MT02 matrices de criticidad para identificar condición OEA/certificación de seguridad.\nCorrespondencia oficial/certificados de asociados anexos al expediente de debida diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-CO01 Informe Visitas de Campo Cumplimiento, cuando la certificación se valide en visita.\nSRF-GU13 Guía estudio ruta Cartagena;\nSRF-GU05 Protocolo de eventos inesperados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nGEX-GU05 Guía faltantes sobrantes y/o discrepancia de la mercancía;\nreportes GPS/monitoreo del transportador como soporte externo del expediente operativo.\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nGEX-FR16 Lista de Empaque Concentrados Oro - Plata;\nGEX-FR20 Instrucciones de Agentes de Aduana;\nSRF-FR18 Inspección de contenedores marítimos;\nregistros de bodega Bulkmatic/Impala como soportes externos.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR07 Formato de inspección unidad de carga;\nGPC-FR06 Control y registro material de empaque y embalaje;\nGPC-GU01 Guía de control y distribución de material de empaque y embalaje;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones.",
       "evidencia_oea": "• Lista de asociados de negocio: Documento con la identificación de los asociados de negocio que son Operadores Económicos Autorizados (OEA) en Colombia o están certificados por programas de seguridad de aduanas extranjeras.\n• Certificados de OEA: Copias de los certificados de los asociados que hayan sido reconocidos como OEA por la DIAN o programas internacionales de seguridad de aduanas.\n• Correspondencia oficial: Comunicaciones o notificaciones que demuestren que los asociados están reconocidos como OEA o están certificados en programas de seguridad aduanera en el extranjero.\n• Registros de GPS y Monitoreo de Rutas: Reportes de la plataforma de seguimiento para los transportes terrestres.\n• Registros de Bodega (Bulkmatic/Impala): Documentos de ingreso, salida, almacenamiento en estanterías y registros del llenado de contenedores.\n• Registros de Precintos: Control y registro de los precintos de alta seguridad utilizados en los contenedores.",
@@ -610,13 +564,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 3.1",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener implementadas medidas de seguridad apropiadas para mantener la integridad de los contenedores y demás unidades de carga en el punto de llenado para protegerlos contra la introducción de personal y/o materiales no autorizados.",
       "evidencia_interna": "SRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-PR01 Procedimiento Gestión de exportación doré;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSoportes externos controlados: protocolo de cargue/transporte y seguridad de unidades de carga de Quintana/Brinks, cuando aplique.\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR20 Lista de chequeo inspección material de embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nGPC-GU01 Guía de control y distribución de material de empaque y embalaje.\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-FR01 Control Trazabilidad de Exportaciones;\nGEX-FR16 Lista de Empaque Concentrados Oro - Plata;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nRegistros externos de inspección en punto de llenado/desaduanamiento, si el control lo ejecuta tercero.\nGHM-FR12 Asistencia y evaluación de la eficacia de la formación;\nGHM-FR41 Evaluación de Eficacia de la Formación;\nSST-FR23 Registro de inducción y reinducción;\nSRF-GU04 Guía para la seguridad física;\nSRF-IN01 Instructivo inspección material de embalaje.",
       "evidencia_oea": "• Procedimiento documentado de inspección física de contenedores.\n• Lista de verificación (checklist) de inspección física.\n• Registros de inspecciones realizadas en el punto de desaduanamiento.\n• Capacitación al personal en revisión estructural de unidades de carga.",
@@ -632,13 +582,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 3.2",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe almacenar los contenedores y demás unidades de carga, llenas y vacías, en áreas seguras que impidan el acceso y/o manipulación no autorizada. Dichas áreas deben ser inspeccionadas periódicamente y se debe dejar registro de la inspección y el responsable.",
       "evidencia_interna": "SRF-GU05 Protocolo de eventos inesperados;\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-GU05 Guía faltantes sobrantes y/o discrepancia de la mercancía;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias.\nGPD-FR02 Formato para Reporte y Atención a Incidentes;\nSRF-FR16 Registro de comportamientos inseguros;\nSRF-FR23 Formato de Siniestros Atendidos;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nGCP-FR17 Reporte Interno Operación Inusual y Seguimiento de Señales de Alerta.\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nGCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGEX-GU03 Operaciones Sospechosas en la Cadena de Suministro Internacional;\nGEX-GU05 Guía faltantes sobrantes y/o discrepancia de la mercancía;\nCorrespondencia/notificaciones a autoridades competentes anexas al expediente del incidente.\nEspecificaciones técnicas de tulas de seguridad Brinks como soporte externo controlado;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nGPC-FR02 Reporte de Inventario y/o Envío de Material a Custodia;\nGPC-FR14 Registro de recibo material custodia;\nGPC-FR01 Registro devolución de material custodia.",
       "evidencia_oea": "• Procedimiento de reporte de vulneración de sellos o contenedores.\n• Formato de informe de incidentes de seguridad.\n• Registros de notificaciones realizadas a autoridades competentes.\n• Especificaciones técnicas de las tulas de seguridad proporcionadas por Brinks.",
@@ -654,13 +600,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 3.3",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe instalar sellos de alta seguridad que cumplan o excedan los estándares de la norma vigente ISO 17712 a todos los contenedores cargados y demás unidades de carga precintables.",
       "evidencia_interna": "SRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-GU11 Guía para el control de material de embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones.\nSRF-GU05 Protocolo de eventos inesperados;\nGCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGPD-PR02 Procedimiento para la Gestión de Incidentes de Seguridad de la Información, si el incidente involucra sistemas;\nSRF-FR23 Formato de Siniestros Atendidos;\nSST-PL03/SST-PL12 Plan Operativo Normalizado Manejo de Situaciones de Pánico, si escala a emergencia.\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nGPD-FR02 Formato para Reporte y Atención a Incidentes;\nGEX-GU03 Operaciones Sospechosas en la Cadena de Suministro Internacional;\nGEX-GU05 Guía faltantes sobrantes y/o discrepancia de la mercancía;\nSoporte de denuncia o comunicación a autoridad competente, cuando aplique.\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR04 Inspección física;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-MT01 Matriz de áreas críticas;\nSoportes restringidos de CCTV/monitoreo del proveedor de seguridad.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU11 Guía para el control de material de embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nGPC-GU01 Guía de control y distribución de material de empaque y embalaje;\nCertificado ISO 17712 de sellos/precintos como soporte externo del proveedor.",
       "evidencia_oea": "• Procedimiento de detección de accesos no autorizados a contenedores o zonas de carga.\n• Planes de contingencia o protocolos de reacción ante incidentes.\n• Reportes o actas de denuncia ante autoridades.\n• Evidencia de sistemas de monitoreo (CCTV, sensores).\n• Procedimiento documentado para la gestión, control, registro y colocación de sellos de alta seguridad.",
@@ -676,13 +618,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 3.4",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para el control del almacenamiento, acceso, distribución, registro de uso, cambio y colocación de los sellos, solo personal autorizado debe manejar y distribuir los sellos.",
       "evidencia_interna": "SRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU11 Guía para el control de material de embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nGPC-GU01 Guía de control y distribución de material de empaque y embalaje;\nGPC-FR10 Devolución material de empaque;\nSRF-MT01 Matriz de áreas críticas.\nSRF-GU04 Guía para la seguridad física;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno;\nSRF-FR22 Matriz Control de Ingreso Personal Días No Laborables;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores.\nSRF-FR04 Inspección física;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR20 Lista de chequeo inspección material de embalaje;\nSRF-FR12 Control y Registro de Sellos y Precintos.\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno;\nSRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-IN02 Instructivo del Software de control de ingreso versión 568.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR07 Formato de inspección unidad de carga;\nGPC-FR06 Control y registro material de empaque y embalaje;\nRegistros fotográficos de sellos por operación como soporte externo/anexo del expediente.",
       "evidencia_oea": "• Plano y registro de zonas seguras de almacenamiento.\n• Procedimiento de almacenamiento seguro y control de accesos.\n• Registros de inspección periódica de las áreas de almacenamiento (con nombre y firma del responsable).\n• Evidencia de sistemas de control de acceso físico.\n• Registros de sellos (log de sellos) por operación, incluyendo registros fotográficos.",
@@ -698,13 +636,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 3.5",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para cerrar y sellar correctamente los contenedores y demás unidades de carga en el punto de llenado, y cada vez que sean abiertos.",
       "evidencia_interna": "SRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU11 Guía para el control de material de embalaje;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-PR01 Procedimiento Gestión de exportación doré;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nProcedimiento de cerrado/sellado de proveedor logístico o bodega como soporte externo controlado.\nGHM-FR12 Asistencia y evaluación de la eficacia de la formación;\nGHM-FR41 Evaluación de Eficacia de la Formación;\nSST-FR23 Registro de inducción y reinducción;\nGCP-CO01 Informe Visitas de Campo Cumplimiento, si la capacitación/protocolo se valida en visita;\nActas o certificaciones de capacitación del proveedor como soporte externo.",
       "evidencia_oea": "• Carta o declaración de seguridad del proveedor en el exterior.\n• Procedimiento del proveedor para el cerrado y sellado de contenedores.\n• Evidencia de capacitación del proveedor en protocolos de seguridad logística.",
@@ -720,13 +654,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 3.6",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para verificar en el punto de llenado la integridad física de la estructura del contenedor y demás unidades de carga antes del llenado, esto incluye la confiabilidad de los mecanismos de cerradura de las puertas.",
       "evidencia_interna": "SRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-PR01 Procedimiento Gestión de exportación doré;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nProcedimiento externo de inspección de unidades de carga de Quintana/operador logístico, cuando aplique.\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nChecklist externo de inspección 7 puntos/13 puntos del proveedor o bodega;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones.\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR20 Lista de chequeo inspección material de embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nRegistros fotográficos o escritos de inspección anexos al expediente de exportación.",
       "evidencia_oea": "• Procedimiento de inspección de los siete puntos (7-point inspection).\n• Lista de chequeo 7-point usada por el proveedor.\n• Registros fotográficos o escritos de inspecciones antes del llenado.",
@@ -742,13 +672,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 3.7",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para detectar, neutralizar y denunciar la entrada no autorizada a los contenedores y demás unidades de carga, así como a las áreas de almacenamiento de los mismos.",
       "evidencia_interna": "GCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-FR16 Registro de comportamientos inseguros;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nSRF-FR12 Control y Registro de Sellos y Precintos;\nGEX-GU03 Operaciones Sospechosas en la Cadena de Suministro Internacional.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nGCP-FR03 Anexos Informe de Debida Diligencia, si el soporte corresponde al proveedor de sellos;\nGCP-FR02 Informe de Debida Diligencia, si se evalúa el proveedor;\nFactura/contrato/certificación ISO 17712 del proveedor como soporte externo.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-FR18 Inspección de contenedores marítimos;\nSRF-FR07 Formato de inspección unidad de carga;\nGPC-FR06 Control y registro material de empaque y embalaje;\nRegistros fotográficos de colocación de sello por operación.\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU11 Guía para el control de material de embalaje;\nCertificado ISO 17712 de sellos y precintos como soporte externo del proveedor;\nGCP-FR03 Anexos Informe de Debida Diligencia, si se archiva dentro del expediente del proveedor.",
       "evidencia_oea": "• Especificaciones técnicas de los sellos utilizados (certificación ISO 17712).\n• Factura o contrato con proveedor de sellos certificados.\n• Registros de colocación de sello (número de sello, fecha, responsable).\n• Certificado sellos y precintos norma ISO 17712.",
@@ -764,13 +690,9 @@ const REQUISITOS_DATA = {
       "item": "8",
       "numero": "OEA 3.8",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para la inspección de contenedores y demás unidades de carga en el punto de llenado, del proceso de verificación e inspección debe quedar un registro documental en donde conste el responsable, el proceso debe incluir como mínimo, los siguientes puntos:(13 CONTENEDOR), (13 REMOLQUE), (8 VEHÍCULO)",
       "evidencia_interna": "SRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGEX-PR01 Procedimiento Gestión de exportación doré;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nSRF-FR20 Lista de chequeo inspección material de embalaje;\nProcedimientos externos de Brinks/Quintana/Vía Cargo para inspección de unidad de carga, cuando aplique.",
       "evidencia_oea": "• Procedimiento documentado para la inspección de contenedores vacíos (método de los x puntos) antes del llenado.",
@@ -786,13 +708,9 @@ const REQUISITOS_DATA = {
       "item": "9",
       "numero": "OEA 3.9",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para reconocer y reportar a las autoridades competentes, cuando los sellos, contenedores y/o demás unidades de carga han sido vulnerados.",
       "evidencia_interna": "GCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-FR16 Registro de comportamientos inseguros;\nSRF-FR12 Control y Registro de Sellos y Precintos;\nGEX-GU03 Operaciones Sospechosas en la Cadena de Suministro Internacional;\nGEX-GU05 Guía faltantes sobrantes y/o discrepancia de la mercancía.",
       "evidencia_oea": "",
@@ -808,13 +726,9 @@ const REQUISITOS_DATA = {
       "item": "10",
       "numero": "OEA 3.10",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para asegurar las unidades de carga bajo su responsabilidad, durante labores de mantenimiento o reparación cuando se realizan fuera de sus instalaciones.",
       "evidencia_interna": "GEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR18 Inspección de contenedores marítimos;\nGCP-GU09 Guía de Vinculación y Actualización de Proveedores, para exigir soporte al transportador;\nSoportes externos de Brinks/Vía Cargo sobre mantenimiento, reparación y aseguramiento de unidades bajo su responsabilidad.",
       "evidencia_oea": "",
@@ -830,13 +744,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 4.1",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener implementado un sistema para identificar y controlar el acceso de personas y vehículos a sus instalaciones.",
       "evidencia_interna": "SRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU04 Guía para la seguridad física;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nSRF-MT01 Matriz de áreas críticas;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión.\nSRF-MT01 Matriz de áreas críticas;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR04 Inspección física.\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno;\nSRF-FR22 Matriz Control de Ingreso Personal Días No Laborables;\nSRF-FR19 Control Novedades Tarjetas de Acceso;\nRegistros digitales del software de control de acceso.\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR04 Inspección física;\nSoportes del sistema electrónico de control de acceso, cámaras y registros de monitoreo.",
       "evidencia_oea": "• Procedimiento de control de acceso a personas y vehículos.\n• Planos de instalaciones con puntos de control.\n• Registros de ingreso/salida automatizados o manuales.\n• Evidencia de sistemas electrónicos de control de acceso (cámaras, torniquetes, lectores biométricos, etc.).",
@@ -852,13 +762,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 4.2",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener procedimientos documentados para el control, entrega, devolución, cambio y pérdida de los dispositivos para el control de acceso para el personal vinculado y visitantes.",
       "evidencia_interna": "GHM-GU01 Guía control, entrega, cambio y devolución del carné corporativo;\nGHM-FR06 Formato de entrega de carné corporativo;\nGHM-FR24 Devolución de carné corporativo;\nSRF-FR05 Entrega de dispositivos de acceso;\nSRF-FR19 Control Novedades Tarjetas de Acceso;\nSRF-GU04 Guía para la seguridad física;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados.\nGHM-FR06 Formato de entrega de carné corporativo;\nGHM-FR24 Devolución de carné corporativo;\nSRF-FR05 Entrega de dispositivos de acceso;\nSRF-FR19 Control Novedades Tarjetas de Acceso;\nSoportes de pérdida, cambio, devolución y reposición de dispositivos de acceso.\nSRF-FR19 Control Novedades Tarjetas de Acceso;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno;\nSRF-FR22 Matriz Control de Ingreso Personal Días No Laborables;\nRegistros históricos del software de control de acceso.",
       "evidencia_oea": "• Procedimiento documentado de gestión de credenciales y dispositivos de acceso (tarjetas, llaveros, etc.).\n• Formatos de entrega, devolución y reporte de pérdida.\n• Registro histórico de asignación y control de dispositivos.",
@@ -874,13 +780,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 4.3",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe entregar a todo su personal vinculado a través de cualquier modalidad de contrato una identificación la cual debe ser portada en un lugar visible.",
       "evidencia_interna": "GHM-GU01 Guía control, entrega, cambio y devolución del carné corporativo;\nGHM-FR06 Formato de entrega de carné corporativo;\nGHM-FR24 Devolución de carné corporativo;\nGHM-GU05 Proceso de Selección y Contratación;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados;\nSRF-GU04 Guía para la seguridad física.\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados;\nGHM-GU01 Guía control, entrega, cambio y devolución del carné corporativo;\nSRF-GU04 Guía para la seguridad física;\nGHM-FR06 Formato de entrega de carné corporativo.\nSRF-GU06 Política de gestión en seguridad;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU04 Guía para la seguridad física;\nGHM-GU01 Guía control, entrega, cambio y devolución del carné corporativo.",
       "evidencia_oea": "• Registro de entrega de carnés/identificaciones al personal.\n• Procedimiento que especifique la obligatoriedad de portar el carné visible.\n• Políticas internas de uso obligatorio de identificación.",
@@ -896,13 +798,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 4.4",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Exigir a todos los visitantes que se identifiquen para el ingreso a sus instalaciones, y hacer entrega de una identificación temporal, que debe ser portada en un lugar visible.",
       "evidencia_interna": "SRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nSRF-GU04 Guía para la seguridad física;\nSRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión.\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nRegistros digitales de visitantes del software de control de acceso;\nSoportes de identificación de visitantes, empresa, motivo de visita y área autorizada.\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU04 Guía para la seguridad física;\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nEvidencia fotográfica o física de identificación temporal de visitantes.",
       "evidencia_oea": "• Procedimiento de ingreso de visitantes.\n• Formato de registro de visitantes (nombre, cédula, empresa, motivo, área de visita).\n• Evidencia de uso de identificaciones temporales (fotografías, muestras físicas).",
@@ -918,13 +816,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 4.5",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe garantizar mediante controles efectivos y procedimientos documentados, la revisión tanto al ingreso como a la salida de sus instalaciones, de las personas, vehículos, paquetes, correo y demás objetos.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSRF-FR04 Inspección física;\nSRF-FR15 Lista de chequeo cierre de instalaciones.\nSRF-FR04 Inspección física;\nSRF-FR15 Lista de chequeo cierre de instalaciones;\nSRF-FR16 Registro de comportamientos inseguros;\nSRF-GU03 Guía para el control de residuos;\nSRF-GU04 Guía para la seguridad física;\nRegistros de inspección de paquetes, correspondencia, vehículos y objetos personales.\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nSRF-FR04 Inspección física;\nSRF-FR15 Lista de chequeo cierre de instalaciones;\nRegistros digitales o manuales de inspecciones de ingreso y salida.",
       "evidencia_oea": "• Procedimiento de revisión de entrada/salida de instalaciones.\n• Lista de chequeo para inspección de paquetes, vehículos, objetos personales.\n• Registros de inspecciones realizadas (manuales o digitales).",
@@ -940,13 +834,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 4.6",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener procedimientos documentados para garantizar que los visitantes y vehículos se dirijan únicamente a las áreas autorizadas dentro de las instalaciones.",
       "evidencia_interna": "SRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU04 Guía para la seguridad física;\nSRF-MT01 Matriz de áreas críticas;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno.\nSRF-MT01 Matriz de áreas críticas;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR08 Control de ingreso áreas críticas.\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno / Nocturno;\nSRF-FR22 Matriz Control de Ingreso Personal Días No Laborables;\nSRF-IN02 Instructivo del software de control de ingreso versión 568.\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-IN02 Instructivo del software de control de ingreso versión 568;\nRegistros digitales de acompañamiento y autorización de visitantes;\nSRF-FR08 Control de ingreso áreas críticas.",
       "evidencia_oea": "• Procedimiento de guía y control de visitantes.\n• Planos de áreas restringidas/autorizadas.\n• Formato de autorización para ingreso a zonas específicas.\n• Registro de acompañamiento de visitantes.",
@@ -962,13 +852,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 4.7",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe garantizar mediante controles efectivos y procedimientos documentados para que el personal vinculado sepa identificar y afrontar a personas no autorizadas o no identificadas.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados;\nSRF-GU10 Guía seguridad y protección para manejo y control de circuitos cerrados de televisión;\nSRF-FR16 Registro de comportamientos inseguros;\nSRF-FR24 Guía Simulacro de Seguridad;\nSRF-FR25 Acta de Simulacro de Seguridad.\nGHM-FR12 Asistencia y evaluación de la eficacia de la formación;\nSST-FR23 Registro de inducción y reinducción;\nSRF-FR24 Guía Simulacro de Seguridad;\nSRF-FR25 Acta de Simulacro de Seguridad;\nSRF-GU04 Guía para la seguridad física;\nSRF-GU07 Guía ingreso y salida de personal interno operativos - empleados.\nSRF-FR16 Registro de comportamientos inseguros;\nSRF-FR23 Formato de Siniestros Atendidos;\nSRF-FR24 Guía Simulacro de Seguridad;\nSRF-FR25 Acta de Simulacro de Seguridad;\nGPD-FR02 Formato para reporte y atención a incidentes;\nSST-PL03 Plan Operativo Normalizado Manejo de Situaciones de Pánico;\nSST-PL12 Plan Operativo Normalizado Manejo de Situaciones de Pánico.",
       "evidencia_oea": "• Procedimiento de actuación frente a personas no autorizadas.\n• Capacitación al personal en reacción ante intrusos o amenazas internas.\n• Reportes de incidentes o simulacros de detección de personas sin identificación.",
@@ -984,13 +870,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 5.1",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe tener procedimientos documentados para la selección de candidatos con posibilidad de ser vinculados a la empresa en cualquier modalidad de contrato.",
       "evidencia_interna": "GHM-GU05 Proceso de Selección y Contratación;\nGHM-PR01 Procedimiento Gestión Humana;\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-FR35 Entrevista por competencias;\nGHM-FR33 Análisis del cumplimiento del perfil;\nGHM-FR34 Certificado de homologación;\nGHM-FR52 Certificación de Homologación;\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina.\nGHM-GU05 Proceso de Selección y Contratación;\nGHM-PR01 Procedimiento Gestión Humana;\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-FR16 Descripción del cargo.\nGHM-FR35 Entrevista por competencias;\nGHM-FR33 Análisis del cumplimiento del perfil;\nGHM-FR34 Certificado de homologación;\nGHM-FR52 Certificación de Homologación;\nGHM-FR16 Descripción del cargo.\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-GU05 Proceso de Selección y Contratación;\nSoportes de verificación de referencias laborales, personales y antecedentes en expediente digital del colaborador.",
       "evidencia_oea": "• Manual de selección y vinculación de personal.\n• Procedimientos de reclutamiento y contratación.\n• Formatos de entrevista y evaluación.\n• Registros de verificación de referencias laborales y personales.",
@@ -1006,13 +888,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 5.2",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe mantener actualizada la historia laboral del personal vinculado que incluya información personal y familiar, revisión de antecedentes, archivo fotográfico, registro de huella dactilar y firma.",
       "evidencia_interna": "GHM-GU05 Proceso de Selección y Contratación;\nGHM-GU09 Guía Actualización de Datos Personales;\nGHM-FR09 Formato Actualización de Datos Personales;\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-FR13 Huellas dactilares y firma de empleados;\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina;\nGPD-GU01 Política de Protección de Datos Personal;\nGPD-MN01 Manual de Tratamiento de Datos Personales.\nGHM-FR09 Formato Actualización de Datos Personales;\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-GU05 Proceso de Selección y Contratación;\nExpediente laboral digital bajo custodia de Gestión Humana/TI.\nGHM-FR10 Lista de Chequeo Selección y Contratación;\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina;\nGCP-FR02 Informe de Debida Diligencia;\nGCP-FR03 Anexos Informe de Debida Diligencia;\nSoportes de antecedentes judiciales, fiscales y disciplinarios.\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina;\nGPD-GU01 Política de Protección de Datos Personal;\nGPD-MN01 Manual de Tratamiento de Datos Personales;\nGPD-FR01 Autorización para toma y uso de imágenes.\nGHM-FR13 Huellas dactilares y firma de empleados;\nGHM-FR09 Formato Actualización de Datos Personales;\nGPD-FR01 Autorización para toma y uso de imágenes;\nGHM-FR06 Formato de entrega de carné corporativo.",
       "evidencia_oea": "• Carpetas físicas o digitales de historia laboral por empleado.\n• Hojas de vida actualizadas del personal, con soportes de las verificaciones de antecedentes y estudios de seguridad realizados, especialmente para cargos críticos\n• Certificados de antecedentes judiciales, fiscales y disciplinarios.\n• Formato de consentimiento informado.\n• Registro fotográfico y biométrico (huella dactilar).",
@@ -1028,13 +906,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 5.3",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe realizar y documentar bienalmente, estudios socioeconómicos que incluyan visitas domiciliarias al personal que ocupa cargos críticos.",
       "evidencia_interna": "GHM-GU02 Guía de cargos críticos;\nGHM-MT01 Matriz de Cargos Críticos;\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-FR15 Formato análisis visita domiciliaria y estudio socioeconómico;\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina.\nGHM-FR15 Formato análisis visita domiciliaria y estudio socioeconómico;\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGPD-FR01 Autorización para toma y uso de imágenes.\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-MT01 Matriz de Cargos Críticos;\nCronograma bienal de visitas y seguimiento a cargos críticos.\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina;\nContrato u orden de servicio del proveedor externo de estudios de seguridad, cuando aplique;\nSoportes de confidencialidad y tratamiento de datos personales del proveedor.\nGHM-GU02 Guía de cargos críticos;\nGHM-MT01 Matriz de Cargos Críticos;\nGPE-DC02 Organigrama General;\nGHM-FR16 Descripción del cargo.\nGHM-FR14 Aceptación de Pruebas de Ingreso y Rutina;\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-FR15 Formato análisis visita domiciliaria y estudio socioeconómico;\nSoportes confidenciales de pruebas de confianza, confiabilidad, integridad y sustancias psicoactivas, cuando aplique.",
       "evidencia_oea": "• Informe de estudio socioeconómico (por empleado crítico).\n• Evidencia de visita domiciliaria (formato diligenciado, fotografías, informe de visita).\n• Cronograma de ejecución bienal.\n• Contrato con proveedor externo (si aplica).\n• Listado de cargos críticos identificados en la compañía.\n• Registros (respetando la confidencialidad y el habeas data) de las pruebas de polígrafo y de consumo de sustancias psicoactivas.",
@@ -1050,13 +924,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 5.4",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe tener procedimientos documentados para el seguimiento y análisis de resultados de los estudios socioeconómicos y las visitas domiciliarias, que permitan detectar cambios relevantes o injustificados en el patrimonio del personal vinculado.",
       "evidencia_interna": "GHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-GU08 Cambios en el patrimonio;\nGHM-MT02 Matriz Análisis Patrimonio;\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias.\nGHM-GU04 Guía Visitas Domiciliarias y Estudio Socioeconómico;\nGHM-GU08 Cambios en el patrimonio;\nGHM-MT02 Matriz Análisis Patrimonio;\nGMC-FR01 Acta de Reuniones;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias.\nGHM-MT02 Matriz Análisis Patrimonio;\nGHM-MT04 Matriz de Estudio Socioeconómico y Visitas Domiciliarias;\nGHM-GU08 Cambios en el patrimonio;\nReportes confidenciales de cambios relevantes o injustificados en patrimonio o estilo de vida.\nGCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nGMC-FR12 No conformidades y acciones correctivas;\nGMC-FR23 Acciones u oportunidades de mejora;\nPlanes de acción derivados del análisis socioeconómico.",
       "evidencia_oea": "• Procedimiento documentado de seguimiento de condiciones socioeconómicas.\n• Actas de comité de revisión o análisis.\n• Reportes de cambios detectados en patrimonio o estilo de vida.\n• Alertas internas y planes de acción derivados.",
@@ -1072,13 +942,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 5.5",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe tener procedimientos documentados para el retiro del personal.",
       "evidencia_interna": "GHM-GU06 Guía para el Proceso de Desvinculación;\nGHM-PR01 Procedimiento Gestión Humana;\nGHM-FR24 Devolución de carné corporativo;\nGHM-FR40 Acta de Devolución de Dotación;\nGHM-FR39 Acta de Devolución de Dotación Disposición Final;\nGMC-FR18 Acta de Entrega y Recepción de Activos;\nGTI-PR01 Procedimiento Gestión de Tecnología e Informática.\nGHM-GU06 Guía para el Proceso de Desvinculación;\nGHM-FR24 Devolución de carné corporativo;\nGHM-FR40 Acta de Devolución de Dotación;\nGHM-FR39 Acta de Devolución de Dotación Disposición Final;\nGMC-FR18 Acta de Entrega y Recepción de Activos;\nGTI-MT03 Matriz de Permisos Usuarios AURUM;\nGTI-MT05 Matriz de Grupos en SharePoint.\nGMC-FR18 Acta de Entrega y Recepción de Activos;\nGHM-FR24 Devolución de carné corporativo;\nGHM-FR40 Acta de Devolución de Dotación;\nGHM-FR39 Acta de Devolución de Dotación Disposición Final.\nGHM-GU06 Guía para el Proceso de Desvinculación;\nGHM-PR01 Procedimiento Gestión Humana;\nEntrevista o encuesta de retiro, cuando aplique;\nSoportes de cierre de novedades del colaborador.\nGHM-GU05 Proceso de Selección y Contratación;\nGHM-GU06 Guía para el Proceso de Desvinculación;\nGHM-PR01 Procedimiento Gestión Humana;\nGHM-FR10 Lista de Chequeo Selección y Contratación.",
       "evidencia_oea": "• Procedimiento documentado para desvinculación de empleados.\n• Checklists de retiro (devolución de dotación, credenciales, equipos, etc.).\n• Actas de entrega-recepción.\n• Encuestas de retiro o entrevistas de salida.\n• Procedimiento documentado para la selección, contratación y retiro de personal.",
@@ -1094,13 +960,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 5.6",
       "autoridad": "DIAN",
-      "responsable": "ISABEL ESCOBAR",
-      "responsables": [
-        "ISABEL ESCOBAR"
-      ],
-      "responsable_ids": [
-        21
-      ],
+      "responsable": "MILADY LOPEZ / ISABEL ESCOBAR",
+      "responsables": ["MILADY LOPEZ", "ISABEL ESCOBAR"],
+      "responsable_ids": [20, 21],
       "descripcion": "Debe tener establecidas disposiciones de seguridad para el suministro y manejo de los uniformes y dotación, que incluya el control, entrega, devolución o cambio de los mismos.",
       "evidencia_interna": "GHM-GU03 Guía de entrega de dotación;\nGHM-FR18 Formato de entrega de dotación;\nGHM-FR39 Acta de Devolución de Dotación Disposición Final;\nGHM-FR40 Acta de Devolución de Dotación;\nSST-FR09 Entrega de Elementos de Protección Personal (EPP);\nSST-FR19 Disposición Final de la Dotación y Elemento de Protección Personal;\nSST-PR03 Procedimiento Elemento de Protección Personal (EPP).\nGHM-FR18 Formato de entrega de dotación;\nGHM-FR40 Acta de Devolución de Dotación;\nGHM-FR39 Acta de Devolución de Dotación Disposición Final;\nSST-FR09 Entrega de Elementos de Protección Personal (EPP);\nSST-FR48 Acta Individual de Compromiso para el Uso de Elementos de Protección Personal (EPP).\nGHM-FR18 Formato de entrega de dotación;\nSST-MT02 Matriz de Elementos de Protección Individual;\nSST-FR09 Entrega de Elementos de Protección Personal (EPP);\nInventario de dotación asignada por colaborador.\nGHM-GU03 Guía de entrega de dotación;\nSST-PR03 Procedimiento Elemento de Protección Personal (EPP);\nSST-FR48 Acta Individual de Compromiso para el Uso de Elementos de Protección Personal (EPP);\nSST-FR49 Formato de Inspección de Elementos de Protección Personal (EPP).",
       "evidencia_oea": "• Procedimiento de entrega, devolución o cambio de uniformes y dotación.\n• Formatos de acta de entrega y devolución firmados.\n• Inventario de dotación asignada.\n• Manual de uso de dotación.",
@@ -1116,13 +978,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 5.7",
       "autoridad": "DIAN",
-      "responsable": "LORENA GIL",
-      "responsables": [
-        "LORENA GIL"
-      ],
-      "responsable_ids": [
-        19
-      ],
+      "responsable": "ESTEFANIA GRANDA / LORENA GIL",
+      "responsables": ["ESTEFANIA GRANDA", "LORENA GIL"],
+      "responsable_ids": [14, 19],
       "descripcion": "Debe tener implementado un código de ética que contenga las reglas de comportamiento orientadas a asegurar la transparencia en el ejercicio de su actividad.",
       "evidencia_interna": "GCP-GU01 Código de Ética y Buen Gobierno;\nGCP-GU04 Guía de cumplimiento para el sistema de gestión de riesgos de soborno transaccional y corrupción;\nGCP-GU08 Procedimiento Conflicto de Interés;\nGCP-GU18 Política de Regalos;\nGCP-GU20 Política de Donaciones;\nGHM-FR21 Constancia de Lectura y Compromiso del Código de Ética y Buen Gobierno.\nGHM-FR21 Constancia de Lectura y Compromiso del Código de Ética y Buen Gobierno;\nGCP-FR10 Declaración Conflicto de Intereses Empleados;\nGHM-FR12 Asistencia y evaluación de la eficacia de la formación;\nSST-FR23 Registro de inducción y reinducción.\nGHM-FR12 Asistencia y evaluación de la eficacia de la formación;\nGHM-FR41 Evaluación de Eficacia de la Formación;\nSST-FR23 Registro de inducción y reinducción;\nGCP-GU01 Código de Ética y Buen Gobierno;\nGCP-GU04 Guía de cumplimiento para el sistema de gestión de riesgos de soborno transaccional y corrupción.\nGCP-GU06 Procedimiento para la detección tratamiento y solución de denuncias;\nGCP-FR11 Reporte Interno y Seguimiento de Denuncias;\nGCP-FR39 Control y Gestión de Denuncias y Conflicto de Interés;\nGPD-FR03 Formato Seguimiento de PCQRSF;\nGMC-FR03 Reporte de Servicios / Salidas No Conforme.\nGCP-GU18 Política de Regalos;\nGCP-GU20 Política de Donaciones;\nGCP-FR10 Declaración Conflicto de Intereses Empleados;\nGCP-FR12 Recepción de Regalos;\nGCP-FR51 Inventario de Recepción de Regalos;\nGCP-FR52 Conocimiento Beneficiario Donación;\nGCP-FR53 Formato Inventario de Donaciones;\nGCP-FR54 Formato de Solicitud de Donación;\nGHM-FR21 Constancia de Lectura y Compromiso del Código de Ética y Buen Gobierno.",
       "evidencia_oea": "• Código de Ética corporativo.\n• Registro de entrega y aceptación firmado por cada empleado.\n• Talleres o capacitaciones sobre ética empresarial (evidencias de asistencia).\n• Mecanismos de reporte (buzón de quejas, línea ética, etc.).\n• Políticas relacionadas (regalos, donaciones, etc.), con sus respectivas constancias de socialización y firma de recibido por parte de los colaboradores.",
@@ -1138,13 +996,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 6.1",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener implementadas medidas de seguridad para identificar plenamente a los conductores, sus acompañantes y los vehículos antes de que reciban o entreguen la carga.",
       "evidencia_interna": "SRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSRF-IN02 Instructivo del Software de control de ingreso versión 568;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-GU17 Consignas Particulares Para Los Puestos De Recepción Y Parqueadero Externo;\nSRF-PL01 Plan de Gestión de Seguridad y Protección",
       "evidencia_oea": "• Procedimiento de control de acceso vehicular\n• Registro fotográfico de vehículos y conductores\n• Formatos de ingreso/egreso\n• Base de datos de conductores autorizados",
@@ -1210,13 +1064,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 6.4",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener un protocolo para resolver eventos inesperados en el transporte de su carga entre el punto de llenado y el puerto de embarque al exterior que contemple: detención inesperada, hurto o saqueo del vehículo, desvío de la ruta, bloqueo de la vía, accidente de tránsito, falla mecánica y violación de sellos de seguridad.",
       "evidencia_interna": "SRF-GU05 Protocolo de eventos inesperados;\nGPC-PR03 Procedimiento para la Gestión de Servicios con la Transportadora de Valores;\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU13 Guía estudio ruta Cartagena;\nSRF-FR23 Formato de Siniestros Atendidos;\nSRF-GU16 Diligenciamiento del aplicativo formularios Elea Global 3 en Cartagena;\nSRF-FR07 Formato de inspección unidad de carga",
       "evidencia_oea": "• Software de GPS y monitoreo\n• Reportes automáticos de ruta\n• Formato de control de tránsito\n• Informes de incidentes o desvíos\n• Protocolo documentado para la gestión de novedades y contingencias en ruta.",
@@ -1232,13 +1082,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 6.5",
       "autoridad": "DIAN",
-      "responsable": "SERGIO ARENAS",
-      "responsables": [
-        "SERGIO ARENAS"
-      ],
-      "responsable_ids": [
-        15
-      ],
+      "responsable": "ESTEFANIA GRANDA / SERGIO ARENAS",
+      "responsables": ["ESTEFANIA GRANDA", "SERGIO ARENAS"],
+      "responsable_ids": [18, 15],
       "descripcion": "Debe contar con un plan que garantice la continuidad de sus operaciones ante la ocurrencia de situaciones tales como: desastre natural, incendio, sabotaje, corte de energía, ciberataques y fallas en las comunicaciones y el transporte.",
       "evidencia_interna": "GPE-GU01 Plan de Continuidad de Negocio;\nGTI-GU05 Plan de Contingencia Tecnológica;\nSST-PL04 Plan para la Prevención Preparación y Respuesta de Emergencias;\nSST-PL15 Plan de Gestión de Emergencias;\nSRF-FR24 Guía Simulacro de Seguridad;\nSRF-FR25 Acta de Simulacro de Seguridad",
       "evidencia_oea": "• Manual o procedimiento de contingencias en ruta\n• Formato de reporte de incidentes\n• Registro de entrenamiento del personal en respuesta a incidentes\n• Plan de acción ante robos, bloqueos o fallas mecánicas",
@@ -1254,13 +1100,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 6.6",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para garantizar la integridad y la seguridad de la carga en los procesos relativos al manejo, almacenamiento y transporte.",
       "evidencia_interna": "GEX-PR01 Procedimiento Gestión de exportación doré;\nGEX-PR02 Procedimiento Gestión de exportación concentrados;\nGPC-GU01 Guía de control y distribución de material de empaque y embalaje;\nSRF-FR07 Formato de inspección unidad de carga;\nSRF-FR12 Control y Registro de Sellos y Precintos;\nSRF-GU11 Guía para el control de material de embalaje;\nSRF-FR18 Inspección de contenedores marítimos;\nGPC-PCC-IN01 Procedimiento de Recepción y Procesamiento de Minerales;\nGPC-PCC-IN02 Procedimiento de Recepción y Empaque de Concentrados;\nSRF-GU10 Guía seguridad y protección para manejo y control de CCTV;\nGPC-FR02 Formato de Inventario y Envío de Material a Custodia",
       "evidencia_oea": "• Plan de continuidad del negocio (BCP)\n• Procedimiento ante desastres o ataques informáticos\n• Análisis de impacto al negocio (BIA)\n• Simulacros documentados\n• Línea de Negocio: Doré (Exportación Aérea) \n1. Registros de Recepción: Documentos que soporten la recolección en los puntos de origen. \n2. Protocolos de Empaque y Embalaje: Procedimiento documentado y registros fotográficos que evidencien el uso de las tulas de seguridad, cartón corrugado y precintos. \n3. Documentos de Transporte Nacional: Guías de transporte de Brinks desde el origen y hacia el aeropuerto. \n4. Registros de CCTV: Acceso a grabaciones de áreas clave como recepción, producción, empaque y despacho.\n• Línea de Negocio: Concentrados (Exportación Marítima) \n1. Registros de Llenado de Big Bags: Control de peso y etiquetado en Quintana. \n2. Procedimiento de Inspección Antinarcóticos (con caninos): Documento y registros de las inspecciones realizadas en Quintana antes del despacho.",
@@ -1406,13 +1248,9 @@ const REQUISITOS_DATA = {
       "item": "12",
       "numero": "OEA 6.12",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para almacenar, custodiar, controlar y revisar antes de su uso, el material de empaque de exportación.",
       "evidencia_interna": "GPC-GU01 Guía de control y distribución de material de empaque y embalaje;\nGPC-FR06 Control y registro material de empaque y embalaje;\nSRF-GU11 Guía para el control de material de embalaje;\nSRF-FR20 Lista de chequeo inspección material de embalaje;\nSRF-IN01 Instructivo inspección material de embalaje;\nSRF-FR07 Formato de inspección unidad de carga",
       "evidencia_oea": "• Procedimiento de reporte a autoridades\n• Formato de notificación\n• Registro de alertas internas\n• Historial de reportes enviados",
@@ -1428,13 +1266,9 @@ const REQUISITOS_DATA = {
       "item": "13",
       "numero": "OEA 6.13",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Tener procedimientos documentados para que permitan supervisar la operación de los transportadores terrestres en las operaciones de su cadena de suministro internacional.",
       "evidencia_interna": "GPC-PR03 Procedimiento para la Gestión de Servicios con la Transportadora de Valores;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-GU13 Guía estudio ruta Cartagena;\nSRF-GU16 Diligenciamiento del aplicativo formularios Elea Global 3 en Cartagena;\nSRF-GU15 Actividades de veeduría y supervisión de operaciones en Cartagena;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones",
       "evidencia_oea": "• Política de archivo documental\n• Cronograma de conservación y destrucción\n• Registro de destrucción de documentos\n• Procedimientos de respaldo digital",
@@ -1450,13 +1284,9 @@ const REQUISITOS_DATA = {
       "item": "14",
       "numero": "OEA 6.14",
       "autoridad": "DIAN",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Supervisión de transportadores terrestres.",
       "evidencia_interna": "GPC-PR03 Procedimiento para la Gestión de Servicios con la Transportadora de Valores;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-GU08 Guía de ingreso y salida de transportadoras de valores;\nSRF-GU13 Guía estudio ruta Cartagena;\nSRF-GU16 Diligenciamiento del aplicativo formularios Elea Global 3 en Cartagena;\nGEX-PR03 Cadena de Suministro Internacional Exportaciones e Importaciones;\nGEX-CA01 Caracterización Exportaciones",
       "evidencia_oea": "• Contratos con transportistas\n• Procedimiento de evaluación de proveedores\n• Informes de supervisión de rutas\n• Checklists de cumplimiento logístico",
@@ -1472,13 +1302,9 @@ const REQUISITOS_DATA = {
       "item": "1",
       "numero": "OEA 7.1",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener cercas o barreras perimetrales alrededor de sus instalaciones, así como barreras interiores dentro de las áreas de manejo y almacenamiento de carga, para los diferentes tipos de mercancías.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-MT01 Matriz de áreas críticas;\nSRF-GU06 Política de gestión en seguridad;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-FR04 Inspección física;\nSRF-FR13 Acta de seguridad y protección;\nSRF-GU09 Política de seguridad de la cadena de suministro",
       "evidencia_oea": "• Planos arquitectónicos de las instalaciones con ubicación de cercas y barreras.\n• Fotografías actualizadas de las cercas y barreras.\n• Manual de seguridad física.\n• Registro de inspección periódica de cercas y controles.\n• Plan de seguridad física de las instalaciones, incluyendo planos, ubicación de CCTV, sistemas de alarma, e iluminación, y evidencia de su monitoreo y mantenimiento.\n• Informes de las visitas de seguridad a las instalaciones de asociados de negocio críticos, verificando sus controles de seguridad física.",
@@ -1494,13 +1320,9 @@ const REQUISITOS_DATA = {
       "item": "2",
       "numero": "OEA 7.2",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe garantizar que todas las puertas, ventanas, cercas y barreras interiores y exteriores se encuentren aseguradas, e inspeccionarlas para verificar su integridad e identificar daños, dejando registro de la misma.",
       "evidencia_interna": "SRF-FR04 Inspección física;\nSRF-FR15 Lista de chequeo cierre de instalaciones;\nSRF-GU04 Guía para la seguridad física;\nSRF-FR13 Acta de seguridad y protección;\nSRF-PR01 Procedimiento Seguridad y Riesgos Físicos;\nMTO-FR07 Formato Orden de Trabajo Mantenimiento;\nMTO-FR08 Registro Gestión de Mantenimiento",
       "evidencia_oea": "• Listado de puntos de acceso con mecanismos de aseguramiento (cerraduras, candados, sensores).\n• Formatos de inspección física con fechas y observaciones.\n• Reportes de mantenimiento correctivo y preventivo.\n• Fotografías de estado de seguridad física.",
@@ -1516,13 +1338,9 @@ const REQUISITOS_DATA = {
       "item": "3",
       "numero": "OEA 7.3",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe prohibir el estacionamiento de vehículos de personal vinculado y de visitantes dentro de las áreas de manejo y almacenamiento de carga o en áreas adyacentes a la entrada o salida de las mismas.",
       "evidencia_interna": "SRF-GU01 Guía de ingreso de vehículos al parqueadero;\nSRF-GU02 Guía de protocolos de seguridad de ingreso externo;\nSRF-GU04 Guía para la seguridad física;\nSRF-GU06 Política de gestión en seguridad;\nSRF-GU17 Consignas Particulares Para Los Puestos De Recepción Y Parqueadero Externo;\nSRF-IN02 Instructivo del Software de control de ingreso versión 568",
       "evidencia_oea": "• Política o instructivo de estacionamiento interno.\n• Señalización visible (fotografías).\n• Procedimientos de control de acceso vehicular.\n• Registro de ingreso de vehículos y bitácoras de vigilancia.",
@@ -1538,13 +1356,9 @@ const REQUISITOS_DATA = {
       "item": "4",
       "numero": "OEA 7.4",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe garantizar que las instalaciones han sido construidas con materiales que resistan la entrada forzada.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-MT01 Matriz de áreas críticas;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU06 Política de gestión en seguridad;\nSRF-FR04 Inspección física;\nSRF-FR13 Acta de seguridad y protección",
       "evidencia_oea": "• Certificados o memorias de construcción de obra civil.\n• Fotografías de paredes, puertas reforzadas y cerramientos.\n• Inspección técnica o informe de seguridad estructural.",
@@ -1560,13 +1374,9 @@ const REQUISITOS_DATA = {
       "item": "5",
       "numero": "OEA 7.5",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe disponer de señalización e iluminación adecuadas dentro y fuera de las instalaciones, especialmente en entradas y salidas, áreas de manejo, inspección y almacenamiento de carga, cercas y barreras perimetrales y áreas de estacionamiento.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-FR04 Inspección física;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU06 Política de gestión en seguridad;\nSRF-GU10 Guía seguridad y protección para manejo y control de CCTV;\nMTO-FR01 Inventarios de Equipos;\nMTO-MT01 Matriz Registros de Mantenimiento",
       "evidencia_oea": "• Plan de iluminación con ubicación de luminarias.\n• Fotografías de señalización visible y luminarias instaladas.\n• Registro de mantenimiento de luces y señalética.\n• Procedimiento o instructivo de revisión periódica.\n• Plan de seguridad física de las instalaciones, incluyendo planos, ubicación de CCTV, sistemas de alarma, e iluminación, y evidencia de su monitoreo y mantenimiento.\n• Informes de las visitas de seguridad a las instalaciones de asociados de negocio críticos, verificando sus controles de seguridad física.",
@@ -1582,13 +1392,9 @@ const REQUISITOS_DATA = {
       "item": "6",
       "numero": "OEA 7.6",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe tener un servicio de vigilancia y seguridad propio o contratado con una empresa competente y debidamente autorizada, que garantice una acción de respuesta oportuna y disponibilidad durante las 24 horas del día.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-GU06 Política de gestión en seguridad;\nSRF-GU05 Protocolo de eventos inesperados;\nSRF-PR01 Procedimiento Seguridad y Riesgos Físicos;\nSRF-FR04 Inspección física;\nSRF-GU09 Política de seguridad de la cadena de suministro",
       "evidencia_oea": "• Contrato con empresa de vigilancia autorizada por la SuperVigilancia.\n• Licencias del personal de seguridad.\n• Plan de seguridad con funciones y turnos.\n• Bitácoras de rondas y reportes diarios.\n• Registros de capacitaciones al personal de seguridad.\n• Plan de seguridad física de las instalaciones, incluyendo planos, ubicación de CCTV, sistemas de alarma, e iluminación, y evidencia de su monitoreo y mantenimiento.\n• Informes de las visitas de seguridad a las instalaciones de asociados de negocio críticos, verificando sus controles de seguridad física.",
@@ -1604,13 +1410,9 @@ const REQUISITOS_DATA = {
       "item": "7",
       "numero": "OEA 7.7",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe disponer de un plano de su planta física en el que se identifiquen claramente las áreas críticas de la empresa y se divulgue el plan de evacuación y emergencias.",
       "evidencia_interna": "SRF-MT01 Matriz de áreas críticas;\nSRF-GU04 Guía para la seguridad física;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSST-PL04 Plan para la Prevención Preparación y Respuesta de Emergencias;\nSST-PL15 Plan de Gestión de Emergencias;\nGPE-DC02 Organigrama General;\nSST-FR14 Estructuración de Grupos de Apoyo para Emergencias",
       "evidencia_oea": "• Organigrama de la empresa.\n• Manual de funciones por áreas.\n• Inventario de recursos físicos (equipos, espacios, herramientas).\n• Evidencia de cumplimiento de normativas de salud y seguridad en el trabajo.\n• Registro del personal por área y descripción de recursos disponibles.",
@@ -1626,13 +1428,9 @@ const REQUISITOS_DATA = {
       "item": "8",
       "numero": "OEA 7.8",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe disponer y controlar las áreas destinadas para casilleros, vestieres o similares y separarlas de las áreas críticas de la empresa.",
       "evidencia_interna": "SRF-GU04 Guía para la seguridad física;\nSRF-MT01 Matriz de áreas críticas;\nSRF-GU06 Política de gestión en seguridad;\nSRF-FR21 Matriz Asignación de Acceso Áreas Críticas - Horario Diurno/Nocturno;\nSRF-FR08 Control de ingreso áreas críticas;\nSRF-PR01 Procedimiento Seguridad y Riesgos Físicos",
       "evidencia_oea": "",
@@ -1648,13 +1446,9 @@ const REQUISITOS_DATA = {
       "item": "9",
       "numero": "OEA 7.9",
       "autoridad": "POLICIA",
-      "responsable": "DIEGO MESA",
-      "responsables": [
-        "DIEGO MESA"
-      ],
-      "responsable_ids": [
-        12
-      ],
+      "responsable": "JUAN RAMIREZ / DIEGO MESA",
+      "responsables": ["JUAN RAMIREZ", "DIEGO MESA"],
+      "responsable_ids": [11, 12],
       "descripcion": "Debe disponer de una infraestructura física, administrativa y de recurso humano que permita ejercer de manera adecuada su actividad.",
       "evidencia_interna": "SRF-CA01 Caracterización seguridad y riesgos físicos;\nSRF-PL01 Plan de Gestión de Seguridad y Protección;\nSRF-PR01 Procedimiento Seguridad y Riesgos Físicos;\nGPE-DC02 Organigrama General;\nGHM-FR16 Descripción del Cargo;\nGPE-DC03 Manual de calidad",
       "evidencia_oea": "",
@@ -1904,16 +1698,21 @@ const REQUISITOS_DATA = {
     }
   ],
   "responsables": [
+    "ALBEIRO ESTEBAN",
     "ALEXIS CUELLO",
+    "ANA LOPEZ",
     "DAIRY MOSQUERA",
     "DIEGO BELTRÁN",
     "DIEGO MESA",
+    "ESTEFANIA GRANDA",
     "ISABEL ESCOBAR",
     "IVAN ARIAS",
     "JAVIER TABARES",
     "JEFFERSON GONZALEZ",
+    "JUAN RAMIREZ",
     "LORENA GIL",
     "LUIS ARANGO",
+    "MARIA RENGIFO",
     "MILADY LOPEZ",
     "SERGIO ARENAS"
   ],
